@@ -1,0 +1,1224 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000F41E4F4439FC95E27F000 /* MIKMIDISystemMessageCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 671A535294C293BF09E5AE7F /* MIKMIDISystemMessageCommand.h */; };
+		008195AB92A8233CD2D1574B /* MIKMIDIClientDestinationEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9B1F33DB38AB62D963DF3B /* MIKMIDIClientDestinationEndpoint.h */; };
+		0456ED7DBF96F7E0C6227F2F /* MIKMIDITrack.m in Sources */ = {isa = PBXBuildFile; fileRef = F9793A94DCA82E2F8C094227 /* MIKMIDITrack.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0653517E5B0192B73027F03A /* MTLTransformerErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB2DAB8F1DB5A0171552E5 /* MTLTransformerErrorHandling.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		06E971B86E53D04BC9C3B05D /* MIKMIDIUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C44C8CC05F7229ED99D7952 /* MIKMIDIUtilities.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0762F8E3F3AFEEA74081260D /* MIKMIDIMetaEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2CE5861AEDB2AF13C4F645 /* MIKMIDIMetaEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0A7EE8101BE12D5216D6401A /* NSArray+MTLManipulationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B7D4C2A3BC9640092D70EE /* NSArray+MTLManipulationAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0B7EB9978DEA2BFB8F8A8635 /* MIKMIDIEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 529ED26CC2241925EB7CD01B /* MIKMIDIEvent.h */; };
+		0B8D162E2455A7C4B3773BDD /* MIKMIDIOutputPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 158CAB4BABDD2C09A0BE0C76 /* MIKMIDIOutputPort.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0F1281FB995A3E1B57FBE8EA /* MIKMIDIProgramChangeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 05258EC4EAE840EA9E38FAAE /* MIKMIDIProgramChangeCommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0F2BEF69A3FBC080C47BD312 /* NSDictionary+MTLJSONKeyPath.h in Headers */ = {isa = PBXBuildFile; fileRef = F364CEFBD7744BD740C470BD /* NSDictionary+MTLJSONKeyPath.h */; };
+		13B5EE323C0497E7C903727B /* MIKMIDIEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 9471EB920157898F3EB2C724 /* MIKMIDIEntity.h */; };
+		13F85AF3FE9D0EC814AF57F5 /* MIKMIDIPort.h in Headers */ = {isa = PBXBuildFile; fileRef = 039C704BF8BBAD468A0942D5 /* MIKMIDIPort.h */; };
+		1728206F173394D550D7FE92 /* MTLModel+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BA7F1F40908F640E89BCC4 /* MTLModel+NSCoding.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1838345A4EDA7E18D68E829D /* MIKMIDISourceEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB1C04A6F867A4565E48857 /* MIKMIDISourceEndpoint.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		18C1FC690EC92034A5671ED1 /* MIKMIDIInputPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DE519B0C91B6B24B1A474F /* MIKMIDIInputPort.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1A689CA647BB86CAFCDDEB57 /* MIKMIDIMetaTimeSignatureEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3872632E738A87026AEF72 /* MIKMIDIMetaTimeSignatureEvent.h */; };
+		1E26FB700AFB1A5E11BE5FB6 /* MIKMIDINoteOnCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1A0A5E1503EC42FED6912 /* MIKMIDINoteOnCommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1ED42BFA0A3A9CC09ADC91BF /* MIKMIDIErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 73B31A5ECAC2D453E615A7ED /* MIKMIDIErrors.h */; };
+		20485B2E0E71F0C254983B56 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26462B444B52B0090A4F8A8E /* CoreMIDI.framework */; };
+		21394178E210FE3091CF19FC /* MIKMIDIInputPort.h in Headers */ = {isa = PBXBuildFile; fileRef = C8C67CF5EBF396D1DDD0E420 /* MIKMIDIInputPort.h */; };
+		214BDD751EB9087C963CB916 /* MIKMIDIChannelVoiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A97B3DD5868C4200A9089FD /* MIKMIDIChannelVoiceCommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		245E74E3EB4C4124F908ABAF /* MIKMIDINoteOffCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFDFB4FE0377FF039A2D04A /* MIKMIDINoteOffCommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2738EAECDAABA134E83FBC18 /* MIKMIDIEventIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B68343BD67864F610B7CF4D /* MIKMIDIEventIterator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		280C9CDDFC6D984DAFBCA9FA /* MIKMIDIDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD63DC12F59C76CBF6B6B9C /* MIKMIDIDeviceManager.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2A125A494138DB96FA6493B9 /* NSDictionary+MTLMappingAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F60DC4B54D54F4208EA466F1 /* NSDictionary+MTLMappingAdditions.h */; };
+		2AA5E7DDEB1E1261006D5659 /* MIKMIDIPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B25EE8163B35E77A7D636053 /* MIKMIDIPlayer.h */; };
+		2AF11D385CAB910EE2BA2306 /* MIKMIDIObject_SubclassMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BF4436005F394723A930E97 /* MIKMIDIObject_SubclassMethods.h */; };
+		2BF30AA00E7350953FBA4D55 /* NSError+MTLModelException.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C096DA25F362FD1E99025 /* NSError+MTLModelException.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2C5AF5B0C8997EF074D2F492 /* MIKMIDICommand_SubclassMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F779B7F501237D97F4DD90 /* MIKMIDICommand_SubclassMethods.h */; };
+		2D6D34CC628AFFBA03F7B13D /* MIKMIDIMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 64370D30691EFA710C912FFE /* MIKMIDIMapping.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2D760EE83E1B918D5E9711B5 /* MIKMIDIUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C440B5F4C73899B892FE8DB /* MIKMIDIUtilities.h */; };
+		2DC19A3DE16A34A2CABE9220 /* MIKMIDIOutputPort.h in Headers */ = {isa = PBXBuildFile; fileRef = D7F5B90EAC833E7EF3BD5581 /* MIKMIDIOutputPort.h */; };
+		2EAFBD98E9A4B460974EE544 /* Pods-midiConnect-Mantle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4249E91A7D13A30CE8984023 /* Pods-midiConnect-Mantle-dummy.m */; };
+		34D378109496472B3E2178F9 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B1FEB4CB54BD9C8F4C5B30E /* metamacros.h */; };
+		35D623D772C24A85267EAE52 /* MIKMIDIPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F67839350DEFD0FDC66E41D /* MIKMIDIPrivate.h */; };
+		3700053F077A4ECFE572D4F9 /* MIKMIDIObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CED313F537B92B2628AD2F /* MIKMIDIObject.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		381699B611F0A49D799F1F14 /* MTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6406324A39B3D1ABD6E481DF /* MTLModel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3BF26C8DB20E244FBCFE034C /* Pods-midiConnect-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2193713710648C58D8A351 /* Pods-midiConnect-dummy.m */; };
+		3EED59C496E24620DEE6CE1B /* MIKMIDITempoEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB261FA906B686AC2B8AC47 /* MIKMIDITempoEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3F2E0D86F59DB5129F070373 /* MIKMIDIResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3340881C48890DA0D4D329AD /* MIKMIDIResponder.h */; };
+		444320508210B26C8ABE3BE6 /* MIKMIDIMetaKeySignatureEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB97A8B0F8E12BB8B61F8CE /* MIKMIDIMetaKeySignatureEvent.h */; };
+		46C53D8D29E4EDC763C35A17 /* MIKMIDIClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 76079130D303C2207ADCDF2D /* MIKMIDIClock.h */; };
+		477D2B06310E65056AB4F877 /* MIKMIDICommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 6352E65CC7B9041CD379AB00 /* MIKMIDICommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4A678A5A3DEFB034866CE082 /* MIKMIDIControlChangeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = B05BA349F646B1458AAF2E40 /* MIKMIDIControlChangeCommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4FCCDA767DAAFB5C27F08C01 /* MTLJSONAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ABB8D4EE3CB2D805BA23AF0 /* MTLJSONAdapter.h */; };
+		50796330EB7C078748DAFFC4 /* MIKMIDIMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B53834620283CDF02CA324F /* MIKMIDIMapping.h */; };
+		50B2800CB89F7ACE39B2722C /* NSDictionary+MTLJSONKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 457EAA3687DBFBD8AD93B9B5 /* NSDictionary+MTLJSONKeyPath.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		55306CDBFEA2B0A0EF2D8422 /* MIKMIDICommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 39F902AD1787A8BA0F67F46A /* MIKMIDICommand.h */; };
+		5652F9B674CA2BF7B4ABA87C /* MIKMIDIChannelVoiceCommand_SubclassMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = DB477C9B68CE7D8610340E68 /* MIKMIDIChannelVoiceCommand_SubclassMethods.h */; };
+		59AD281F56B154354137ECD0 /* NSError+MTLModelException.h in Headers */ = {isa = PBXBuildFile; fileRef = D00582CD68274AFB870C0AE0 /* NSError+MTLModelException.h */; };
+		5D4B7EF046488488ACE51E84 /* MIKMIDIMetaCopyrightEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BFD356F8BE1D4554148605 /* MIKMIDIMetaCopyrightEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5EEB70F7FB14C2D690C03E72 /* MIKMIDIObject.h in Headers */ = {isa = PBXBuildFile; fileRef = CBDC871E28C5E56F59035AD7 /* MIKMIDIObject.h */; };
+		5F806F19C92D8EC87096056A /* EXTRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B0448E96B6F0D12D1E8FF76F /* EXTRuntimeExtensions.h */; };
+		5FB487A6E3CC1D0071F33F79 /* MIKMIDIEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 831D6A8F88BC92797E2B94E1 /* MIKMIDIEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		62469BEA202E8A3286F0415C /* MIKMIDIErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 5316179A73F0759242E51B06 /* MIKMIDIErrors.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		63315BEBD2634719291959E2 /* MTLReflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2243208560737F0A02037FF0 /* MTLReflection.h */; };
+		66C5381D5FAD5B7390B87F03 /* NSValueTransformer+MTLInversionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D644E877EB46C6051F39817 /* NSValueTransformer+MTLInversionAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6742D6573B2001DC25D6E8D8 /* MIKMIDINoteOffCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 178AC4635E94B56CDF2A398E /* MIKMIDINoteOffCommand.h */; };
+		679E8E958F03C77FB457697C /* MIKMIDISequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6500D6BC0ECBCC7EA570E8DA /* MIKMIDISequencer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		686E6CEDD573860B03F92B18 /* MIKMIDIMetaTrackSequenceNameEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FECD4E4C934D94EC999A81 /* MIKMIDIMetaTrackSequenceNameEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		68AF62FEB22FBA0325539FA8 /* MIKMIDIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E5D0928DD9EC96524F8F4E /* MIKMIDIPlayer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		69A7386C7F647A1CFCDFCA24 /* MIKMIDIMetaTimeSignatureEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8562F8120FA4EDD5B949D66A /* MIKMIDIMetaTimeSignatureEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6DDA159496E01E2EF23EB10E /* MIKMIDIPrivateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0546A0A1D063C59D74FA6B /* MIKMIDIPrivateUtilities.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6F4E29091EEBDA40EB633ADD /* MIKMIDIMappingXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C6876C69941DF17AFD505D97 /* MIKMIDIMappingXMLParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6F5E04E9A91BF0BBB77378C6 /* NSDictionary+MTLMappingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD2BA0EC896D14BE9AF517C /* NSDictionary+MTLMappingAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6FBD00090EAA460021F0A5EE /* MIKMIDIMetronome.h in Headers */ = {isa = PBXBuildFile; fileRef = 570471665D878B2FC2078203 /* MIKMIDIMetronome.h */; };
+		733DCCCACDFC25105FFBB125 /* EXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 998B7AEC72902346EBE6988E /* EXTRuntimeExtensions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		77631D07B565ED7D6C43CA99 /* MIKMIDISourceEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = EC853EFB91AF4380C162D306 /* MIKMIDISourceEndpoint.h */; };
+		778C94EC97B27E76D284CE1E /* MIKMIDINoteOnCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BA51D23C0352181BE91527D /* MIKMIDINoteOnCommand.h */; };
+		77B247A8657FDE330521541B /* MTLTransformerErrorHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D870467A5DC1B3C682A2CA /* MTLTransformerErrorHandling.h */; };
+		787D88EE727E819A4124EEE4 /* MIKMIDIEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CB552B2B7F44BFA9CC781D /* MIKMIDIEndpoint.h */; };
+		78F1BBDAB46CC1A272BC88B3 /* MTLModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1820744C27D77ACC2235C917 /* MTLModel.h */; };
+		79E7378B1938B2453CE4EA69 /* MIKMIDIMappingGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2064C374FB363C0171DF91DF /* MIKMIDIMappingGenerator.h */; };
+		7ACDC31DE27E0250669FC41C /* NSObject+MTLComparisonAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 721D3D2EAD984CFB0BBFEA99 /* NSObject+MTLComparisonAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8028AE5A5875F0CB96D15FAA /* MIKMIDIMappingGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9CB93A858BBDC1CE78515 /* MIKMIDIMappingGenerator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		808CF227ED74E4D8FDD5B4A7 /* NSUIApplication+MIKMIDI.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCEDEA63F204759A2337283 /* NSUIApplication+MIKMIDI.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		81C76416147BE7EDF04B6F37 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3796EC5BC837487C749D6B21 /* Cocoa.framework */; };
+		875746FF9A554CB8F651416C /* MIKMIDISequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D69D7E80B833E2361DDB93 /* MIKMIDISequence.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		87BD643AD3849D2C8B808F2D /* MIKMIDI.h in Headers */ = {isa = PBXBuildFile; fileRef = D7AEC4D61BAEF95473995428 /* MIKMIDI.h */; };
+		8891ECD0EB13CD82EAA96FB8 /* MTLReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CED78EDAC02AA7599C43C5A /* MTLReflection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		88EBFA7058230044D87FC82F /* MTLJSONAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D12BC147A056CBDE0C114E90 /* MTLJSONAdapter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		89A0A865194D8B274348EB64 /* MIKMIDIProgramChangeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CE5E99333D9A3C99121A51C /* MIKMIDIProgramChangeCommand.h */; };
+		8A275A609CC171B6D34195CF /* MIKMIDIDestinationEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = DF666A6D5620D1C9C812276F /* MIKMIDIDestinationEndpoint.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8A8CB9CAF604C66C969B4341 /* MIKMIDIEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E47041F3AB3A16E94164F10 /* MIKMIDIEndpoint.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8CE2D06408F82D56AC12B8A4 /* MIKMIDIEndpointSynthesizer.h in Headers */ = {isa = PBXBuildFile; fileRef = C621D3E404280882A40A1949 /* MIKMIDIEndpointSynthesizer.h */; };
+		8D42E5991E97F857D6B4B6FE /* MIKMIDIMetaLyricEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C36117CA467BC19B12AA1 /* MIKMIDIMetaLyricEvent.h */; };
+		8EFD6BDD2DF4913C75920052 /* MTLModel+NSCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 287BAD50039EA91FDF152FA0 /* MTLModel+NSCoding.h */; };
+		8FDE0F11EC34AA1F213E27EB /* MIKMIDIClientDestinationEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D50ADF264C1D610D017BE77 /* MIKMIDIClientDestinationEndpoint.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		912A160F7B87709E69F8A4BD /* MIKMIDIMetaTextEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DFF3711B846004407B163C1 /* MIKMIDIMetaTextEvent.h */; };
+		915B097BE68F295D57FC42EE /* MIKMIDISystemExclusiveCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 99ABD76782FAD8FB0A6C2817 /* MIKMIDISystemExclusiveCommand.h */; };
+		94F05BCE62D0689F9B477B15 /* MTLValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6751882968B6A5EF012CC87 /* MTLValueTransformer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		97779009031B829D6E845473 /* MIKMIDISequencer.h in Headers */ = {isa = PBXBuildFile; fileRef = A26C481A209DF195820F042E /* MIKMIDISequencer.h */; };
+		97F18844E79852CD2C510764 /* MIKMIDIMetaCopyrightEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = D62FD176A84917F1C35531D3 /* MIKMIDIMetaCopyrightEvent.h */; };
+		9B4CC876891E80B214601B82 /* MIKMIDIMetaInstrumentNameEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = BCB1AFDDB430F6456FE22A0A /* MIKMIDIMetaInstrumentNameEvent.h */; };
+		9D6BD642BCEBE22D262B5CCF /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEAE20383A85D3B64D24203 /* EXTScope.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9E3DE419812B192AF651934C /* MIKMIDIClientSourceEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD1585F8E31B50F34EB4D71 /* MIKMIDIClientSourceEndpoint.h */; };
+		A0528433340EDD5F6D4F4990 /* MIKMIDITempoEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC8706428B119BF04AEE639 /* MIKMIDITempoEvent.h */; };
+		A481255022953174BA9868D3 /* MIKMIDIEndpointSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 300BCAEB9625A69800CC8E3C /* MIKMIDIEndpointSynthesizer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A63E01C11DC20A372CAC6E14 /* MIKMIDIEvent_SubclassMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 48DF9AD32202441909021781 /* MIKMIDIEvent_SubclassMethods.h */; };
+		A6AB98D72E1F9AADDBCEAF55 /* MIKMIDIClientSourceEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B2F11F2681CE159F0FDAA8 /* MIKMIDIClientSourceEndpoint.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A8A33C70E3786B766E0F83C8 /* MIKMIDICommandThrottler.h in Headers */ = {isa = PBXBuildFile; fileRef = FFCF30212782C9AEFF445344 /* MIKMIDICommandThrottler.h */; };
+		AB696E0920EF7D0783953578 /* MIKMIDIMetaCuePointEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5F6513B2A8B1A5402C780E /* MIKMIDIMetaCuePointEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		ADE0DC899E89FD17BE2E61C3 /* MIKMIDIMetronome.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F48136773E3735B92EF97 /* MIKMIDIMetronome.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		ADFF2AB6EAC6983CD4F6FAE3 /* EXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A81EBC7F0A82AC33EF713E1 /* EXTKeyPathCoding.h */; };
+		AE8A45736477E58FBFD1B330 /* MIKMIDICommandThrottler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA1263868C4B963D89C30 /* MIKMIDICommandThrottler.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AF3F09A0AAACF64F19D7E213 /* MIKMIDISystemExclusiveCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DE350A79EC000E82C0EBB0 /* MIKMIDISystemExclusiveCommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AFDBFB64A9BC47EB80C9AC02 /* Mantle.h in Headers */ = {isa = PBXBuildFile; fileRef = C340FF688DBCDECFA45A70A0 /* Mantle.h */; };
+		B18DCD3C2E6DB44C188D717A /* MIKMIDISequence.h in Headers */ = {isa = PBXBuildFile; fileRef = EC49644C7688C283B2A734EF /* MIKMIDISequence.h */; };
+		B30B86A3CEC4034C50569E0B /* MIKMIDIMetaMarkerTextEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = CF51CEFDA246B0677171BF23 /* MIKMIDIMetaMarkerTextEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B640B67C5331FE2086433E31 /* MIKMIDIPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 4332C8B62B05EE7D96B6D21C /* MIKMIDIPort.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B6EF7514D93D25626CF16686 /* MIKMIDIMetaInstrumentNameEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 48738851FFF353AA26E202BF /* MIKMIDIMetaInstrumentNameEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B758A54AE3B93497B58B547C /* MIKMIDIChannelVoiceCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 21322B4338DAFF0886F27528 /* MIKMIDIChannelVoiceCommand.h */; };
+		BA73BA17780178AC998FAEBA /* NSObject+MTLComparisonAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 10254B2E3ACDF2256592BA3D /* NSObject+MTLComparisonAdditions.h */; };
+		BAFDE5016873DD682ADB71AC /* NSValueTransformer+MTLPredefinedTransformerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1804EF5EC71D0D3172243E65 /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */; };
+		BAFFDCDA15620F81F6581264 /* MIKMIDIDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D216D8E4F160C3043025859 /* MIKMIDIDevice.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BFD763F7E63E7D95AE2198A1 /* MIKMIDIEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982E2C1A9004CA56DFDE3E9 /* MIKMIDIEntity.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BFF4D01AC1D1F329CEFE8F09 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C389712BC11BF2BB510873 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C0791E964A44167FF7B83BCA /* NSUIApplication+MIKMIDI.h in Headers */ = {isa = PBXBuildFile; fileRef = D9CE87C333714BAD014A1483 /* NSUIApplication+MIKMIDI.h */; };
+		C2383C8858F317482891FB1B /* MIKMIDIDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = E60991FF9E85B78AE63131E1 /* MIKMIDIDevice.h */; };
+		C3C4E91090808559CD5C045D /* MIKMIDIMetaKeySignatureEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 400A680949EE937D41F45159 /* MIKMIDIMetaKeySignatureEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C7FE52BC1394BC6A252F8711 /* MIKMIDIMetaTrackSequenceNameEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = A23B3929BADC7B2854E6B7BC /* MIKMIDIMetaTrackSequenceNameEvent.h */; };
+		C97365E6FF4B5092E022CD44 /* MIKMIDIDeviceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 868D1373983ECBB7DFA3249B /* MIKMIDIDeviceManager.h */; };
+		CD3BD2107D5D1611739595A5 /* MIKMIDIMetaTextEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A149D5682B4B1DA685D007 /* MIKMIDIMetaTextEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CE005B6EA70D2B7DFBFD6A1D /* MIKMIDIMetaSequenceEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFDA9F4F3E932B9463C7FE8 /* MIKMIDIMetaSequenceEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D0A6D09922317085D71A7E88 /* MIKMIDIMetaEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C70CAF2FA602C9E3243A6DE /* MIKMIDIMetaEvent.h */; };
+		D1E18C1E9793559CB8BD2E0C /* MIKMIDIMacDebugQuickLookSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A999E01FFE831EA71BAD0D /* MIKMIDIMacDebugQuickLookSupport.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D4430A3BC1D5F0F4F3E08051 /* MIKMIDIMetaLyricEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7319FD5AA0173747C5DF3E /* MIKMIDIMetaLyricEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D4D2DF183C61530CEDCAA28D /* MIKMIDISystemMessageCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = F105A3DABCADFBB27665DD35 /* MIKMIDISystemMessageCommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D5C8C9A8DF58802549556BA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3796EC5BC837487C749D6B21 /* Cocoa.framework */; };
+		D63907BE3F5B5B915F295A19 /* MIKMIDIMappingXMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBDEB7143FB73D0220835D7 /* MIKMIDIMappingXMLParser.h */; };
+		D84D596317B924BC2E4FFDAC /* MIKMIDIMappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 031B309D4632DEBC16BF8DA9 /* MIKMIDIMappingManager.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DA27D8226D3E998A755F6729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D586ABAD6B28B260A545D5 /* Foundation.framework */; };
+		DACEA0463643878DFE8B976F /* MIKMIDIControlChangeCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D1380FD54AD472918CAC681 /* MIKMIDIControlChangeCommand.h */; };
+		DAF983FA096FF0C0864C904D /* MIKMIDINoteEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A7172C9D4EDF4A1519912AD7 /* MIKMIDINoteEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DB9812E560AF538DA5A2DCDE /* MTLValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = A83A25651C6564980217C99D /* MTLValueTransformer.h */; };
+		DD97A852E622C7774423A449 /* NSDictionary+MTLManipulationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C69A2F7C0B874920AB4345A8 /* NSDictionary+MTLManipulationAdditions.h */; };
+		DE8346B25513AC4988FB12D3 /* NSDictionary+MTLManipulationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D176BABE1F91E521026D2BC /* NSDictionary+MTLManipulationAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E0E94D62F8567F40A9DE660D /* MIKMIDIMetaCuePointEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = DB45470CEB6053D48BE6DDB8 /* MIKMIDIMetaCuePointEvent.h */; };
+		E3956FB66F263639E5410AC5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3796EC5BC837487C749D6B21 /* Cocoa.framework */; };
+		E862316B38023A4E8539357E /* MIKMIDIEventIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F786D797EB251CEE79384C /* MIKMIDIEventIterator.h */; };
+		EC340854D408EB5438BC569B /* MIKMIDIClock.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC5D8B43842E930865999E7 /* MIKMIDIClock.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EC6BF5C17AFC24EC2B073843 /* Pods-midiConnect-MIKMIDI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D4B225F3A2E5DFCE64B712 /* Pods-midiConnect-MIKMIDI-dummy.m */; };
+		EE2AC8B1286746DF6EDB4D78 /* MIKMIDIPort_SubclassMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EE7517310AD8A24E424608A /* MIKMIDIPort_SubclassMethods.h */; };
+		F0D47A9258BFC5BBB3CE1F41 /* MIKMIDIMetaMarkerTextEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E8E7D37F5B838A1241F26B6 /* MIKMIDIMetaMarkerTextEvent.h */; };
+		F42CED1A0D42ED4352AA67C2 /* MIKMIDITrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5AB73F015DCD0E56EFA8DB /* MIKMIDITrack.h */; };
+		F656F17E91D3FE5B9AB66D10 /* MIKMIDIDestinationEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 71A57BE7DF7A1D59B83E1E95 /* MIKMIDIDestinationEndpoint.h */; };
+		F8E93D45B5375E418660C23C /* NSValueTransformer+MTLInversionAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BB7062E2271EA87D9CC385B5 /* NSValueTransformer+MTLInversionAdditions.h */; };
+		F9DACA2B644DCFBD2EB3D5DF /* MIKMIDIMetaSequenceEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 62BFAB03E8EC9DFF4170DB69 /* MIKMIDIMetaSequenceEvent.h */; };
+		FA298443CB72208E733EF974 /* MIKMIDIMappingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 61780EF9E5F45CCF995C37DC /* MIKMIDIMappingManager.h */; };
+		FBDC2A8423E0B28B66666199 /* MIKMIDINoteEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 8648FBC9B154978E87B17C1B /* MIKMIDINoteEvent.h */; };
+		FBE7BA89257F6CC7C958E564 /* EXTScope.h in Headers */ = {isa = PBXBuildFile; fileRef = BC5C27FE9B31ADFAD966ABA6 /* EXTScope.h */; };
+		FCDE5AB50E0C14BB76838196 /* MIKMIDIPrivateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 20E0A54AD39F95612A395350 /* MIKMIDIPrivateUtilities.h */; };
+		FDE78B79D5E95EE29E9A01E3 /* NSArray+MTLManipulationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 084C1EF7B8DF739FBAEAAC6E /* NSArray+MTLManipulationAdditions.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10EFC18A61AE2134DCEF5D73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEC5C6EF1F2345181989382 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2F812F13E38242641BD2E5F;
+			remoteInfo = "Pods-midiConnect-Mantle";
+		};
+		C596AFB20CF08EAE5D9B69E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEC5C6EF1F2345181989382 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 992AA36C5BEDAB79DCD56AD4;
+			remoteInfo = "Pods-midiConnect-MIKMIDI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		019C2FD625D581A5F5B0CE7A /* Pods-midiConnect-Mantle-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-midiConnect-Mantle-Private.xcconfig"; sourceTree = "<group>"; };
+		031B309D4632DEBC16BF8DA9 /* MIKMIDIMappingManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMappingManager.m; path = Source/MIKMIDIMappingManager.m; sourceTree = "<group>"; };
+		039C704BF8BBAD468A0942D5 /* MIKMIDIPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIPort.h; path = Source/MIKMIDIPort.h; sourceTree = "<group>"; };
+		05258EC4EAE840EA9E38FAAE /* MIKMIDIProgramChangeCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIProgramChangeCommand.m; path = Source/MIKMIDIProgramChangeCommand.m; sourceTree = "<group>"; };
+		084C1EF7B8DF739FBAEAAC6E /* NSArray+MTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MTLManipulationAdditions.h"; path = "Mantle/NSArray+MTLManipulationAdditions.h"; sourceTree = "<group>"; };
+		0ABB8D4EE3CB2D805BA23AF0 /* MTLJSONAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLJSONAdapter.h; path = Mantle/MTLJSONAdapter.h; sourceTree = "<group>"; };
+		0B18DCA81155B144DEC37613 /* Pods-midiConnect-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-midiConnect-acknowledgements.plist"; sourceTree = "<group>"; };
+		10254B2E3ACDF2256592BA3D /* NSObject+MTLComparisonAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MTLComparisonAdditions.h"; path = "Mantle/NSObject+MTLComparisonAdditions.h"; sourceTree = "<group>"; };
+		10DE350A79EC000E82C0EBB0 /* MIKMIDISystemExclusiveCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDISystemExclusiveCommand.m; path = Source/MIKMIDISystemExclusiveCommand.m; sourceTree = "<group>"; };
+		150A99C4287CF2E664D9B163 /* libPods-midiConnect-MIKMIDI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-midiConnect-MIKMIDI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		158CAB4BABDD2C09A0BE0C76 /* MIKMIDIOutputPort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIOutputPort.m; path = Source/MIKMIDIOutputPort.m; sourceTree = "<group>"; };
+		16CB552B2B7F44BFA9CC781D /* MIKMIDIEndpoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIEndpoint.h; path = Source/MIKMIDIEndpoint.h; sourceTree = "<group>"; };
+		178AC4635E94B56CDF2A398E /* MIKMIDINoteOffCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDINoteOffCommand.h; path = Source/MIKMIDINoteOffCommand.h; sourceTree = "<group>"; };
+		1804EF5EC71D0D3172243E65 /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+MTLPredefinedTransformerAdditions.h"; path = "Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h"; sourceTree = "<group>"; };
+		1820744C27D77ACC2235C917 /* MTLModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLModel.h; path = Mantle/MTLModel.h; sourceTree = "<group>"; };
+		1C440B5F4C73899B892FE8DB /* MIKMIDIUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIUtilities.h; path = Source/MIKMIDIUtilities.h; sourceTree = "<group>"; };
+		1D176BABE1F91E521026D2BC /* NSDictionary+MTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MTLManipulationAdditions.m"; path = "Mantle/NSDictionary+MTLManipulationAdditions.m"; sourceTree = "<group>"; };
+		1D216D8E4F160C3043025859 /* MIKMIDIDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIDevice.m; path = Source/MIKMIDIDevice.m; sourceTree = "<group>"; };
+		1E47041F3AB3A16E94164F10 /* MIKMIDIEndpoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIEndpoint.m; path = Source/MIKMIDIEndpoint.m; sourceTree = "<group>"; };
+		1E7319FD5AA0173747C5DF3E /* MIKMIDIMetaLyricEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaLyricEvent.m; path = Source/MIKMIDIMetaLyricEvent.m; sourceTree = "<group>"; };
+		1F343FC6A8BFE1F970786AC3 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2064C374FB363C0171DF91DF /* MIKMIDIMappingGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMappingGenerator.h; path = Source/MIKMIDIMappingGenerator.h; sourceTree = "<group>"; };
+		20E0A54AD39F95612A395350 /* MIKMIDIPrivateUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIPrivateUtilities.h; path = Source/MIKMIDIPrivateUtilities.h; sourceTree = "<group>"; };
+		21322B4338DAFF0886F27528 /* MIKMIDIChannelVoiceCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIChannelVoiceCommand.h; path = Source/MIKMIDIChannelVoiceCommand.h; sourceTree = "<group>"; };
+		2243208560737F0A02037FF0 /* MTLReflection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLReflection.h; path = Mantle/MTLReflection.h; sourceTree = "<group>"; };
+		23DDC847C096EAA26A9A3ACA /* Pods-midiConnect-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-midiConnect-environment.h"; sourceTree = "<group>"; };
+		26462B444B52B0090A4F8A8E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreMIDI.framework; sourceTree = DEVELOPER_DIR; };
+		287BAD50039EA91FDF152FA0 /* MTLModel+NSCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTLModel+NSCoding.h"; path = "Mantle/MTLModel+NSCoding.h"; sourceTree = "<group>"; };
+		28A999E01FFE831EA71BAD0D /* MIKMIDIMacDebugQuickLookSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMacDebugQuickLookSupport.m; path = Source/MIKMIDIMacDebugQuickLookSupport.m; sourceTree = "<group>"; };
+		29D4B225F3A2E5DFCE64B712 /* Pods-midiConnect-MIKMIDI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-midiConnect-MIKMIDI-dummy.m"; sourceTree = "<group>"; };
+		2A97B3DD5868C4200A9089FD /* MIKMIDIChannelVoiceCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIChannelVoiceCommand.m; path = Source/MIKMIDIChannelVoiceCommand.m; sourceTree = "<group>"; };
+		2BC8706428B119BF04AEE639 /* MIKMIDITempoEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDITempoEvent.h; path = Source/MIKMIDITempoEvent.h; sourceTree = "<group>"; };
+		2BD2BA0EC896D14BE9AF517C /* NSDictionary+MTLMappingAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MTLMappingAdditions.m"; path = "Mantle/NSDictionary+MTLMappingAdditions.m"; sourceTree = "<group>"; };
+		2E8E7D37F5B838A1241F26B6 /* MIKMIDIMetaMarkerTextEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaMarkerTextEvent.h; path = Source/MIKMIDIMetaMarkerTextEvent.h; sourceTree = "<group>"; };
+		300BCAEB9625A69800CC8E3C /* MIKMIDIEndpointSynthesizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIEndpointSynthesizer.m; path = Source/MIKMIDIEndpointSynthesizer.m; sourceTree = "<group>"; };
+		3340881C48890DA0D4D329AD /* MIKMIDIResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIResponder.h; path = Source/MIKMIDIResponder.h; sourceTree = "<group>"; };
+		3796EC5BC837487C749D6B21 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		38BA7F1F40908F640E89BCC4 /* MTLModel+NSCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MTLModel+NSCoding.m"; path = "Mantle/MTLModel+NSCoding.m"; sourceTree = "<group>"; };
+		39F902AD1787A8BA0F67F46A /* MIKMIDICommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDICommand.h; path = Source/MIKMIDICommand.h; sourceTree = "<group>"; };
+		3AB97A8B0F8E12BB8B61F8CE /* MIKMIDIMetaKeySignatureEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaKeySignatureEvent.h; path = Source/MIKMIDIMetaKeySignatureEvent.h; sourceTree = "<group>"; };
+		3CED78EDAC02AA7599C43C5A /* MTLReflection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLReflection.m; path = Mantle/MTLReflection.m; sourceTree = "<group>"; };
+		3DD63DC12F59C76CBF6B6B9C /* MIKMIDIDeviceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIDeviceManager.m; path = Source/MIKMIDIDeviceManager.m; sourceTree = "<group>"; };
+		3F67839350DEFD0FDC66E41D /* MIKMIDIPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIPrivate.h; path = Source/MIKMIDIPrivate.h; sourceTree = "<group>"; };
+		400A680949EE937D41F45159 /* MIKMIDIMetaKeySignatureEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaKeySignatureEvent.m; path = Source/MIKMIDIMetaKeySignatureEvent.m; sourceTree = "<group>"; };
+		4249E91A7D13A30CE8984023 /* Pods-midiConnect-Mantle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-midiConnect-Mantle-dummy.m"; sourceTree = "<group>"; };
+		42A149D5682B4B1DA685D007 /* MIKMIDIMetaTextEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaTextEvent.m; path = Source/MIKMIDIMetaTextEvent.m; sourceTree = "<group>"; };
+		4332C8B62B05EE7D96B6D21C /* MIKMIDIPort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIPort.m; path = Source/MIKMIDIPort.m; sourceTree = "<group>"; };
+		43D69D7E80B833E2361DDB93 /* MIKMIDISequence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDISequence.m; path = Source/MIKMIDISequence.m; sourceTree = "<group>"; };
+		457EAA3687DBFBD8AD93B9B5 /* NSDictionary+MTLJSONKeyPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MTLJSONKeyPath.m"; path = "Mantle/NSDictionary+MTLJSONKeyPath.m"; sourceTree = "<group>"; };
+		47C389712BC11BF2BB510873 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValueTransformer+MTLPredefinedTransformerAdditions.m"; path = "Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.m"; sourceTree = "<group>"; };
+		4843788C398B8DACA7BB309E /* Pods-midiConnect-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-midiConnect-resources.sh"; sourceTree = "<group>"; };
+		48738851FFF353AA26E202BF /* MIKMIDIMetaInstrumentNameEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaInstrumentNameEvent.m; path = Source/MIKMIDIMetaInstrumentNameEvent.m; sourceTree = "<group>"; };
+		48DF9AD32202441909021781 /* MIKMIDIEvent_SubclassMethods.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIEvent_SubclassMethods.h; path = Source/MIKMIDIEvent_SubclassMethods.h; sourceTree = "<group>"; };
+		4B1FEB4CB54BD9C8F4C5B30E /* metamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = metamacros.h; path = Mantle/extobjc/metamacros.h; sourceTree = "<group>"; };
+		4BF4436005F394723A930E97 /* MIKMIDIObject_SubclassMethods.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIObject_SubclassMethods.h; path = Source/MIKMIDIObject_SubclassMethods.h; sourceTree = "<group>"; };
+		4D1380FD54AD472918CAC681 /* MIKMIDIControlChangeCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIControlChangeCommand.h; path = Source/MIKMIDIControlChangeCommand.h; sourceTree = "<group>"; };
+		4D2193713710648C58D8A351 /* Pods-midiConnect-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-midiConnect-dummy.m"; sourceTree = "<group>"; };
+		51D586ABAD6B28B260A545D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		529ED26CC2241925EB7CD01B /* MIKMIDIEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIEvent.h; path = Source/MIKMIDIEvent.h; sourceTree = "<group>"; };
+		5316179A73F0759242E51B06 /* MIKMIDIErrors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIErrors.m; path = Source/MIKMIDIErrors.m; sourceTree = "<group>"; };
+		54BFD356F8BE1D4554148605 /* MIKMIDIMetaCopyrightEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaCopyrightEvent.m; path = Source/MIKMIDIMetaCopyrightEvent.m; sourceTree = "<group>"; };
+		570471665D878B2FC2078203 /* MIKMIDIMetronome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetronome.h; path = Source/MIKMIDIMetronome.h; sourceTree = "<group>"; };
+		59B7D4C2A3BC9640092D70EE /* NSArray+MTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MTLManipulationAdditions.m"; path = "Mantle/NSArray+MTLManipulationAdditions.m"; sourceTree = "<group>"; };
+		5AD59BD67D0F961E81409D71 /* Pods-midiConnect-MIKMIDI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-midiConnect-MIKMIDI.xcconfig"; sourceTree = "<group>"; };
+		5BBDEB7143FB73D0220835D7 /* MIKMIDIMappingXMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMappingXMLParser.h; path = Source/MIKMIDIMappingXMLParser.h; sourceTree = "<group>"; };
+		5DEAE20383A85D3B64D24203 /* EXTScope.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTScope.m; path = Mantle/extobjc/EXTScope.m; sourceTree = "<group>"; };
+		5EE7517310AD8A24E424608A /* MIKMIDIPort_SubclassMethods.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIPort_SubclassMethods.h; path = Source/MIKMIDIPort_SubclassMethods.h; sourceTree = "<group>"; };
+		5FD38F1EF3B925793836F4CE /* Pods-midiConnect-Mantle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-midiConnect-Mantle.xcconfig"; sourceTree = "<group>"; };
+		61780EF9E5F45CCF995C37DC /* MIKMIDIMappingManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMappingManager.h; path = Source/MIKMIDIMappingManager.h; sourceTree = "<group>"; };
+		62BFAB03E8EC9DFF4170DB69 /* MIKMIDIMetaSequenceEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaSequenceEvent.h; path = Source/MIKMIDIMetaSequenceEvent.h; sourceTree = "<group>"; };
+		6352E65CC7B9041CD379AB00 /* MIKMIDICommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDICommand.m; path = Source/MIKMIDICommand.m; sourceTree = "<group>"; };
+		6406324A39B3D1ABD6E481DF /* MTLModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLModel.m; path = Mantle/MTLModel.m; sourceTree = "<group>"; };
+		64370D30691EFA710C912FFE /* MIKMIDIMapping.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMapping.m; path = Source/MIKMIDIMapping.m; sourceTree = "<group>"; };
+		6500D6BC0ECBCC7EA570E8DA /* MIKMIDISequencer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDISequencer.m; path = Source/MIKMIDISequencer.m; sourceTree = "<group>"; };
+		66B2F11F2681CE159F0FDAA8 /* MIKMIDIClientSourceEndpoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIClientSourceEndpoint.m; path = Source/MIKMIDIClientSourceEndpoint.m; sourceTree = "<group>"; };
+		671A535294C293BF09E5AE7F /* MIKMIDISystemMessageCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDISystemMessageCommand.h; path = Source/MIKMIDISystemMessageCommand.h; sourceTree = "<group>"; };
+		6A81EBC7F0A82AC33EF713E1 /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTKeyPathCoding.h; path = Mantle/extobjc/EXTKeyPathCoding.h; sourceTree = "<group>"; };
+		6C70CAF2FA602C9E3243A6DE /* MIKMIDIMetaEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaEvent.h; path = Source/MIKMIDIMetaEvent.h; sourceTree = "<group>"; };
+		6CFDFB4FE0377FF039A2D04A /* MIKMIDINoteOffCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDINoteOffCommand.m; path = Source/MIKMIDINoteOffCommand.m; sourceTree = "<group>"; };
+		6D50ADF264C1D610D017BE77 /* MIKMIDIClientDestinationEndpoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIClientDestinationEndpoint.m; path = Source/MIKMIDIClientDestinationEndpoint.m; sourceTree = "<group>"; };
+		6D644E877EB46C6051F39817 /* NSValueTransformer+MTLInversionAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValueTransformer+MTLInversionAdditions.m"; path = "Mantle/NSValueTransformer+MTLInversionAdditions.m"; sourceTree = "<group>"; };
+		70FECD4E4C934D94EC999A81 /* MIKMIDIMetaTrackSequenceNameEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaTrackSequenceNameEvent.m; path = Source/MIKMIDIMetaTrackSequenceNameEvent.m; sourceTree = "<group>"; };
+		71A57BE7DF7A1D59B83E1E95 /* MIKMIDIDestinationEndpoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIDestinationEndpoint.h; path = Source/MIKMIDIDestinationEndpoint.h; sourceTree = "<group>"; };
+		721D3D2EAD984CFB0BBFEA99 /* NSObject+MTLComparisonAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MTLComparisonAdditions.m"; path = "Mantle/NSObject+MTLComparisonAdditions.m"; sourceTree = "<group>"; };
+		73B31A5ECAC2D453E615A7ED /* MIKMIDIErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIErrors.h; path = Source/MIKMIDIErrors.h; sourceTree = "<group>"; };
+		76079130D303C2207ADCDF2D /* MIKMIDIClock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIClock.h; path = Source/MIKMIDIClock.h; sourceTree = "<group>"; };
+		7982E2C1A9004CA56DFDE3E9 /* MIKMIDIEntity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIEntity.m; path = Source/MIKMIDIEntity.m; sourceTree = "<group>"; };
+		7A0546A0A1D063C59D74FA6B /* MIKMIDIPrivateUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIPrivateUtilities.m; path = Source/MIKMIDIPrivateUtilities.m; sourceTree = "<group>"; };
+		7B68343BD67864F610B7CF4D /* MIKMIDIEventIterator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIEventIterator.m; path = Source/MIKMIDIEventIterator.m; sourceTree = "<group>"; };
+		7C44C8CC05F7229ED99D7952 /* MIKMIDIUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIUtilities.m; path = Source/MIKMIDIUtilities.m; sourceTree = "<group>"; };
+		7C9B1F33DB38AB62D963DF3B /* MIKMIDIClientDestinationEndpoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIClientDestinationEndpoint.h; path = Source/MIKMIDIClientDestinationEndpoint.h; sourceTree = "<group>"; };
+		7E0F48136773E3735B92EF97 /* MIKMIDIMetronome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetronome.m; path = Source/MIKMIDIMetronome.m; sourceTree = "<group>"; };
+		7EB261FA906B686AC2B8AC47 /* MIKMIDITempoEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDITempoEvent.m; path = Source/MIKMIDITempoEvent.m; sourceTree = "<group>"; };
+		7FD9CB93A858BBDC1CE78515 /* MIKMIDIMappingGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMappingGenerator.m; path = Source/MIKMIDIMappingGenerator.m; sourceTree = "<group>"; };
+		8173C866A124F22FB57BBEAC /* Pods-midiConnect-Mantle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-midiConnect-Mantle-prefix.pch"; sourceTree = "<group>"; };
+		831D6A8F88BC92797E2B94E1 /* MIKMIDIEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIEvent.m; path = Source/MIKMIDIEvent.m; sourceTree = "<group>"; };
+		8562F8120FA4EDD5B949D66A /* MIKMIDIMetaTimeSignatureEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaTimeSignatureEvent.m; path = Source/MIKMIDIMetaTimeSignatureEvent.m; sourceTree = "<group>"; };
+		8648FBC9B154978E87B17C1B /* MIKMIDINoteEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDINoteEvent.h; path = Source/MIKMIDINoteEvent.h; sourceTree = "<group>"; };
+		868D1373983ECBB7DFA3249B /* MIKMIDIDeviceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIDeviceManager.h; path = Source/MIKMIDIDeviceManager.h; sourceTree = "<group>"; };
+		8CE5E99333D9A3C99121A51C /* MIKMIDIProgramChangeCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIProgramChangeCommand.h; path = Source/MIKMIDIProgramChangeCommand.h; sourceTree = "<group>"; };
+		91DE519B0C91B6B24B1A474F /* MIKMIDIInputPort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIInputPort.m; path = Source/MIKMIDIInputPort.m; sourceTree = "<group>"; };
+		9471EB920157898F3EB2C724 /* MIKMIDIEntity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIEntity.h; path = Source/MIKMIDIEntity.h; sourceTree = "<group>"; };
+		998B7AEC72902346EBE6988E /* EXTRuntimeExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTRuntimeExtensions.m; path = Mantle/extobjc/EXTRuntimeExtensions.m; sourceTree = "<group>"; };
+		99ABD76782FAD8FB0A6C2817 /* MIKMIDISystemExclusiveCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDISystemExclusiveCommand.h; path = Source/MIKMIDISystemExclusiveCommand.h; sourceTree = "<group>"; };
+		9B53834620283CDF02CA324F /* MIKMIDIMapping.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMapping.h; path = Source/MIKMIDIMapping.h; sourceTree = "<group>"; };
+		9BA51D23C0352181BE91527D /* MIKMIDINoteOnCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDINoteOnCommand.h; path = Source/MIKMIDINoteOnCommand.h; sourceTree = "<group>"; };
+		9D5C096DA25F362FD1E99025 /* NSError+MTLModelException.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+MTLModelException.m"; path = "Mantle/NSError+MTLModelException.m"; sourceTree = "<group>"; };
+		9DFF3711B846004407B163C1 /* MIKMIDIMetaTextEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaTextEvent.h; path = Source/MIKMIDIMetaTextEvent.h; sourceTree = "<group>"; };
+		9E5AB73F015DCD0E56EFA8DB /* MIKMIDITrack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDITrack.h; path = Source/MIKMIDITrack.h; sourceTree = "<group>"; };
+		A23B3929BADC7B2854E6B7BC /* MIKMIDIMetaTrackSequenceNameEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaTrackSequenceNameEvent.h; path = Source/MIKMIDIMetaTrackSequenceNameEvent.h; sourceTree = "<group>"; };
+		A26C481A209DF195820F042E /* MIKMIDISequencer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDISequencer.h; path = Source/MIKMIDISequencer.h; sourceTree = "<group>"; };
+		A38C36117CA467BC19B12AA1 /* MIKMIDIMetaLyricEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaLyricEvent.h; path = Source/MIKMIDIMetaLyricEvent.h; sourceTree = "<group>"; };
+		A3976E2A9EF8D522924C46D9 /* Pods-midiConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-midiConnect.release.xcconfig"; sourceTree = "<group>"; };
+		A3CED313F537B92B2628AD2F /* MIKMIDIObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIObject.m; path = Source/MIKMIDIObject.m; sourceTree = "<group>"; };
+		A7172C9D4EDF4A1519912AD7 /* MIKMIDINoteEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDINoteEvent.m; path = Source/MIKMIDINoteEvent.m; sourceTree = "<group>"; };
+		A83A25651C6564980217C99D /* MTLValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLValueTransformer.h; path = Mantle/MTLValueTransformer.h; sourceTree = "<group>"; };
+		AAD1585F8E31B50F34EB4D71 /* MIKMIDIClientSourceEndpoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIClientSourceEndpoint.h; path = Source/MIKMIDIClientSourceEndpoint.h; sourceTree = "<group>"; };
+		AD987047B77850D8D65F2AD7 /* Pods-midiConnect-MIKMIDI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-midiConnect-MIKMIDI-prefix.pch"; sourceTree = "<group>"; };
+		ADB1C04A6F867A4565E48857 /* MIKMIDISourceEndpoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDISourceEndpoint.m; path = Source/MIKMIDISourceEndpoint.m; sourceTree = "<group>"; };
+		AEFDA9F4F3E932B9463C7FE8 /* MIKMIDIMetaSequenceEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaSequenceEvent.m; path = Source/MIKMIDIMetaSequenceEvent.m; sourceTree = "<group>"; };
+		B0448E96B6F0D12D1E8FF76F /* EXTRuntimeExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTRuntimeExtensions.h; path = Mantle/extobjc/EXTRuntimeExtensions.h; sourceTree = "<group>"; };
+		B05BA349F646B1458AAF2E40 /* MIKMIDIControlChangeCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIControlChangeCommand.m; path = Source/MIKMIDIControlChangeCommand.m; sourceTree = "<group>"; };
+		B1D870467A5DC1B3C682A2CA /* MTLTransformerErrorHandling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLTransformerErrorHandling.h; path = Mantle/MTLTransformerErrorHandling.h; sourceTree = "<group>"; };
+		B25EE8163B35E77A7D636053 /* MIKMIDIPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIPlayer.h; path = Source/MIKMIDIPlayer.h; sourceTree = "<group>"; };
+		B591470349E0192BB65F5430 /* Pods-midiConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-midiConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		BB7062E2271EA87D9CC385B5 /* NSValueTransformer+MTLInversionAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+MTLInversionAdditions.h"; path = "Mantle/NSValueTransformer+MTLInversionAdditions.h"; sourceTree = "<group>"; };
+		BBC5D8B43842E930865999E7 /* MIKMIDIClock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIClock.m; path = Source/MIKMIDIClock.m; sourceTree = "<group>"; };
+		BC5C27FE9B31ADFAD966ABA6 /* EXTScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTScope.h; path = Mantle/extobjc/EXTScope.h; sourceTree = "<group>"; };
+		BCB1AFDDB430F6456FE22A0A /* MIKMIDIMetaInstrumentNameEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaInstrumentNameEvent.h; path = Source/MIKMIDIMetaInstrumentNameEvent.h; sourceTree = "<group>"; };
+		BFE22E00D9793E63F05434FF /* Pods-midiConnect-MIKMIDI-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-midiConnect-MIKMIDI-Private.xcconfig"; sourceTree = "<group>"; };
+		C340FF688DBCDECFA45A70A0 /* Mantle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Mantle.h; path = Mantle/Mantle.h; sourceTree = "<group>"; };
+		C621D3E404280882A40A1949 /* MIKMIDIEndpointSynthesizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIEndpointSynthesizer.h; path = Source/MIKMIDIEndpointSynthesizer.h; sourceTree = "<group>"; };
+		C6876C69941DF17AFD505D97 /* MIKMIDIMappingXMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMappingXMLParser.m; path = Source/MIKMIDIMappingXMLParser.m; sourceTree = "<group>"; };
+		C69A2F7C0B874920AB4345A8 /* NSDictionary+MTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MTLManipulationAdditions.h"; path = "Mantle/NSDictionary+MTLManipulationAdditions.h"; sourceTree = "<group>"; };
+		C8C67CF5EBF396D1DDD0E420 /* MIKMIDIInputPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIInputPort.h; path = Source/MIKMIDIInputPort.h; sourceTree = "<group>"; };
+		CBDC871E28C5E56F59035AD7 /* MIKMIDIObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIObject.h; path = Source/MIKMIDIObject.h; sourceTree = "<group>"; };
+		CD2A2FEB4B8886993FDF3F02 /* libPods-midiConnect-Mantle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-midiConnect-Mantle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF51CEFDA246B0677171BF23 /* MIKMIDIMetaMarkerTextEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaMarkerTextEvent.m; path = Source/MIKMIDIMetaMarkerTextEvent.m; sourceTree = "<group>"; };
+		CFE1A0A5E1503EC42FED6912 /* MIKMIDINoteOnCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDINoteOnCommand.m; path = Source/MIKMIDINoteOnCommand.m; sourceTree = "<group>"; };
+		D00582CD68274AFB870C0AE0 /* NSError+MTLModelException.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+MTLModelException.h"; path = "Mantle/NSError+MTLModelException.h"; sourceTree = "<group>"; };
+		D12BC147A056CBDE0C114E90 /* MTLJSONAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLJSONAdapter.m; path = Mantle/MTLJSONAdapter.m; sourceTree = "<group>"; };
+		D5F779B7F501237D97F4DD90 /* MIKMIDICommand_SubclassMethods.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDICommand_SubclassMethods.h; path = Source/MIKMIDICommand_SubclassMethods.h; sourceTree = "<group>"; };
+		D62FD176A84917F1C35531D3 /* MIKMIDIMetaCopyrightEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaCopyrightEvent.h; path = Source/MIKMIDIMetaCopyrightEvent.h; sourceTree = "<group>"; };
+		D6751882968B6A5EF012CC87 /* MTLValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLValueTransformer.m; path = Mantle/MTLValueTransformer.m; sourceTree = "<group>"; };
+		D7AEC4D61BAEF95473995428 /* MIKMIDI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDI.h; path = Source/MIKMIDI.h; sourceTree = "<group>"; };
+		D7E5D0928DD9EC96524F8F4E /* MIKMIDIPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIPlayer.m; path = Source/MIKMIDIPlayer.m; sourceTree = "<group>"; };
+		D7F5B90EAC833E7EF3BD5581 /* MIKMIDIOutputPort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIOutputPort.h; path = Source/MIKMIDIOutputPort.h; sourceTree = "<group>"; };
+		D8F786D797EB251CEE79384C /* MIKMIDIEventIterator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIEventIterator.h; path = Source/MIKMIDIEventIterator.h; sourceTree = "<group>"; };
+		D9CE87C333714BAD014A1483 /* NSUIApplication+MIKMIDI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSUIApplication+MIKMIDI.h"; path = "Source/NSUIApplication+MIKMIDI.h"; sourceTree = "<group>"; };
+		DB45470CEB6053D48BE6DDB8 /* MIKMIDIMetaCuePointEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaCuePointEvent.h; path = Source/MIKMIDIMetaCuePointEvent.h; sourceTree = "<group>"; };
+		DB477C9B68CE7D8610340E68 /* MIKMIDIChannelVoiceCommand_SubclassMethods.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIChannelVoiceCommand_SubclassMethods.h; path = Source/MIKMIDIChannelVoiceCommand_SubclassMethods.h; sourceTree = "<group>"; };
+		DC3872632E738A87026AEF72 /* MIKMIDIMetaTimeSignatureEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIMetaTimeSignatureEvent.h; path = Source/MIKMIDIMetaTimeSignatureEvent.h; sourceTree = "<group>"; };
+		DDBB2DAB8F1DB5A0171552E5 /* MTLTransformerErrorHandling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLTransformerErrorHandling.m; path = Mantle/MTLTransformerErrorHandling.m; sourceTree = "<group>"; };
+		DDCEDEA63F204759A2337283 /* NSUIApplication+MIKMIDI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSUIApplication+MIKMIDI.m"; path = "Source/NSUIApplication+MIKMIDI.m"; sourceTree = "<group>"; };
+		DF5F6513B2A8B1A5402C780E /* MIKMIDIMetaCuePointEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaCuePointEvent.m; path = Source/MIKMIDIMetaCuePointEvent.m; sourceTree = "<group>"; };
+		DF666A6D5620D1C9C812276F /* MIKMIDIDestinationEndpoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIDestinationEndpoint.m; path = Source/MIKMIDIDestinationEndpoint.m; sourceTree = "<group>"; };
+		E53BD53B8A55302DD0257C0C /* Pods-midiConnect-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-midiConnect-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E60991FF9E85B78AE63131E1 /* MIKMIDIDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDIDevice.h; path = Source/MIKMIDIDevice.h; sourceTree = "<group>"; };
+		EA0DA1263868C4B963D89C30 /* MIKMIDICommandThrottler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDICommandThrottler.m; path = Source/MIKMIDICommandThrottler.m; sourceTree = "<group>"; };
+		EA2CE5861AEDB2AF13C4F645 /* MIKMIDIMetaEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDIMetaEvent.m; path = Source/MIKMIDIMetaEvent.m; sourceTree = "<group>"; };
+		EC49644C7688C283B2A734EF /* MIKMIDISequence.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDISequence.h; path = Source/MIKMIDISequence.h; sourceTree = "<group>"; };
+		EC853EFB91AF4380C162D306 /* MIKMIDISourceEndpoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDISourceEndpoint.h; path = Source/MIKMIDISourceEndpoint.h; sourceTree = "<group>"; };
+		EE0BFBC5DE5859C8838B56B8 /* libPods-midiConnect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-midiConnect.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F105A3DABCADFBB27665DD35 /* MIKMIDISystemMessageCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDISystemMessageCommand.m; path = Source/MIKMIDISystemMessageCommand.m; sourceTree = "<group>"; };
+		F364CEFBD7744BD740C470BD /* NSDictionary+MTLJSONKeyPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MTLJSONKeyPath.h"; path = "Mantle/NSDictionary+MTLJSONKeyPath.h"; sourceTree = "<group>"; };
+		F60DC4B54D54F4208EA466F1 /* NSDictionary+MTLMappingAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MTLMappingAdditions.h"; path = "Mantle/NSDictionary+MTLMappingAdditions.h"; sourceTree = "<group>"; };
+		F9793A94DCA82E2F8C094227 /* MIKMIDITrack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MIKMIDITrack.m; path = Source/MIKMIDITrack.m; sourceTree = "<group>"; };
+		FFCF30212782C9AEFF445344 /* MIKMIDICommandThrottler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MIKMIDICommandThrottler.h; path = Source/MIKMIDICommandThrottler.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0906BA6C27DD64E72A188D23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3956FB66F263639E5410AC5 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D06365F4F6EB91C9B775389 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C76416147BE7EDF04B6F37 /* Cocoa.framework in Frameworks */,
+				20485B2E0E71F0C254983B56 /* CoreMIDI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F674520FE4FCE6310B61EE53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5C8C9A8DF58802549556BA1 /* Cocoa.framework in Frameworks */,
+				DA27D8226D3E998A755F6729 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12F4BC432B58D446A6733EFF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AD59BD67D0F961E81409D71 /* Pods-midiConnect-MIKMIDI.xcconfig */,
+				BFE22E00D9793E63F05434FF /* Pods-midiConnect-MIKMIDI-Private.xcconfig */,
+				29D4B225F3A2E5DFCE64B712 /* Pods-midiConnect-MIKMIDI-dummy.m */,
+				AD987047B77850D8D65F2AD7 /* Pods-midiConnect-MIKMIDI-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-midiConnect-MIKMIDI";
+			sourceTree = "<group>";
+		};
+		378AD124AAB828E0AFE449FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72DA516B2E05BE9128535E58 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C4B949290709348F65BFE7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE0BFBC5DE5859C8838B56B8 /* libPods-midiConnect.a */,
+				150A99C4287CF2E664D9B163 /* libPods-midiConnect-MIKMIDI.a */,
+				CD2A2FEB4B8886993FDF3F02 /* libPods-midiConnect-Mantle.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		495205E5AAF4AC711FD680FF /* Mantle */ = {
+			isa = PBXGroup;
+			children = (
+				0ABB8D4EE3CB2D805BA23AF0 /* MTLJSONAdapter.h */,
+				D12BC147A056CBDE0C114E90 /* MTLJSONAdapter.m */,
+				1820744C27D77ACC2235C917 /* MTLModel.h */,
+				6406324A39B3D1ABD6E481DF /* MTLModel.m */,
+				287BAD50039EA91FDF152FA0 /* MTLModel+NSCoding.h */,
+				38BA7F1F40908F640E89BCC4 /* MTLModel+NSCoding.m */,
+				2243208560737F0A02037FF0 /* MTLReflection.h */,
+				3CED78EDAC02AA7599C43C5A /* MTLReflection.m */,
+				B1D870467A5DC1B3C682A2CA /* MTLTransformerErrorHandling.h */,
+				DDBB2DAB8F1DB5A0171552E5 /* MTLTransformerErrorHandling.m */,
+				A83A25651C6564980217C99D /* MTLValueTransformer.h */,
+				D6751882968B6A5EF012CC87 /* MTLValueTransformer.m */,
+				C340FF688DBCDECFA45A70A0 /* Mantle.h */,
+				084C1EF7B8DF739FBAEAAC6E /* NSArray+MTLManipulationAdditions.h */,
+				59B7D4C2A3BC9640092D70EE /* NSArray+MTLManipulationAdditions.m */,
+				F364CEFBD7744BD740C470BD /* NSDictionary+MTLJSONKeyPath.h */,
+				457EAA3687DBFBD8AD93B9B5 /* NSDictionary+MTLJSONKeyPath.m */,
+				C69A2F7C0B874920AB4345A8 /* NSDictionary+MTLManipulationAdditions.h */,
+				1D176BABE1F91E521026D2BC /* NSDictionary+MTLManipulationAdditions.m */,
+				F60DC4B54D54F4208EA466F1 /* NSDictionary+MTLMappingAdditions.h */,
+				2BD2BA0EC896D14BE9AF517C /* NSDictionary+MTLMappingAdditions.m */,
+				D00582CD68274AFB870C0AE0 /* NSError+MTLModelException.h */,
+				9D5C096DA25F362FD1E99025 /* NSError+MTLModelException.m */,
+				10254B2E3ACDF2256592BA3D /* NSObject+MTLComparisonAdditions.h */,
+				721D3D2EAD984CFB0BBFEA99 /* NSObject+MTLComparisonAdditions.m */,
+				BB7062E2271EA87D9CC385B5 /* NSValueTransformer+MTLInversionAdditions.h */,
+				6D644E877EB46C6051F39817 /* NSValueTransformer+MTLInversionAdditions.m */,
+				1804EF5EC71D0D3172243E65 /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */,
+				47C389712BC11BF2BB510873 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m */,
+				E7457EE576894A9D283E5BE1 /* Support Files */,
+				4ECBF1FB9E91E7B43C32F651 /* extobjc */,
+			);
+			path = Mantle;
+			sourceTree = "<group>";
+		};
+		4ECBF1FB9E91E7B43C32F651 /* extobjc */ = {
+			isa = PBXGroup;
+			children = (
+				6A81EBC7F0A82AC33EF713E1 /* EXTKeyPathCoding.h */,
+				B0448E96B6F0D12D1E8FF76F /* EXTRuntimeExtensions.h */,
+				998B7AEC72902346EBE6988E /* EXTRuntimeExtensions.m */,
+				BC5C27FE9B31ADFAD966ABA6 /* EXTScope.h */,
+				5DEAE20383A85D3B64D24203 /* EXTScope.m */,
+				4B1FEB4CB54BD9C8F4C5B30E /* metamacros.h */,
+			);
+			name = extobjc;
+			sourceTree = "<group>";
+		};
+		624442BA5E475BED0B2E8BA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1729A6351DAE441AE3491EE /* MIKMIDI */,
+				495205E5AAF4AC711FD680FF /* Mantle */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		72DA516B2E05BE9128535E58 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				3796EC5BC837487C749D6B21 /* Cocoa.framework */,
+				26462B444B52B0090A4F8A8E /* CoreMIDI.framework */,
+				51D586ABAD6B28B260A545D5 /* Foundation.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		78A24E7A3FF0052019174E7F /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				96BB54F084682FEA95E8EDC9 /* Pods-midiConnect */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		96BB54F084682FEA95E8EDC9 /* Pods-midiConnect */ = {
+			isa = PBXGroup;
+			children = (
+				E53BD53B8A55302DD0257C0C /* Pods-midiConnect-acknowledgements.markdown */,
+				0B18DCA81155B144DEC37613 /* Pods-midiConnect-acknowledgements.plist */,
+				4D2193713710648C58D8A351 /* Pods-midiConnect-dummy.m */,
+				23DDC847C096EAA26A9A3ACA /* Pods-midiConnect-environment.h */,
+				4843788C398B8DACA7BB309E /* Pods-midiConnect-resources.sh */,
+				B591470349E0192BB65F5430 /* Pods-midiConnect.debug.xcconfig */,
+				A3976E2A9EF8D522924C46D9 /* Pods-midiConnect.release.xcconfig */,
+			);
+			name = "Pods-midiConnect";
+			path = "Target Support Files/Pods-midiConnect";
+			sourceTree = "<group>";
+		};
+		A8EA993B3A3DC4DA5617F18B = {
+			isa = PBXGroup;
+			children = (
+				1F343FC6A8BFE1F970786AC3 /* Podfile */,
+				378AD124AAB828E0AFE449FF /* Frameworks */,
+				624442BA5E475BED0B2E8BA8 /* Pods */,
+				3C4B949290709348F65BFE7F /* Products */,
+				78A24E7A3FF0052019174E7F /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		E7457EE576894A9D283E5BE1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FD38F1EF3B925793836F4CE /* Pods-midiConnect-Mantle.xcconfig */,
+				019C2FD625D581A5F5B0CE7A /* Pods-midiConnect-Mantle-Private.xcconfig */,
+				4249E91A7D13A30CE8984023 /* Pods-midiConnect-Mantle-dummy.m */,
+				8173C866A124F22FB57BBEAC /* Pods-midiConnect-Mantle-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-midiConnect-Mantle";
+			sourceTree = "<group>";
+		};
+		F1729A6351DAE441AE3491EE /* MIKMIDI */ = {
+			isa = PBXGroup;
+			children = (
+				D7AEC4D61BAEF95473995428 /* MIKMIDI.h */,
+				21322B4338DAFF0886F27528 /* MIKMIDIChannelVoiceCommand.h */,
+				2A97B3DD5868C4200A9089FD /* MIKMIDIChannelVoiceCommand.m */,
+				DB477C9B68CE7D8610340E68 /* MIKMIDIChannelVoiceCommand_SubclassMethods.h */,
+				7C9B1F33DB38AB62D963DF3B /* MIKMIDIClientDestinationEndpoint.h */,
+				6D50ADF264C1D610D017BE77 /* MIKMIDIClientDestinationEndpoint.m */,
+				AAD1585F8E31B50F34EB4D71 /* MIKMIDIClientSourceEndpoint.h */,
+				66B2F11F2681CE159F0FDAA8 /* MIKMIDIClientSourceEndpoint.m */,
+				76079130D303C2207ADCDF2D /* MIKMIDIClock.h */,
+				BBC5D8B43842E930865999E7 /* MIKMIDIClock.m */,
+				39F902AD1787A8BA0F67F46A /* MIKMIDICommand.h */,
+				6352E65CC7B9041CD379AB00 /* MIKMIDICommand.m */,
+				FFCF30212782C9AEFF445344 /* MIKMIDICommandThrottler.h */,
+				EA0DA1263868C4B963D89C30 /* MIKMIDICommandThrottler.m */,
+				D5F779B7F501237D97F4DD90 /* MIKMIDICommand_SubclassMethods.h */,
+				4D1380FD54AD472918CAC681 /* MIKMIDIControlChangeCommand.h */,
+				B05BA349F646B1458AAF2E40 /* MIKMIDIControlChangeCommand.m */,
+				71A57BE7DF7A1D59B83E1E95 /* MIKMIDIDestinationEndpoint.h */,
+				DF666A6D5620D1C9C812276F /* MIKMIDIDestinationEndpoint.m */,
+				E60991FF9E85B78AE63131E1 /* MIKMIDIDevice.h */,
+				1D216D8E4F160C3043025859 /* MIKMIDIDevice.m */,
+				868D1373983ECBB7DFA3249B /* MIKMIDIDeviceManager.h */,
+				3DD63DC12F59C76CBF6B6B9C /* MIKMIDIDeviceManager.m */,
+				16CB552B2B7F44BFA9CC781D /* MIKMIDIEndpoint.h */,
+				1E47041F3AB3A16E94164F10 /* MIKMIDIEndpoint.m */,
+				C621D3E404280882A40A1949 /* MIKMIDIEndpointSynthesizer.h */,
+				300BCAEB9625A69800CC8E3C /* MIKMIDIEndpointSynthesizer.m */,
+				9471EB920157898F3EB2C724 /* MIKMIDIEntity.h */,
+				7982E2C1A9004CA56DFDE3E9 /* MIKMIDIEntity.m */,
+				73B31A5ECAC2D453E615A7ED /* MIKMIDIErrors.h */,
+				5316179A73F0759242E51B06 /* MIKMIDIErrors.m */,
+				529ED26CC2241925EB7CD01B /* MIKMIDIEvent.h */,
+				831D6A8F88BC92797E2B94E1 /* MIKMIDIEvent.m */,
+				D8F786D797EB251CEE79384C /* MIKMIDIEventIterator.h */,
+				7B68343BD67864F610B7CF4D /* MIKMIDIEventIterator.m */,
+				48DF9AD32202441909021781 /* MIKMIDIEvent_SubclassMethods.h */,
+				C8C67CF5EBF396D1DDD0E420 /* MIKMIDIInputPort.h */,
+				91DE519B0C91B6B24B1A474F /* MIKMIDIInputPort.m */,
+				28A999E01FFE831EA71BAD0D /* MIKMIDIMacDebugQuickLookSupport.m */,
+				9B53834620283CDF02CA324F /* MIKMIDIMapping.h */,
+				64370D30691EFA710C912FFE /* MIKMIDIMapping.m */,
+				2064C374FB363C0171DF91DF /* MIKMIDIMappingGenerator.h */,
+				7FD9CB93A858BBDC1CE78515 /* MIKMIDIMappingGenerator.m */,
+				61780EF9E5F45CCF995C37DC /* MIKMIDIMappingManager.h */,
+				031B309D4632DEBC16BF8DA9 /* MIKMIDIMappingManager.m */,
+				5BBDEB7143FB73D0220835D7 /* MIKMIDIMappingXMLParser.h */,
+				C6876C69941DF17AFD505D97 /* MIKMIDIMappingXMLParser.m */,
+				D62FD176A84917F1C35531D3 /* MIKMIDIMetaCopyrightEvent.h */,
+				54BFD356F8BE1D4554148605 /* MIKMIDIMetaCopyrightEvent.m */,
+				DB45470CEB6053D48BE6DDB8 /* MIKMIDIMetaCuePointEvent.h */,
+				DF5F6513B2A8B1A5402C780E /* MIKMIDIMetaCuePointEvent.m */,
+				6C70CAF2FA602C9E3243A6DE /* MIKMIDIMetaEvent.h */,
+				EA2CE5861AEDB2AF13C4F645 /* MIKMIDIMetaEvent.m */,
+				BCB1AFDDB430F6456FE22A0A /* MIKMIDIMetaInstrumentNameEvent.h */,
+				48738851FFF353AA26E202BF /* MIKMIDIMetaInstrumentNameEvent.m */,
+				3AB97A8B0F8E12BB8B61F8CE /* MIKMIDIMetaKeySignatureEvent.h */,
+				400A680949EE937D41F45159 /* MIKMIDIMetaKeySignatureEvent.m */,
+				A38C36117CA467BC19B12AA1 /* MIKMIDIMetaLyricEvent.h */,
+				1E7319FD5AA0173747C5DF3E /* MIKMIDIMetaLyricEvent.m */,
+				2E8E7D37F5B838A1241F26B6 /* MIKMIDIMetaMarkerTextEvent.h */,
+				CF51CEFDA246B0677171BF23 /* MIKMIDIMetaMarkerTextEvent.m */,
+				62BFAB03E8EC9DFF4170DB69 /* MIKMIDIMetaSequenceEvent.h */,
+				AEFDA9F4F3E932B9463C7FE8 /* MIKMIDIMetaSequenceEvent.m */,
+				9DFF3711B846004407B163C1 /* MIKMIDIMetaTextEvent.h */,
+				42A149D5682B4B1DA685D007 /* MIKMIDIMetaTextEvent.m */,
+				DC3872632E738A87026AEF72 /* MIKMIDIMetaTimeSignatureEvent.h */,
+				8562F8120FA4EDD5B949D66A /* MIKMIDIMetaTimeSignatureEvent.m */,
+				A23B3929BADC7B2854E6B7BC /* MIKMIDIMetaTrackSequenceNameEvent.h */,
+				70FECD4E4C934D94EC999A81 /* MIKMIDIMetaTrackSequenceNameEvent.m */,
+				570471665D878B2FC2078203 /* MIKMIDIMetronome.h */,
+				7E0F48136773E3735B92EF97 /* MIKMIDIMetronome.m */,
+				8648FBC9B154978E87B17C1B /* MIKMIDINoteEvent.h */,
+				A7172C9D4EDF4A1519912AD7 /* MIKMIDINoteEvent.m */,
+				178AC4635E94B56CDF2A398E /* MIKMIDINoteOffCommand.h */,
+				6CFDFB4FE0377FF039A2D04A /* MIKMIDINoteOffCommand.m */,
+				9BA51D23C0352181BE91527D /* MIKMIDINoteOnCommand.h */,
+				CFE1A0A5E1503EC42FED6912 /* MIKMIDINoteOnCommand.m */,
+				CBDC871E28C5E56F59035AD7 /* MIKMIDIObject.h */,
+				A3CED313F537B92B2628AD2F /* MIKMIDIObject.m */,
+				4BF4436005F394723A930E97 /* MIKMIDIObject_SubclassMethods.h */,
+				D7F5B90EAC833E7EF3BD5581 /* MIKMIDIOutputPort.h */,
+				158CAB4BABDD2C09A0BE0C76 /* MIKMIDIOutputPort.m */,
+				B25EE8163B35E77A7D636053 /* MIKMIDIPlayer.h */,
+				D7E5D0928DD9EC96524F8F4E /* MIKMIDIPlayer.m */,
+				039C704BF8BBAD468A0942D5 /* MIKMIDIPort.h */,
+				4332C8B62B05EE7D96B6D21C /* MIKMIDIPort.m */,
+				5EE7517310AD8A24E424608A /* MIKMIDIPort_SubclassMethods.h */,
+				3F67839350DEFD0FDC66E41D /* MIKMIDIPrivate.h */,
+				20E0A54AD39F95612A395350 /* MIKMIDIPrivateUtilities.h */,
+				7A0546A0A1D063C59D74FA6B /* MIKMIDIPrivateUtilities.m */,
+				8CE5E99333D9A3C99121A51C /* MIKMIDIProgramChangeCommand.h */,
+				05258EC4EAE840EA9E38FAAE /* MIKMIDIProgramChangeCommand.m */,
+				3340881C48890DA0D4D329AD /* MIKMIDIResponder.h */,
+				EC49644C7688C283B2A734EF /* MIKMIDISequence.h */,
+				43D69D7E80B833E2361DDB93 /* MIKMIDISequence.m */,
+				A26C481A209DF195820F042E /* MIKMIDISequencer.h */,
+				6500D6BC0ECBCC7EA570E8DA /* MIKMIDISequencer.m */,
+				EC853EFB91AF4380C162D306 /* MIKMIDISourceEndpoint.h */,
+				ADB1C04A6F867A4565E48857 /* MIKMIDISourceEndpoint.m */,
+				99ABD76782FAD8FB0A6C2817 /* MIKMIDISystemExclusiveCommand.h */,
+				10DE350A79EC000E82C0EBB0 /* MIKMIDISystemExclusiveCommand.m */,
+				671A535294C293BF09E5AE7F /* MIKMIDISystemMessageCommand.h */,
+				F105A3DABCADFBB27665DD35 /* MIKMIDISystemMessageCommand.m */,
+				2BC8706428B119BF04AEE639 /* MIKMIDITempoEvent.h */,
+				7EB261FA906B686AC2B8AC47 /* MIKMIDITempoEvent.m */,
+				9E5AB73F015DCD0E56EFA8DB /* MIKMIDITrack.h */,
+				F9793A94DCA82E2F8C094227 /* MIKMIDITrack.m */,
+				1C440B5F4C73899B892FE8DB /* MIKMIDIUtilities.h */,
+				7C44C8CC05F7229ED99D7952 /* MIKMIDIUtilities.m */,
+				D9CE87C333714BAD014A1483 /* NSUIApplication+MIKMIDI.h */,
+				DDCEDEA63F204759A2337283 /* NSUIApplication+MIKMIDI.m */,
+				12F4BC432B58D446A6733EFF /* Support Files */,
+			);
+			path = MIKMIDI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3D38345856DA108452A0AE9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADFF2AB6EAC6983CD4F6FAE3 /* EXTKeyPathCoding.h in Headers */,
+				5F806F19C92D8EC87096056A /* EXTRuntimeExtensions.h in Headers */,
+				FBE7BA89257F6CC7C958E564 /* EXTScope.h in Headers */,
+				4FCCDA767DAAFB5C27F08C01 /* MTLJSONAdapter.h in Headers */,
+				8EFD6BDD2DF4913C75920052 /* MTLModel+NSCoding.h in Headers */,
+				78F1BBDAB46CC1A272BC88B3 /* MTLModel.h in Headers */,
+				63315BEBD2634719291959E2 /* MTLReflection.h in Headers */,
+				77B247A8657FDE330521541B /* MTLTransformerErrorHandling.h in Headers */,
+				DB9812E560AF538DA5A2DCDE /* MTLValueTransformer.h in Headers */,
+				AFDBFB64A9BC47EB80C9AC02 /* Mantle.h in Headers */,
+				FDE78B79D5E95EE29E9A01E3 /* NSArray+MTLManipulationAdditions.h in Headers */,
+				0F2BEF69A3FBC080C47BD312 /* NSDictionary+MTLJSONKeyPath.h in Headers */,
+				DD97A852E622C7774423A449 /* NSDictionary+MTLManipulationAdditions.h in Headers */,
+				2A125A494138DB96FA6493B9 /* NSDictionary+MTLMappingAdditions.h in Headers */,
+				59AD281F56B154354137ECD0 /* NSError+MTLModelException.h in Headers */,
+				BA73BA17780178AC998FAEBA /* NSObject+MTLComparisonAdditions.h in Headers */,
+				F8E93D45B5375E418660C23C /* NSValueTransformer+MTLInversionAdditions.h in Headers */,
+				BAFDE5016873DD682ADB71AC /* NSValueTransformer+MTLPredefinedTransformerAdditions.h in Headers */,
+				34D378109496472B3E2178F9 /* metamacros.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E9465A7B22C84F48F6666F0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87BD643AD3849D2C8B808F2D /* MIKMIDI.h in Headers */,
+				B758A54AE3B93497B58B547C /* MIKMIDIChannelVoiceCommand.h in Headers */,
+				5652F9B674CA2BF7B4ABA87C /* MIKMIDIChannelVoiceCommand_SubclassMethods.h in Headers */,
+				008195AB92A8233CD2D1574B /* MIKMIDIClientDestinationEndpoint.h in Headers */,
+				9E3DE419812B192AF651934C /* MIKMIDIClientSourceEndpoint.h in Headers */,
+				46C53D8D29E4EDC763C35A17 /* MIKMIDIClock.h in Headers */,
+				55306CDBFEA2B0A0EF2D8422 /* MIKMIDICommand.h in Headers */,
+				A8A33C70E3786B766E0F83C8 /* MIKMIDICommandThrottler.h in Headers */,
+				2C5AF5B0C8997EF074D2F492 /* MIKMIDICommand_SubclassMethods.h in Headers */,
+				DACEA0463643878DFE8B976F /* MIKMIDIControlChangeCommand.h in Headers */,
+				F656F17E91D3FE5B9AB66D10 /* MIKMIDIDestinationEndpoint.h in Headers */,
+				C2383C8858F317482891FB1B /* MIKMIDIDevice.h in Headers */,
+				C97365E6FF4B5092E022CD44 /* MIKMIDIDeviceManager.h in Headers */,
+				787D88EE727E819A4124EEE4 /* MIKMIDIEndpoint.h in Headers */,
+				8CE2D06408F82D56AC12B8A4 /* MIKMIDIEndpointSynthesizer.h in Headers */,
+				13B5EE323C0497E7C903727B /* MIKMIDIEntity.h in Headers */,
+				1ED42BFA0A3A9CC09ADC91BF /* MIKMIDIErrors.h in Headers */,
+				0B7EB9978DEA2BFB8F8A8635 /* MIKMIDIEvent.h in Headers */,
+				E862316B38023A4E8539357E /* MIKMIDIEventIterator.h in Headers */,
+				A63E01C11DC20A372CAC6E14 /* MIKMIDIEvent_SubclassMethods.h in Headers */,
+				21394178E210FE3091CF19FC /* MIKMIDIInputPort.h in Headers */,
+				50796330EB7C078748DAFFC4 /* MIKMIDIMapping.h in Headers */,
+				79E7378B1938B2453CE4EA69 /* MIKMIDIMappingGenerator.h in Headers */,
+				FA298443CB72208E733EF974 /* MIKMIDIMappingManager.h in Headers */,
+				D63907BE3F5B5B915F295A19 /* MIKMIDIMappingXMLParser.h in Headers */,
+				97F18844E79852CD2C510764 /* MIKMIDIMetaCopyrightEvent.h in Headers */,
+				E0E94D62F8567F40A9DE660D /* MIKMIDIMetaCuePointEvent.h in Headers */,
+				D0A6D09922317085D71A7E88 /* MIKMIDIMetaEvent.h in Headers */,
+				9B4CC876891E80B214601B82 /* MIKMIDIMetaInstrumentNameEvent.h in Headers */,
+				444320508210B26C8ABE3BE6 /* MIKMIDIMetaKeySignatureEvent.h in Headers */,
+				8D42E5991E97F857D6B4B6FE /* MIKMIDIMetaLyricEvent.h in Headers */,
+				F0D47A9258BFC5BBB3CE1F41 /* MIKMIDIMetaMarkerTextEvent.h in Headers */,
+				F9DACA2B644DCFBD2EB3D5DF /* MIKMIDIMetaSequenceEvent.h in Headers */,
+				912A160F7B87709E69F8A4BD /* MIKMIDIMetaTextEvent.h in Headers */,
+				1A689CA647BB86CAFCDDEB57 /* MIKMIDIMetaTimeSignatureEvent.h in Headers */,
+				C7FE52BC1394BC6A252F8711 /* MIKMIDIMetaTrackSequenceNameEvent.h in Headers */,
+				6FBD00090EAA460021F0A5EE /* MIKMIDIMetronome.h in Headers */,
+				FBDC2A8423E0B28B66666199 /* MIKMIDINoteEvent.h in Headers */,
+				6742D6573B2001DC25D6E8D8 /* MIKMIDINoteOffCommand.h in Headers */,
+				778C94EC97B27E76D284CE1E /* MIKMIDINoteOnCommand.h in Headers */,
+				5EEB70F7FB14C2D690C03E72 /* MIKMIDIObject.h in Headers */,
+				2AF11D385CAB910EE2BA2306 /* MIKMIDIObject_SubclassMethods.h in Headers */,
+				2DC19A3DE16A34A2CABE9220 /* MIKMIDIOutputPort.h in Headers */,
+				2AA5E7DDEB1E1261006D5659 /* MIKMIDIPlayer.h in Headers */,
+				13F85AF3FE9D0EC814AF57F5 /* MIKMIDIPort.h in Headers */,
+				EE2AC8B1286746DF6EDB4D78 /* MIKMIDIPort_SubclassMethods.h in Headers */,
+				35D623D772C24A85267EAE52 /* MIKMIDIPrivate.h in Headers */,
+				FCDE5AB50E0C14BB76838196 /* MIKMIDIPrivateUtilities.h in Headers */,
+				89A0A865194D8B274348EB64 /* MIKMIDIProgramChangeCommand.h in Headers */,
+				3F2E0D86F59DB5129F070373 /* MIKMIDIResponder.h in Headers */,
+				B18DCD3C2E6DB44C188D717A /* MIKMIDISequence.h in Headers */,
+				97779009031B829D6E845473 /* MIKMIDISequencer.h in Headers */,
+				77631D07B565ED7D6C43CA99 /* MIKMIDISourceEndpoint.h in Headers */,
+				915B097BE68F295D57FC42EE /* MIKMIDISystemExclusiveCommand.h in Headers */,
+				000F41E4F4439FC95E27F000 /* MIKMIDISystemMessageCommand.h in Headers */,
+				A0528433340EDD5F6D4F4990 /* MIKMIDITempoEvent.h in Headers */,
+				F42CED1A0D42ED4352AA67C2 /* MIKMIDITrack.h in Headers */,
+				2D760EE83E1B918D5E9711B5 /* MIKMIDIUtilities.h in Headers */,
+				C0791E964A44167FF7B83BCA /* NSUIApplication+MIKMIDI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4280A6E54F49C64D43C11B42 /* Pods-midiConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74A3BD7F3E774635536A96C9 /* Build configuration list for PBXNativeTarget "Pods-midiConnect" */;
+			buildPhases = (
+				EDC185CDC4BB6A75A7436550 /* Sources */,
+				0906BA6C27DD64E72A188D23 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B120549D16FD625111A4C16 /* PBXTargetDependency */,
+				E9503F4F47A340B7DCFC811C /* PBXTargetDependency */,
+			);
+			name = "Pods-midiConnect";
+			productName = "Pods-midiConnect";
+			productReference = EE0BFBC5DE5859C8838B56B8 /* libPods-midiConnect.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		992AA36C5BEDAB79DCD56AD4 /* Pods-midiConnect-MIKMIDI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1AA5274C269C7D9AA808EF1 /* Build configuration list for PBXNativeTarget "Pods-midiConnect-MIKMIDI" */;
+			buildPhases = (
+				F74F42F97222A28EC24FF2C4 /* Sources */,
+				2D06365F4F6EB91C9B775389 /* Frameworks */,
+				8E9465A7B22C84F48F6666F0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-midiConnect-MIKMIDI";
+			productName = "Pods-midiConnect-MIKMIDI";
+			productReference = 150A99C4287CF2E664D9B163 /* libPods-midiConnect-MIKMIDI.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C2F812F13E38242641BD2E5F /* Pods-midiConnect-Mantle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E76666F000BE1CD7E82B03BD /* Build configuration list for PBXNativeTarget "Pods-midiConnect-Mantle" */;
+			buildPhases = (
+				EC338A06936AADF5634305DD /* Sources */,
+				F674520FE4FCE6310B61EE53 /* Frameworks */,
+				3D38345856DA108452A0AE9E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-midiConnect-Mantle";
+			productName = "Pods-midiConnect-Mantle";
+			productReference = CD2A2FEB4B8886993FDF3F02 /* libPods-midiConnect-Mantle.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAEC5C6EF1F2345181989382 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = CEB5511D5AE10A15F7C446D7 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A8EA993B3A3DC4DA5617F18B;
+			productRefGroup = 3C4B949290709348F65BFE7F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4280A6E54F49C64D43C11B42 /* Pods-midiConnect */,
+				992AA36C5BEDAB79DCD56AD4 /* Pods-midiConnect-MIKMIDI */,
+				C2F812F13E38242641BD2E5F /* Pods-midiConnect-Mantle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC338A06936AADF5634305DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				733DCCCACDFC25105FFBB125 /* EXTRuntimeExtensions.m in Sources */,
+				9D6BD642BCEBE22D262B5CCF /* EXTScope.m in Sources */,
+				88EBFA7058230044D87FC82F /* MTLJSONAdapter.m in Sources */,
+				1728206F173394D550D7FE92 /* MTLModel+NSCoding.m in Sources */,
+				381699B611F0A49D799F1F14 /* MTLModel.m in Sources */,
+				8891ECD0EB13CD82EAA96FB8 /* MTLReflection.m in Sources */,
+				0653517E5B0192B73027F03A /* MTLTransformerErrorHandling.m in Sources */,
+				94F05BCE62D0689F9B477B15 /* MTLValueTransformer.m in Sources */,
+				0A7EE8101BE12D5216D6401A /* NSArray+MTLManipulationAdditions.m in Sources */,
+				50B2800CB89F7ACE39B2722C /* NSDictionary+MTLJSONKeyPath.m in Sources */,
+				DE8346B25513AC4988FB12D3 /* NSDictionary+MTLManipulationAdditions.m in Sources */,
+				6F5E04E9A91BF0BBB77378C6 /* NSDictionary+MTLMappingAdditions.m in Sources */,
+				2BF30AA00E7350953FBA4D55 /* NSError+MTLModelException.m in Sources */,
+				7ACDC31DE27E0250669FC41C /* NSObject+MTLComparisonAdditions.m in Sources */,
+				66C5381D5FAD5B7390B87F03 /* NSValueTransformer+MTLInversionAdditions.m in Sources */,
+				BFF4D01AC1D1F329CEFE8F09 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */,
+				2EAFBD98E9A4B460974EE544 /* Pods-midiConnect-Mantle-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDC185CDC4BB6A75A7436550 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BF26C8DB20E244FBCFE034C /* Pods-midiConnect-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F74F42F97222A28EC24FF2C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214BDD751EB9087C963CB916 /* MIKMIDIChannelVoiceCommand.m in Sources */,
+				8FDE0F11EC34AA1F213E27EB /* MIKMIDIClientDestinationEndpoint.m in Sources */,
+				A6AB98D72E1F9AADDBCEAF55 /* MIKMIDIClientSourceEndpoint.m in Sources */,
+				EC340854D408EB5438BC569B /* MIKMIDIClock.m in Sources */,
+				477D2B06310E65056AB4F877 /* MIKMIDICommand.m in Sources */,
+				AE8A45736477E58FBFD1B330 /* MIKMIDICommandThrottler.m in Sources */,
+				4A678A5A3DEFB034866CE082 /* MIKMIDIControlChangeCommand.m in Sources */,
+				8A275A609CC171B6D34195CF /* MIKMIDIDestinationEndpoint.m in Sources */,
+				BAFFDCDA15620F81F6581264 /* MIKMIDIDevice.m in Sources */,
+				280C9CDDFC6D984DAFBCA9FA /* MIKMIDIDeviceManager.m in Sources */,
+				8A8CB9CAF604C66C969B4341 /* MIKMIDIEndpoint.m in Sources */,
+				A481255022953174BA9868D3 /* MIKMIDIEndpointSynthesizer.m in Sources */,
+				BFD763F7E63E7D95AE2198A1 /* MIKMIDIEntity.m in Sources */,
+				62469BEA202E8A3286F0415C /* MIKMIDIErrors.m in Sources */,
+				5FB487A6E3CC1D0071F33F79 /* MIKMIDIEvent.m in Sources */,
+				2738EAECDAABA134E83FBC18 /* MIKMIDIEventIterator.m in Sources */,
+				18C1FC690EC92034A5671ED1 /* MIKMIDIInputPort.m in Sources */,
+				D1E18C1E9793559CB8BD2E0C /* MIKMIDIMacDebugQuickLookSupport.m in Sources */,
+				2D6D34CC628AFFBA03F7B13D /* MIKMIDIMapping.m in Sources */,
+				8028AE5A5875F0CB96D15FAA /* MIKMIDIMappingGenerator.m in Sources */,
+				D84D596317B924BC2E4FFDAC /* MIKMIDIMappingManager.m in Sources */,
+				6F4E29091EEBDA40EB633ADD /* MIKMIDIMappingXMLParser.m in Sources */,
+				5D4B7EF046488488ACE51E84 /* MIKMIDIMetaCopyrightEvent.m in Sources */,
+				AB696E0920EF7D0783953578 /* MIKMIDIMetaCuePointEvent.m in Sources */,
+				0762F8E3F3AFEEA74081260D /* MIKMIDIMetaEvent.m in Sources */,
+				B6EF7514D93D25626CF16686 /* MIKMIDIMetaInstrumentNameEvent.m in Sources */,
+				C3C4E91090808559CD5C045D /* MIKMIDIMetaKeySignatureEvent.m in Sources */,
+				D4430A3BC1D5F0F4F3E08051 /* MIKMIDIMetaLyricEvent.m in Sources */,
+				B30B86A3CEC4034C50569E0B /* MIKMIDIMetaMarkerTextEvent.m in Sources */,
+				CE005B6EA70D2B7DFBFD6A1D /* MIKMIDIMetaSequenceEvent.m in Sources */,
+				CD3BD2107D5D1611739595A5 /* MIKMIDIMetaTextEvent.m in Sources */,
+				69A7386C7F647A1CFCDFCA24 /* MIKMIDIMetaTimeSignatureEvent.m in Sources */,
+				686E6CEDD573860B03F92B18 /* MIKMIDIMetaTrackSequenceNameEvent.m in Sources */,
+				ADE0DC899E89FD17BE2E61C3 /* MIKMIDIMetronome.m in Sources */,
+				DAF983FA096FF0C0864C904D /* MIKMIDINoteEvent.m in Sources */,
+				245E74E3EB4C4124F908ABAF /* MIKMIDINoteOffCommand.m in Sources */,
+				1E26FB700AFB1A5E11BE5FB6 /* MIKMIDINoteOnCommand.m in Sources */,
+				3700053F077A4ECFE572D4F9 /* MIKMIDIObject.m in Sources */,
+				0B8D162E2455A7C4B3773BDD /* MIKMIDIOutputPort.m in Sources */,
+				68AF62FEB22FBA0325539FA8 /* MIKMIDIPlayer.m in Sources */,
+				B640B67C5331FE2086433E31 /* MIKMIDIPort.m in Sources */,
+				6DDA159496E01E2EF23EB10E /* MIKMIDIPrivateUtilities.m in Sources */,
+				0F1281FB995A3E1B57FBE8EA /* MIKMIDIProgramChangeCommand.m in Sources */,
+				875746FF9A554CB8F651416C /* MIKMIDISequence.m in Sources */,
+				679E8E958F03C77FB457697C /* MIKMIDISequencer.m in Sources */,
+				1838345A4EDA7E18D68E829D /* MIKMIDISourceEndpoint.m in Sources */,
+				AF3F09A0AAACF64F19D7E213 /* MIKMIDISystemExclusiveCommand.m in Sources */,
+				D4D2DF183C61530CEDCAA28D /* MIKMIDISystemMessageCommand.m in Sources */,
+				3EED59C496E24620DEE6CE1B /* MIKMIDITempoEvent.m in Sources */,
+				0456ED7DBF96F7E0C6227F2F /* MIKMIDITrack.m in Sources */,
+				06E971B86E53D04BC9C3B05D /* MIKMIDIUtilities.m in Sources */,
+				808CF227ED74E4D8FDD5B4A7 /* NSUIApplication+MIKMIDI.m in Sources */,
+				EC6BF5C17AFC24EC2B073843 /* Pods-midiConnect-MIKMIDI-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B120549D16FD625111A4C16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-midiConnect-MIKMIDI";
+			target = 992AA36C5BEDAB79DCD56AD4 /* Pods-midiConnect-MIKMIDI */;
+			targetProxy = C596AFB20CF08EAE5D9B69E1 /* PBXContainerItemProxy */;
+		};
+		E9503F4F47A340B7DCFC811C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-midiConnect-Mantle";
+			target = C2F812F13E38242641BD2E5F /* Pods-midiConnect-Mantle */;
+			targetProxy = 10EFC18A61AE2134DCEF5D73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		65A7B866F787CDCBCD1BB19C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 019C2FD625D581A5F5B0CE7A /* Pods-midiConnect-Mantle-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-midiConnect-Mantle/Pods-midiConnect-Mantle-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7C2E3BB69C2A8CD152C70AC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFE22E00D9793E63F05434FF /* Pods-midiConnect-MIKMIDI-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-midiConnect-MIKMIDI/Pods-midiConnect-MIKMIDI-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8404AFB5AF61AD8645F7F1AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3976E2A9EF8D522924C46D9 /* Pods-midiConnect.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		945C16F8781005FDA1D36D77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A77ABA4880104103B9B9971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		B01BBF29A8299952FFAAE9DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B591470349E0192BB65F5430 /* Pods-midiConnect.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E5D57308A43AA524B5ED002F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 019C2FD625D581A5F5B0CE7A /* Pods-midiConnect-Mantle-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-midiConnect-Mantle/Pods-midiConnect-Mantle-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		EFA05F1DD91F7341FCEF4402 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFE22E00D9793E63F05434FF /* Pods-midiConnect-MIKMIDI-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-midiConnect-MIKMIDI/Pods-midiConnect-MIKMIDI-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74A3BD7F3E774635536A96C9 /* Build configuration list for PBXNativeTarget "Pods-midiConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B01BBF29A8299952FFAAE9DB /* Debug */,
+				8404AFB5AF61AD8645F7F1AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB5511D5AE10A15F7C446D7 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A77ABA4880104103B9B9971 /* Debug */,
+				945C16F8781005FDA1D36D77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E76666F000BE1CD7E82B03BD /* Build configuration list for PBXNativeTarget "Pods-midiConnect-Mantle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65A7B866F787CDCBCD1BB19C /* Debug */,
+				E5D57308A43AA524B5ED002F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1AA5274C269C7D9AA808EF1 /* Build configuration list for PBXNativeTarget "Pods-midiConnect-MIKMIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFA05F1DD91F7341FCEF4402 /* Debug */,
+				7C2E3BB69C2A8CD152C70AC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAEC5C6EF1F2345181989382 /* Project object */;
+}
