@@ -41,7 +41,7 @@
 		2D760EE83E1B918D5E9711B5 /* MIKMIDIUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C440B5F4C73899B892FE8DB /* MIKMIDIUtilities.h */; };
 		2DC19A3DE16A34A2CABE9220 /* MIKMIDIOutputPort.h in Headers */ = {isa = PBXBuildFile; fileRef = D7F5B90EAC833E7EF3BD5581 /* MIKMIDIOutputPort.h */; };
 		2EAFBD98E9A4B460974EE544 /* Pods-midiConnect-Mantle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4249E91A7D13A30CE8984023 /* Pods-midiConnect-Mantle-dummy.m */; };
-		34D378109496472B3E2178F9 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B1FEB4CB54BD9C8F4C5B30E /* metamacros.h */; };
+		34D378109496472B3E2178F9 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B1FEB4CB54BD9C8F4C5B30E /* metamacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35D623D772C24A85267EAE52 /* MIKMIDIPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F67839350DEFD0FDC66E41D /* MIKMIDIPrivate.h */; };
 		3700053F077A4ECFE572D4F9 /* MIKMIDIObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CED313F537B92B2628AD2F /* MIKMIDIObject.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		381699B611F0A49D799F1F14 /* MTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6406324A39B3D1ABD6E481DF /* MTLModel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -60,7 +60,7 @@
 		59AD281F56B154354137ECD0 /* NSError+MTLModelException.h in Headers */ = {isa = PBXBuildFile; fileRef = D00582CD68274AFB870C0AE0 /* NSError+MTLModelException.h */; };
 		5D4B7EF046488488ACE51E84 /* MIKMIDIMetaCopyrightEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BFD356F8BE1D4554148605 /* MIKMIDIMetaCopyrightEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		5EEB70F7FB14C2D690C03E72 /* MIKMIDIObject.h in Headers */ = {isa = PBXBuildFile; fileRef = CBDC871E28C5E56F59035AD7 /* MIKMIDIObject.h */; };
-		5F806F19C92D8EC87096056A /* EXTRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B0448E96B6F0D12D1E8FF76F /* EXTRuntimeExtensions.h */; };
+		5F806F19C92D8EC87096056A /* EXTRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B0448E96B6F0D12D1E8FF76F /* EXTRuntimeExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FB487A6E3CC1D0071F33F79 /* MIKMIDIEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 831D6A8F88BC92797E2B94E1 /* MIKMIDIEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		62469BEA202E8A3286F0415C /* MIKMIDIErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 5316179A73F0759242E51B06 /* MIKMIDIErrors.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		63315BEBD2634719291959E2 /* MTLReflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2243208560737F0A02037FF0 /* MTLReflection.h */; };
@@ -111,7 +111,7 @@
 		A8A33C70E3786B766E0F83C8 /* MIKMIDICommandThrottler.h in Headers */ = {isa = PBXBuildFile; fileRef = FFCF30212782C9AEFF445344 /* MIKMIDICommandThrottler.h */; };
 		AB696E0920EF7D0783953578 /* MIKMIDIMetaCuePointEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5F6513B2A8B1A5402C780E /* MIKMIDIMetaCuePointEvent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		ADE0DC899E89FD17BE2E61C3 /* MIKMIDIMetronome.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F48136773E3735B92EF97 /* MIKMIDIMetronome.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		ADFF2AB6EAC6983CD4F6FAE3 /* EXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A81EBC7F0A82AC33EF713E1 /* EXTKeyPathCoding.h */; };
+		ADFF2AB6EAC6983CD4F6FAE3 /* EXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A81EBC7F0A82AC33EF713E1 /* EXTKeyPathCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE8A45736477E58FBFD1B330 /* MIKMIDICommandThrottler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA1263868C4B963D89C30 /* MIKMIDICommandThrottler.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		AF3F09A0AAACF64F19D7E213 /* MIKMIDISystemExclusiveCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DE350A79EC000E82C0EBB0 /* MIKMIDISystemExclusiveCommand.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		AFDBFB64A9BC47EB80C9AC02 /* Mantle.h in Headers */ = {isa = PBXBuildFile; fileRef = C340FF688DBCDECFA45A70A0 /* Mantle.h */; };
@@ -158,7 +158,7 @@
 		F9DACA2B644DCFBD2EB3D5DF /* MIKMIDIMetaSequenceEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 62BFAB03E8EC9DFF4170DB69 /* MIKMIDIMetaSequenceEvent.h */; };
 		FA298443CB72208E733EF974 /* MIKMIDIMappingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 61780EF9E5F45CCF995C37DC /* MIKMIDIMappingManager.h */; };
 		FBDC2A8423E0B28B66666199 /* MIKMIDINoteEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 8648FBC9B154978E87B17C1B /* MIKMIDINoteEvent.h */; };
-		FBE7BA89257F6CC7C958E564 /* EXTScope.h in Headers */ = {isa = PBXBuildFile; fileRef = BC5C27FE9B31ADFAD966ABA6 /* EXTScope.h */; };
+		FBE7BA89257F6CC7C958E564 /* EXTScope.h in Headers */ = {isa = PBXBuildFile; fileRef = BC5C27FE9B31ADFAD966ABA6 /* EXTScope.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCDE5AB50E0C14BB76838196 /* MIKMIDIPrivateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 20E0A54AD39F95612A395350 /* MIKMIDIPrivateUtilities.h */; };
 		FDE78B79D5E95EE29E9A01E3 /* NSArray+MTLManipulationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 084C1EF7B8DF739FBAEAAC6E /* NSArray+MTLManipulationAdditions.h */; };
 /* End PBXBuildFile section */

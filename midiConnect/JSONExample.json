@@ -1,0 +1,78 @@
+{
+  "name": "Example",
+  "sceneID": "0",
+  "groups": [
+             {
+             "name": "Group 1",
+             "groupID": "0",
+             "controls": [
+                          {
+                          "dialID": "0",
+                          "name": "Spine",
+                          "channel": 0,
+                          "value": 127,
+                          "logDial": 0,
+                          "parentChannel": 2,
+                          "attributes": [
+                                         {
+                                         "attributeID": "0",
+                                         "outMinValue": -90,
+                                         "outMaxValue": 90,
+                                         "inMinValue": 0,
+                                         "inMaxValue": 127,
+                                         "mayaNode": "joint1",
+                                         "mayaAttribute": "rotateY"
+                                         },
+                                         {
+                                         "attributeID": "1",
+                                         "outMinValue": -90,
+                                         "outMaxValue": 90,
+                                         "inMinValue": 0,
+                                         "inMaxValue": 127,
+                                         "mayaNode": "joint2",
+                                         "mayaAttribute": "rotateY"
+                                         }
+                                         ]
+                          },
+                          {
+                          "dialID": "1",
+                          "channel": 2,
+                          "value": 47,
+                          "logDial": 1,
+                          "children": [
+                                       1
+                                       ],
+                          "attributes": [
+                                         {
+                                         "attributeID": "0",
+                                         "outMinValue": 0,
+                                         "outMaxValue": 45,
+                                         "inMinValue": 0,
+                                         "inMaxValue": 127,
+                                         "mayaNode": "joint2",
+                                         "mayaAttribute": "rotateY"
+                                         }
+                                         ]
+                          },
+                          {
+                          "dialID": "2",
+                          "channel": 43,
+                          "value": 0,
+                          "logDial": 0,
+                          "attributes": [
+                                         {
+                                         "attributeID": "0",
+                                         "outMinValue": 0,
+                                         "outMaxValue": 1,
+                                         "inMinValue": 126,
+                                         "inMaxValue": 127,
+                                         "mayaNode": "joint2",
+                                         "mayaAttribute": "rotateY",
+                                         "mayaCommand": "ls -sl"
+                                         }
+                                         ]
+                          }
+                          ]
+             }
+             ]
+}

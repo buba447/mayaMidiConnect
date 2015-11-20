@@ -11,6 +11,21 @@
 		48136E8D1BED8A7E00D884DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48136E8C1BED8A7E00D884DE /* main.m */; };
 		48136E8F1BED8A7E00D884DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48136E8E1BED8A7E00D884DE /* Assets.xcassets */; };
 		48136E921BED8A7E00D884DE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48136E901BED8A7E00D884DE /* MainMenu.xib */; };
+		48342CE91BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 48342CE81BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.m */; };
+		4834E8D51BED9C5300A65CD2 /* MDDial.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834E8D41BED9C5300A65CD2 /* MDDial.m */; };
+		4834E8D81BED9C6600A65CD2 /* MDAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834E8D71BED9C6600A65CD2 /* MDAttribute.m */; };
+		4834E8DB1BED9C7D00A65CD2 /* MDControlScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834E8DA1BED9C7D00A65CD2 /* MDControlScene.m */; };
+		4834E8DE1BED9C8B00A65CD2 /* MDControlGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834E8DD1BED9C8B00A65CD2 /* MDControlGroup.m */; };
+		486EA8741BFA954F002E6B59 /* MDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 486EA8721BFA954F002E6B59 /* MDMainViewController.m */; };
+		486EA8751BFA954F002E6B59 /* MDMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486EA8731BFA954F002E6B59 /* MDMainViewController.xib */; };
+		488A76A01BF12FDC001E96A4 /* JSONExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 488A769F1BF12FDC001E96A4 /* JSONExample.json */; };
+		48A2FF8E1BFC125500EA4EE5 /* bw.py in Resources */ = {isa = PBXBuildFile; fileRef = 48A2FF8D1BFC125500EA4EE5 /* bw.py */; };
+		48A2FF901BFC126700EA4EE5 /* midiConnect.py in Resources */ = {isa = PBXBuildFile; fileRef = 48A2FF8F1BFC126700EA4EE5 /* midiConnect.py */; };
+		48DC29E71BF168B50048E0FE /* MDMidiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC29E61BF168B50048E0FE /* MDMidiManager.m */; };
+		48DC29F21BF16C250048E0FE /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC29ED1BF16C250048E0FE /* GCDAsyncSocket.m */; };
+		48DC29F31BF16C250048E0FE /* MCStreamRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC29EF1BF16C250048E0FE /* MCStreamRequest.m */; };
+		48DC29F41BF16C250048E0FE /* MCStreamClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC29F11BF16C250048E0FE /* MCStreamClient.m */; };
+		48DC29F71BF2B0290048E0FE /* MDSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC29F61BF2B0290048E0FE /* MDSceneManager.m */; };
 		9155EBBFE27AB102928AFDF5 /* libPods-midiConnect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AF4CDCD7716D052C7B141C /* libPods-midiConnect.a */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +39,33 @@
 		48136E8E1BED8A7E00D884DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48136E911BED8A7E00D884DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		48136E931BED8A7E00D884DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48342CE71BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
+		48342CE81BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
+		4834E8D31BED9C5300A65CD2 /* MDDial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDial.h; sourceTree = "<group>"; };
+		4834E8D41BED9C5300A65CD2 /* MDDial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDial.m; sourceTree = "<group>"; };
+		4834E8D61BED9C6600A65CD2 /* MDAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAttribute.h; sourceTree = "<group>"; };
+		4834E8D71BED9C6600A65CD2 /* MDAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDAttribute.m; sourceTree = "<group>"; };
+		4834E8D91BED9C7D00A65CD2 /* MDControlScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDControlScene.h; sourceTree = "<group>"; };
+		4834E8DA1BED9C7D00A65CD2 /* MDControlScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDControlScene.m; sourceTree = "<group>"; };
+		4834E8DC1BED9C8B00A65CD2 /* MDControlGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDControlGroup.h; sourceTree = "<group>"; };
+		4834E8DD1BED9C8B00A65CD2 /* MDControlGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDControlGroup.m; sourceTree = "<group>"; };
+		4834E8DF1BED9D9500A65CD2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		486EA8711BFA954F002E6B59 /* MDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMainViewController.h; sourceTree = "<group>"; };
+		486EA8721BFA954F002E6B59 /* MDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMainViewController.m; sourceTree = "<group>"; };
+		486EA8731BFA954F002E6B59 /* MDMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDMainViewController.xib; sourceTree = "<group>"; };
+		488A769F1BF12FDC001E96A4 /* JSONExample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JSONExample.json; sourceTree = "<group>"; };
+		48A2FF8D1BFC125500EA4EE5 /* bw.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = bw.py; sourceTree = "<group>"; };
+		48A2FF8F1BFC126700EA4EE5 /* midiConnect.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = midiConnect.py; sourceTree = "<group>"; };
+		48DC29E51BF168B50048E0FE /* MDMidiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMidiManager.h; sourceTree = "<group>"; };
+		48DC29E61BF168B50048E0FE /* MDMidiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMidiManager.m; sourceTree = "<group>"; };
+		48DC29EC1BF16C250048E0FE /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		48DC29ED1BF16C250048E0FE /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		48DC29EE1BF16C250048E0FE /* MCStreamRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCStreamRequest.h; sourceTree = "<group>"; };
+		48DC29EF1BF16C250048E0FE /* MCStreamRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCStreamRequest.m; sourceTree = "<group>"; };
+		48DC29F01BF16C250048E0FE /* MCStreamClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCStreamClient.h; sourceTree = "<group>"; };
+		48DC29F11BF16C250048E0FE /* MCStreamClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCStreamClient.m; sourceTree = "<group>"; };
+		48DC29F51BF2B0290048E0FE /* MDSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSceneManager.h; sourceTree = "<group>"; };
+		48DC29F61BF2B0290048E0FE /* MDSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSceneManager.m; sourceTree = "<group>"; };
 		4F1C22AB2E873D997FD20530 /* Pods-midiConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midiConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-midiConnect/Pods-midiConnect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,8 +110,20 @@
 		48136E871BED8A7E00D884DE /* midiConnect */ = {
 			isa = PBXGroup;
 			children = (
+				48DC29EB1BF16C080048E0FE /* MCStreamServer */,
+				4834E8D21BED9C3800A65CD2 /* ModelLayer */,
 				48136E881BED8A7E00D884DE /* AppDelegate.h */,
 				48136E891BED8A7E00D884DE /* AppDelegate.m */,
+				48DC29E51BF168B50048E0FE /* MDMidiManager.h */,
+				48DC29E61BF168B50048E0FE /* MDMidiManager.m */,
+				48DC29F51BF2B0290048E0FE /* MDSceneManager.h */,
+				48DC29F61BF2B0290048E0FE /* MDSceneManager.m */,
+				48342CE71BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.h */,
+				48342CE81BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.m */,
+				486EA8711BFA954F002E6B59 /* MDMainViewController.h */,
+				486EA8721BFA954F002E6B59 /* MDMainViewController.m */,
+				486EA8731BFA954F002E6B59 /* MDMainViewController.xib */,
+				4834E8DF1BED9D9500A65CD2 /* PrefixHeader.pch */,
 				48136E8E1BED8A7E00D884DE /* Assets.xcassets */,
 				48136E901BED8A7E00D884DE /* MainMenu.xib */,
 				48136E931BED8A7E00D884DE /* Info.plist */,
@@ -81,9 +135,40 @@
 		48136E8B1BED8A7E00D884DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				48A2FF8F1BFC126700EA4EE5 /* midiConnect.py */,
+				48A2FF8D1BFC125500EA4EE5 /* bw.py */,
+				488A769F1BF12FDC001E96A4 /* JSONExample.json */,
 				48136E8C1BED8A7E00D884DE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4834E8D21BED9C3800A65CD2 /* ModelLayer */ = {
+			isa = PBXGroup;
+			children = (
+				4834E8D31BED9C5300A65CD2 /* MDDial.h */,
+				4834E8D41BED9C5300A65CD2 /* MDDial.m */,
+				4834E8D61BED9C6600A65CD2 /* MDAttribute.h */,
+				4834E8D71BED9C6600A65CD2 /* MDAttribute.m */,
+				4834E8D91BED9C7D00A65CD2 /* MDControlScene.h */,
+				4834E8DA1BED9C7D00A65CD2 /* MDControlScene.m */,
+				4834E8DC1BED9C8B00A65CD2 /* MDControlGroup.h */,
+				4834E8DD1BED9C8B00A65CD2 /* MDControlGroup.m */,
+			);
+			name = ModelLayer;
+			sourceTree = "<group>";
+		};
+		48DC29EB1BF16C080048E0FE /* MCStreamServer */ = {
+			isa = PBXGroup;
+			children = (
+				48DC29EC1BF16C250048E0FE /* GCDAsyncSocket.h */,
+				48DC29ED1BF16C250048E0FE /* GCDAsyncSocket.m */,
+				48DC29EE1BF16C250048E0FE /* MCStreamRequest.h */,
+				48DC29EF1BF16C250048E0FE /* MCStreamRequest.m */,
+				48DC29F01BF16C250048E0FE /* MCStreamClient.h */,
+				48DC29F11BF16C250048E0FE /* MCStreamClient.m */,
+			);
+			name = MCStreamServer;
 			sourceTree = "<group>";
 		};
 		4BA11B1A209931D8315676D6 /* Pods */ = {
@@ -154,7 +239,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A2FF901BFC126700EA4EE5 /* midiConnect.py in Resources */,
 				48136E8F1BED8A7E00D884DE /* Assets.xcassets in Resources */,
+				488A76A01BF12FDC001E96A4 /* JSONExample.json in Resources */,
+				48A2FF8E1BFC125500EA4EE5 /* bw.py in Resources */,
+				486EA8751BFA954F002E6B59 /* MDMainViewController.xib in Resources */,
 				48136E921BED8A7E00D884DE /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,8 +288,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48DC29F21BF16C250048E0FE /* GCDAsyncSocket.m in Sources */,
+				48DC29F31BF16C250048E0FE /* MCStreamRequest.m in Sources */,
+				48DC29F41BF16C250048E0FE /* MCStreamClient.m in Sources */,
+				4834E8D51BED9C5300A65CD2 /* MDDial.m in Sources */,
+				4834E8D81BED9C6600A65CD2 /* MDAttribute.m in Sources */,
+				486EA8741BFA954F002E6B59 /* MDMainViewController.m in Sources */,
+				48342CE91BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.m in Sources */,
 				48136E8D1BED8A7E00D884DE /* main.m in Sources */,
 				48136E8A1BED8A7E00D884DE /* AppDelegate.m in Sources */,
+				48DC29E71BF168B50048E0FE /* MDMidiManager.m in Sources */,
+				4834E8DE1BED9C8B00A65CD2 /* MDControlGroup.m in Sources */,
+				4834E8DB1BED9C7D00A65CD2 /* MDControlScene.m in Sources */,
+				48DC29F71BF2B0290048E0FE /* MDSceneManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = midiConnect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.midiConnect";
@@ -316,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = midiConnect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.midiConnect";

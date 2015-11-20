@@ -1,0 +1,48 @@
+[{
+  "sceneName" : "Scene 1",
+  "controlGroups" :
+  [{
+    "groupName" : "Group 1",
+    "controls" : 
+    [{
+      "channel" : "1",
+      "value" : "127",
+      "logDial" : "NO",
+      "parentChannel" : "44",
+      "childChannel" : "4",
+      "attributes" :
+      [{
+        "minValue" : "0",
+        "maxValue" : "45",
+        "fromValue" : "0",
+        "toValue" : "127",
+        "mayaNode" : "joint1",
+        "mayaAttribute" : "rotateX"
+        },
+        {
+        "minValue" : "0",
+        "maxValue" : "45",
+        "fromValue" : "0",
+        "toValue" : "127",
+        "mayaNode" : "joint1",
+        "mayaAttribute" : "rotateY"
+        }]
+      },
+      {
+      "channel" : "2",
+      "value" : "47",
+      "logDial" : "NO",
+      "parentChannel" : "9",
+      "childChannel" : "-1",
+      "attributes" :
+      [{
+        "minValue" : "0",
+        "maxValue" : "45",
+        "fromValue" : "0",
+        "toValue" : "127",
+        "mayaNode" : "joint2",
+        "mayaAttribute" : "rotateY"
+        }]
+      }]
+  }]
+ }]
