@@ -26,16 +26,18 @@
 @property (weak) IBOutlet NSTableView *controlsTableView;
 @property (weak) IBOutlet NSButton *addNewControlButton;
 @property (weak) IBOutlet NSButton *deleteControlButton;
-
+@property (weak) IBOutlet NSButton *pushButtonToggle;
+@property (weak) IBOutlet NSTextField *prevButtonField;
+@property (weak) IBOutlet NSTextField *nextButtonField;
 
 // Control UI
 
 @property (weak) IBOutlet NSTextField *controlNameTextField;
 @property (weak) IBOutlet NSTextField *controlChannelTextFiel;
 @property (weak) IBOutlet NSButton *controlListenButton;
-@property (weak) IBOutlet NSButton *logSwitchButton;
 @property (weak) IBOutlet NSTextField *childControlTextField;
 @property (weak) IBOutlet NSButton *childControlListenButton;
+@property (weak) IBOutlet NSButton *isAlwaysActiveGroup;
 
 
 // Attribute UI

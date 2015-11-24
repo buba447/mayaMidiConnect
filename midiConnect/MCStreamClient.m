@@ -258,6 +258,11 @@ static MCStreamClient *sharedClient = nil;
   MCStreamRequest *currentRequest = requests_.firstObject;
   [currentRequest.responseData appendData:data];
   currentRequest.status = MCStreamStatusFinished;
+  if ([currentRequest.pyCommand containsString:@"midiConnect."]) {
+    NSString *responseString = [NSString stringWithUTF8String:[data bytes]];
+    NSString *newLogLine = [NSString stringWithFormat:@"Request:%@ Response:%@/n", currentRequest.pyCommand, responseString];
+    NSLog(newLogLine);
+  }
   [requests_ removeObject:currentRequest];
   if (currentRequest.completionBlock) {
     dispatch_async(dispatch_get_main_queue(), ^{

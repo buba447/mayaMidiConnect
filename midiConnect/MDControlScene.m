@@ -14,7 +14,10 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
   return @{@"sceneName" : @"name",
            @"controlGroups" : @"groups",
-           @"sceneID" : @"sceneID"};
+           @"sceneID" : @"sceneID",
+           @"midiDeviceName" : @"midiDeviceName",
+           @"nextButton" : @"nextButton",
+           @"previousButton" : @"previousButton"};
 }
 
 + (NSValueTransformer *)controlGroupsJSONTransformer {

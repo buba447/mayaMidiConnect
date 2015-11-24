@@ -14,7 +14,8 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
   return @{@"groupName" : @"name",
            @"controls" : @"controls",
-           @"groupID" : @"groupID"};
+           @"groupID" : @"groupID",
+           @"isAlwaysActive" : @"isAlwaysActive"};
 }
 
 + (NSValueTransformer *)controlsJSONTransformer {

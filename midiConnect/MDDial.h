@@ -14,12 +14,12 @@
 @property (nonatomic, copy) NSString *dialName;
 @property (nonatomic, copy) NSNumber *dialChannel;
 @property (nonatomic, copy) NSNumber *dialValue;
+@property (nonatomic, copy) NSNumber *isButtonDial;
 @property (nonatomic, copy) NSString *dialID;
 @property (nonatomic, copy) NSArray<MDAttribute *> *dialAttributes;
 
 // Bool that specifies if this is a log parent dial for another dial.
 // Not really sure about these guys yet.
-@property (nonatomic, copy) NSNumber *isLogDial;
 @property (nonatomic, copy) NSNumber *parentDialChannel;
 @property (nonatomic, copy) NSNumber *childDialChannel;
 

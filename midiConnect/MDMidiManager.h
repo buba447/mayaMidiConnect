@@ -16,6 +16,9 @@
 @property (nonatomic, copy) void (^midiListeningBlock)(NSNumber *midiChannel);
 @property (nonatomic, readonly) NSString *currentDevice;
 
+- (void)addSpecialCaseBlock:(void (^)(void))specialBlock forChannelNumber:(NSNumber *)channelNumber;
+- (void)removeAllSpecialCaseBlocks;
+
 - (void)connectToDevice:(NSString *)deviceName;
 
 @end

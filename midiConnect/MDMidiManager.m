@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) MIKMIDIDevice *controlDevice;
 @property (nonatomic, strong) NSMapTable *connectionTokensForSources;
-
+@property (nonatomic, strong) NSMutableDictionary *specialCaseBlocks;
 @end
 
 static MDMidiManager *sharedManager = nil;
@@ -23,6 +23,7 @@ static MDMidiManager *sharedManager = nil;
 - (id)init {
   self = [super init];
   if (self) {
+    self.specialCaseBlocks = [NSMutableDictionary dictionary];
     self.connectionTokensForSources = [NSMapTable strongToStrongObjectsMapTable];
   }
   return self;
@@ -92,12 +93,34 @@ static MDMidiManager *sharedManager = nil;
     _midiListeningBlock = nil;
     return;
   }
+  NSInteger value = [(MIKMIDIControlChangeCommand *)command controllerValue];
+  
+  if ([self.specialCaseBlocks objectForKey:@([(MIKMIDIControlChangeCommand *)command controllerNumber])] &&
+      value == 127) {
+    void (^specialBlock)() = self.specialCaseBlocks[@([(MIKMIDIControlChangeCommand *)command controllerNumber])];
+    specialBlock();
+    return;
+  }
+  
   NSInteger controlChannel = [(MIKMIDIControlChangeCommand *)command controllerNumber];
   MDDial *dial = [[MDSceneManager sharedManager] dialForMidiChannel:controlChannel];
+  if (dial && dial.isButtonDial.integerValue == 1) {
+    if (value == 127) {
+      [dial updateDialValue:@(value)];
+    }
+    return;
+  }
+  
   if (dial) {
-    NSInteger value = [(MIKMIDIControlChangeCommand *)command controllerValue];
     [dial updateDialValue:@(value)];
   }
 }
 
+- (void)addSpecialCaseBlock:(void (^)(void))specialBlock forChannelNumber:(NSNumber *)channelNumber {
+  [self.specialCaseBlocks setObject:[specialBlock copy] forKey:channelNumber];
+}
+
+- (void)removeAllSpecialCaseBlocks {
+  [self.specialCaseBlocks removeAllObjects];
+}
 @end

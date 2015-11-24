@@ -16,6 +16,7 @@ static NSString *kMayaSelectionChangedNotification = @"mcSelectionChanged";
 @interface MCStreamClient : NSObject <NSStreamDelegate>
 
 @property (nonatomic, readonly) BOOL isConnected;
+@property (nonatomic, readonly) NSString *logs;
 
 + (MCStreamClient *)sharedClient;
 

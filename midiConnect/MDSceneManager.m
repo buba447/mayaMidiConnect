@@ -241,14 +241,24 @@ static MDSceneManager *sharedManager = nil;
 #pragma mark - Midi Methods
 
 - (MDDial *)dialForMidiChannel:(NSInteger)channel {
-  MDDial *returnDial = nil;
   for (MDDial *dial in self.currentControlGroup.controls) {
     if (dial.dialChannel.integerValue == channel) {
-      returnDial = dial;
+      return dial;
       break;
     }
   }
-  return returnDial;
+  for (MDControlGroup *group in self.currentScene.controlGroups) {
+    if (group != self.currentControlGroup &&
+        group.isAlwaysActive.integerValue == 1) {
+      for (MDDial *dial in group.controls) {
+        if (dial.dialChannel.integerValue == channel) {
+          return dial;
+          break;
+        }
+      }
+    }
+  }
+  return nil;
 }
 
 #pragma mark - Maya Communication
@@ -261,6 +271,33 @@ static MDSceneManager *sharedManager = nil;
   NSDictionary *jsonDictionary = [MTLJSONAdapter JSONDictionaryFromModel:controlGroup error:&error];
   if (error) {
     // TODO Handle
+  }
+  if (!jsonDictionary) {
+    return;
+  }
+  
+  // Now patch in always active controls
+  NSMutableArray *jsonControls = nil;
+  if (jsonDictionary[@"controls"]) {
+    jsonControls = [NSMutableArray arrayWithArray:jsonDictionary[@"controls"]];
+  } else {
+    jsonControls = [NSMutableArray array];
+  }
+
+  BOOL controlsChanged = NO;
+  for (MDControlGroup *group in self.currentScene.controlGroups) {
+    if (group != controlGroup && group.isAlwaysActive.boolValue == 1) {
+      controlsChanged = YES;
+      NSError *error = nil;
+      NSDictionary *activeDictionary = [MTLJSONAdapter JSONDictionaryFromModel:group error:&error];
+      [jsonControls addObjectsFromArray:activeDictionary[@"controls"]];
+    }
+  }
+  
+  if (jsonControls.count && controlsChanged) {
+    NSMutableDictionary *newJsonDictionary = [NSMutableDictionary dictionaryWithDictionary:jsonDictionary];
+    newJsonDictionary[@"controls"] = jsonControls;
+    jsonDictionary = newJsonDictionary;
   }
   
   NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
@@ -349,6 +386,7 @@ static MDSceneManager *sharedManager = nil;
   _allScenes = allScenes;
   
   self.currentScene = newScene;
+  [self addNewGroupToCurrentScene];
 }
 
 - (void)_scenesDirectoryTouched {

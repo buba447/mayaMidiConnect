@@ -1,7 +1,26 @@
 {
   "name": "Example",
-  "sceneID": "0",
-  "groups": [
+  "sceneID": "-1",
+  "nextButton": 59,
+  "previousButton": 58,
+  "sceneID": "-1",
+  "groups": [{
+             "name": "Always Active",
+             "groupID": "234",
+             "isAlwaysActive" : 1,
+             "controls": [{
+                          "dialID": "2",
+                          "channel": 62,
+                          "value": 0,
+                          "isButtonDial" : 1,
+                          "attributes": [
+                                         {
+                                         "attributeID": "0",
+                                         "mayaCommand": "currentTime (`currentTime -q`+1)"
+                                         }
+                                         ]
+                          }]
+             },
              {
              "name": "Group 1",
              "groupID": "0",
@@ -12,7 +31,6 @@
                           "channel": 0,
                           "value": 127,
                           "logDial": 0,
-                          "parentChannel": 2,
                           "attributes": [
                                          {
                                          "attributeID": "0",

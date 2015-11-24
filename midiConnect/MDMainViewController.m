@@ -17,6 +17,8 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
+    // Ensure the scene manager is loaded
+    [MDSceneManager sharedManager];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionStatusChanged:) name:kMayaConnectionStatusChanged object:NULL];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(midiStatusChanged:) name:MIKMIDIDeviceWasAddedNotification object:NULL];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(midiStatusChanged:) name:MIKMIDIDeviceWasRemovedNotification object:NULL];
@@ -34,6 +36,7 @@
   self.controlsTableView.delegate = self;
   self.attributesTableView.dataSource = self;
   self.attributesTableView.delegate = self;
+  [self updateSpecialCaseBlocksForScene];
   [self _updateUI];
 }
 
@@ -41,6 +44,52 @@
   return [MDSceneManager sharedManager];
 }
 
+- (void)updateSpecialCaseBlocksForScene {
+  __weak typeof(self) weakSelf = self;
+  [[MDMidiManager sharedManager] removeAllSpecialCaseBlocks];
+  if (self.sceneManager.currentScene.previousButton) {
+    [[MDMidiManager sharedManager] addSpecialCaseBlock:^{
+      __strong typeof(self) strongSelf = weakSelf;
+      [strongSelf goToPreviousScene];
+    } forChannelNumber:self.sceneManager.currentScene.previousButton];
+  }
+  if (self.sceneManager.currentScene.nextButton) {
+    [[MDMidiManager sharedManager] addSpecialCaseBlock:^{
+      __strong typeof(self) strongSelf = weakSelf;
+      [strongSelf goToNextScene];
+    } forChannelNumber:self.sceneManager.currentScene.nextButton];
+  }
+}
+
+- (void)goToNextScene {
+  NSInteger idx = self.sceneManager.indexOfCurrentGroup;
+  idx = [self loopingIndexOfObjectAtIndex:idx byAdding:1 count:self.sceneManager.currentScene.controlGroups.count];
+  MDControlGroup *group = [self.sceneManager.currentScene.controlGroups objectAtIndex:idx];
+  self.sceneManager.currentControlGroup = group;
+  [self _updateGroupSection];
+}
+
+- (void)goToPreviousScene {
+  NSInteger idx = self.sceneManager.indexOfCurrentGroup;
+  idx = [self loopingIndexOfObjectAtIndex:idx byAdding:-1 count:self.sceneManager.currentScene.controlGroups.count];
+  MDControlGroup *group = [self.sceneManager.currentScene.controlGroups objectAtIndex:idx];
+  self.sceneManager.currentControlGroup = group;
+  [self _updateGroupSection];
+}
+
+- (NSInteger)loopingIndexOfObjectAtIndex:(NSInteger)index byAdding:(NSInteger)add count:(NSInteger)count {
+  if (labs(add) > count) {
+    add = (add / labs(add)) * (labs(add) - count);
+  }
+  index += add;
+  if (index >= count) {
+    index -= count;
+  }
+  if (index < 0) {
+    index += count;
+  }
+  return index;
+}
 #pragma mark - Scene Management UI responders
 
 - (IBAction)newScene:(id)sender {
@@ -57,6 +106,12 @@
   NSInteger idx = self.scenePicker.indexOfSelectedItem;
   MDControlScene *scene = [self.sceneManager.allScenes objectAtIndex:idx];
   self.sceneManager.currentScene = scene;
+  
+  [self updateSpecialCaseBlocksForScene];
+  
+  if (scene.midiDeviceName && [[[MDMidiManager sharedManager] availableDevices] containsObject:scene.midiDeviceName]) {
+    [[MDMidiManager sharedManager] connectToDevice:scene.midiDeviceName];
+  }
   [self _updateUI];
 }
 
@@ -117,11 +172,6 @@
   }];
 }
 
-- (IBAction)logControlDidToggle:(id)sender {
-  self.sceneManager.currentControl.isLogDial = @(self.logSwitchButton.integerValue);
-  [self _updateControlSection];
-}
-
 - (IBAction)startListeningForChildControlChannel:(id)sender {
   MDDial *dial = self.sceneManager.currentControl;
   self.childControlTextField.backgroundColor = [NSColor redColor];
@@ -131,6 +181,13 @@
     [self _updateControlSection];
   }];
 }
+
+- (IBAction)buttonControlDidToggle:(id)sender {
+  self.sceneManager.currentControl.isButtonDial = @(self.pushButtonToggle.integerValue);
+  [self _updateControlSection];
+}
+
+#pragma mark - Attribute UI Responders
 
 - (IBAction)addNewAttribute:(id)sender {
   [self.sceneManager addNewAttribute];
@@ -246,6 +303,7 @@
   NSInteger idx = self.deviceSelectionBox.indexOfSelectedItem;
   NSString *deviceName = [[[MDMidiManager sharedManager] availableDevices] objectAtIndex:idx];
   [[MDMidiManager sharedManager] connectToDevice:deviceName];
+  self.sceneManager.currentScene.midiDeviceName = deviceName;
   [self _updateConnectionSection];
 }
 
@@ -253,8 +311,32 @@
   [self _updateConnectionSection];
 }
 
+- (IBAction)listenForPrevButton:(id)sender {
+  self.prevButtonField.backgroundColor = [NSColor redColor];
+  [[MDMidiManager sharedManager] setMidiListeningBlock:^(NSNumber *channel) {
+    self.sceneManager.currentScene.previousButton = channel;
+    self.prevButtonField.backgroundColor = [NSColor whiteColor];
+    [self _updateGroupSection];
+  }];
+}
+
+- (IBAction)listenForNextButton:(id)sender {
+  self.nextButtonField.backgroundColor = [NSColor redColor];
+  [[MDMidiManager sharedManager] setMidiListeningBlock:^(NSNumber *channel) {
+    self.sceneManager.currentScene.nextButton = channel;
+    self.nextButtonField.backgroundColor = [NSColor whiteColor];
+    [self _updateGroupSection];
+  }];
+}
+
+
 - (void)midiStatusChanged:(NSNotification *)notif {
   [self _updateConnectionSection];
+}
+
+- (IBAction)didUpdateAlwaysActive:(id)sender {
+  self.sceneManager.currentControlGroup.isAlwaysActive = @(self.isAlwaysActiveGroup.integerValue);
+  [self _updateGroupSection];
 }
 
 #pragma mark - UI Updaters
@@ -286,6 +368,9 @@
   } else {
     [self _updateControlSection];
   }
+  self.isAlwaysActiveGroup.integerValue = self.sceneManager.currentControlGroup.isAlwaysActive.integerValue;
+  self.prevButtonField.stringValue = self.sceneManager.currentScene.previousButton.stringValue ?: @"";
+  self.nextButtonField.stringValue = self.sceneManager.currentScene.nextButton.stringValue  ?: @"";
 }
 
 - (void)_updateControlSection {
@@ -295,25 +380,19 @@
   self.controlNameTextField.hidden = (dial == nil);
   self.controlChannelTextFiel.hidden = (dial == nil);
   self.controlListenButton.hidden = (dial == nil);
-  self.logSwitchButton.hidden = (dial == nil);
+  self.pushButtonToggle.hidden = (dial == nil);
   self.childControlListenButton.hidden = (dial == nil);
   self.childControlTextField.hidden = (dial == nil);
   self.attributesTableView.hidden = (dial == nil);
   self.addNewAttributeButton.hidden = (dial == nil);
   self.removeAttributeButton.hidden = (dial == nil);
   self.loadFromMayaButton.hidden = (dial == nil);
-  
+
   // Data
   [self.controlNameTextField setStringValue:dial.dialName ?: @""];
   [self.controlChannelTextFiel setStringValue:dial.dialChannel ? dial.dialChannel.stringValue : @""];
-  [self.logSwitchButton setIntegerValue:dial.isLogDial.integerValue];
-  self.childControlListenButton.enabled = (dial.isLogDial.integerValue == 1);
-  if (dial.isLogDial.integerValue == 1) {
-    self.childControlTextField.stringValue = dial.childDialChannel ? dial.childDialChannel.stringValue : @"";
-  } else {
-    self.childControlTextField.stringValue = @"";
-  }
-  
+  [self.pushButtonToggle setIntegerValue:dial.isButtonDial.integerValue];
+  self.childControlTextField.stringValue = dial.childDialChannel ? dial.childDialChannel.stringValue : @"";
   [self.attributesTableView reloadData];
   // Reload Data clears selection.
   if (self.sceneManager.currentAttributes) {
@@ -412,6 +491,62 @@
     self.sceneManager.currentAttributes = attributes;
     [self _updateAttribueSection];
   }
+}
+
+// Reordering
+- (void)awakeFromNib {
+  [self.attributesTableView registerForDraggedTypes:[NSArray arrayWithObject:@"NSMutableArray"]];
+}
+
+- (BOOL)tableView:(NSTableView *)tv writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)pboard{
+  // Copy the row numbers to the pasteboard.
+  NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
+  
+  [pboard declareTypes:[NSArray arrayWithObject:@"NSMutableArray"] owner:self];
+  
+  [pboard setData:data forType:@"NSMutableArray"];
+  return YES;
+}
+
+- (NSDragOperation)tableView:(NSTableView*)tv validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)op{
+  // Add code here to validate the drop
+  NSLog(@"validate Drop");
+  return NSDragOperationEvery;
+}
+
+- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)to dropOperation:(NSTableViewDropOperation)operation{
+  
+  NSMutableArray *attributes = [NSMutableArray arrayWithArray:self.sceneManager.currentControl.dialAttributes];
+  //this is the code that handles dnd ordering - my table doesn't need to accept drops from outside! Hooray!
+  NSPasteboard* pboard = [info draggingPasteboard];
+  NSData* rowData = [pboard dataForType:@"NSMutableArray"];
+  
+  NSIndexSet* rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
+  
+  
+  NSArray *objectsToMove = [attributes objectsAtIndexes:rowIndexes];
+
+  MDAttribute *keystone = nil;
+  if (to < attributes.count) {
+    keystone = [attributes objectAtIndex:to];
+  }
+  NSInteger insertionIndex = NSNotFound;
+  [attributes removeObjectsInArray:objectsToMove];
+  if (keystone) {
+    insertionIndex = [attributes indexOfObject:keystone];
+  }
+  
+  for (MDAttribute *attribute in objectsToMove) {
+    if (insertionIndex == NSNotFound) {
+      [attributes addObject:attribute];
+      continue;
+    }
+    [attributes insertObject:attribute atIndex:insertionIndex];
+    insertionIndex ++;
+  }
+  self.sceneManager.currentControl.dialAttributes = attributes;
+  [self.attributesTableView reloadData];
+  return YES;
 }
 
 

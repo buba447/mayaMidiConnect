@@ -13,6 +13,7 @@
 
 @property (nonatomic, copy) NSString *groupName;
 @property (nonatomic, copy) NSString *groupID;
+@property (nonatomic, copy) NSNumber *isAlwaysActive;
 @property (nonatomic, copy) NSArray<MDDial *> *controls;
 
 @end

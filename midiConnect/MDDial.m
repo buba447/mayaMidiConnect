@@ -21,11 +21,11 @@
            @"dialChannel" : @"channel",
            @"dialValue" : @"value",
            @"dialAttributes" : @"attributes",
-           @"isLogDial" : @"logDial",
            @"parentDialChannel" : @"parentChannel",
            @"childDialChannel" : @"childChannel",
            @"dialName" : @"name",
-           @"dialID" : @"dialID"
+           @"dialID" : @"dialID",
+           @"isButtonDial" : @"isButtonDial"
            };
 }
 
@@ -36,7 +36,7 @@
 }
 
 - (void)updateDialValue:(NSNumber *)value {
-  if (_dialValue.integerValue == value.integerValue) {
+  if (_dialValue.integerValue == value.integerValue && self.isButtonDial.integerValue == 0) {
     return;
   }
   _dialValue = value;
