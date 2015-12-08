@@ -33,7 +33,7 @@ static MDSceneManager *sharedManager = nil;
 - (void)addNewGroupToCurrentScene {
   NSError *error;
   NSString *groupName = [NSString stringWithFormat:@"Group%lu", self.currentScene.controlGroups.count + 1];
-  NSString *groupID = [self idForNewGroup];
+  NSString *groupID = [self idForNewGroupInScene:self.currentScene];
   MDControlGroup *newGroup = [MTLJSONAdapter modelOfClass:[MDControlGroup class] fromJSONDictionary:@{@"name" : groupName, @"groupID" : groupID} error:&error];
   
   NSMutableArray *controlGroups = [NSMutableArray array];
@@ -73,7 +73,7 @@ static MDSceneManager *sharedManager = nil;
     dedupedName = [NSString stringWithFormat:@"%@%i", controlName, count];
     count ++;
   }
-  NSString *controlID = [self idForNewControl];
+  NSString *controlID = [self idForNewControlInGroup:self.currentControlGroup];
   MDDial *newDial = [MTLJSONAdapter modelOfClass:[MDDial class] fromJSONDictionary:@{@"name" : dedupedName, @"dialID" : controlID} error:NULL];
   NSMutableArray *controls = [NSMutableArray array];
   if (self.currentControlGroup.controls) {
@@ -97,7 +97,7 @@ static MDSceneManager *sharedManager = nil;
 }
 
 - (void)addNewAttribute {
-  NSString *attributeID = [self idForNewAttribute];
+  NSString *attributeID = [self idForNewAttributeInControl:self.currentControl];
   NSError *error;
   MDAttribute *attribute = [MTLJSONAdapter modelOfClass:[MDAttribute class] fromJSONDictionary:@{@"attributeID" : attributeID} error:&error];
   
@@ -111,7 +111,7 @@ static MDSceneManager *sharedManager = nil;
 
 - (void)addAttributes:(NSArray *)attributes {
   for (MDAttribute *attribute in attributes) {
-    attribute.attributeID = [self idForNewAttribute];
+    attribute.attributeID = [self idForNewAttributeInControl:self.currentControl];
     NSMutableArray *attributes = [NSMutableArray array];
     if (self.currentControl.dialAttributes) {
       [attributes addObjectsFromArray:self.currentControl.dialAttributes];
@@ -309,7 +309,7 @@ static MDSceneManager *sharedManager = nil;
   NSString *strippedJson = [jsonString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
   NSString *command = [NSString stringWithFormat:@"midiConnect.updateControlGroup('%@')", strippedJson];
   [[MCStreamClient sharedClient] sendPyCommand:command withCompletion:^(NSString *completion) {
-    NSLog(completion);
+    NSLog(@"%@", completion);
   } withFailure:^{
     
   }];
@@ -328,10 +328,10 @@ static MDSceneManager *sharedManager = nil;
   return newId;
 }
 
-- (NSString *)idForNewGroup {
+- (NSString *)idForNewGroupInScene:(MDControlScene *)scene {
   NSString *newId = @"1";
   int count = 1;
-  NSArray *allIds = [self.currentScene.controlGroups valueForKeyPath:@"groupID"];
+  NSArray *allIds = [scene.controlGroups valueForKeyPath:@"groupID"];
   while ([allIds containsObject:newId]) {
     count ++;
     newId = [NSString stringWithFormat:@"%i", count];
@@ -339,12 +339,12 @@ static MDSceneManager *sharedManager = nil;
   return newId;
 }
 
-- (NSString *)idForNewControl {
+- (NSString *)idForNewControlInGroup:(MDControlGroup *)group {
   NSString *newId = @"1";
   int count = 1;
   NSArray *allIds = nil;
-  if (self.currentControlGroup.controls) {
-    allIds = [self.currentControlGroup.controls valueForKeyPath:@"dialID"];
+  if (group.controls) {
+    allIds = [group.controls valueForKeyPath:@"dialID"];
   }
   while ([allIds containsObject:newId]) {
     count ++;
@@ -353,12 +353,12 @@ static MDSceneManager *sharedManager = nil;
   return newId;
 }
 
-- (NSString *)idForNewAttribute {
+- (NSString *)idForNewAttributeInControl:(MDDial *)control {
   NSString *newId = @"1";
   int count = 1;
   NSArray *allIds = nil;
-  if (self.currentControl) {
-    allIds = [self.currentControl.dialAttributes valueForKeyPath:@"attributeID"];
+  if (control) {
+    allIds = [control.dialAttributes valueForKeyPath:@"attributeID"];
   }
   while ([allIds containsObject:newId]) {
     count ++;
@@ -430,7 +430,7 @@ static MDSceneManager *sharedManager = nil;
     if ([attrObject isKindOfClass:[NSArray class]]) {
       NSArray *mayaAttr = (NSArray *)attrObject;
       for (NSString *attr in mayaAttr) {
-        NSString *attributeID = [self idForNewAttribute];
+        NSString *attributeID = [self idForNewAttributeInControl:self.currentControl];
         NSError *error;
         MDAttribute *attribute = [MTLJSONAdapter modelOfClass:[MDAttribute class] fromJSONDictionary:@{@"attributeID" : attributeID, @"mayaNode" : nodeName, @"mayaAttribute" : attr} error:&error];
         if (!error) {
@@ -438,7 +438,7 @@ static MDSceneManager *sharedManager = nil;
         }
       }
     } else {
-      NSString *attributeID = [self idForNewAttribute];
+      NSString *attributeID = [self idForNewAttributeInControl:self.currentControl];
       NSError *error;
       MDAttribute *attribute = [MTLJSONAdapter modelOfClass:[MDAttribute class] fromJSONDictionary:@{@"attributeID" : attributeID, @"mayaNode" : nodeName} error:&error];
       if (!error) {
@@ -450,6 +450,56 @@ static MDSceneManager *sharedManager = nil;
   if (newAttributes.count) {
     [self addAttributes:newAttributes];
   }
+}
+
+#pragma mark - Clipboard
+
+- (void)copyControlsToClipboard:(NSArray<MDDial *> *)controls {
+  NSMutableArray *newClipboard = [NSMutableArray array];
+  for (MDDial *dial in controls) {
+    // For simplicity, serialize objects and store.
+    NSError *error = nil;
+    NSDictionary *jsonDictionary = [MTLJSONAdapter JSONDictionaryFromModel:dial error:&error];
+    if (jsonDictionary && !error) {
+      [newClipboard addObject:jsonDictionary];
+    }
+  }
+  self.clipboardForControls = newClipboard;
+}
+
+- (void)pasteControlsToGroup:(MDControlGroup *)controlGroup {
+  NSMutableArray *controls = [NSMutableArray array];
+  if (controlGroup.controls.count) {
+    [controls addObjectsFromArray:controlGroup.controls];
+  }
+  for (NSDictionary *dictionary in self.clipboardForControls) {
+    NSError *error = nil;
+    MDDial *newControl = [MTLJSONAdapter modelOfClass:[MDDial class] fromJSONDictionary:dictionary error:&error];
+    if (newControl && !error) {
+      newControl.dialID = [self idForNewControlInGroup:controlGroup];
+      [controls addObject:newControl];
+    }
+  }
+  controlGroup.controls = controls;
+}
+
+- (void)mirrorControl:(MDDial *)control withName:(NSString *)newName findString:(NSString *)findString replaceString:(NSString *)replaceString {
+  NSError *error = nil;
+  NSDictionary *jsonDictionary = [MTLJSONAdapter JSONDictionaryFromModel:control error:&error];
+  MDDial *newControl = [MTLJSONAdapter modelOfClass:[MDDial class] fromJSONDictionary:jsonDictionary error:&error];
+  newControl.dialName = newName ?: [NSString stringWithFormat:@"%@ mirrored", newControl.dialName];
+  if (findString.length && replaceString.length) {
+    for (MDAttribute *attr in newControl.dialAttributes) {
+      attr.mayaNode = [attr.mayaNode stringByReplacingOccurrencesOfString:findString withString:replaceString];
+    }
+  }
+  
+  NSMutableArray *controls = [NSMutableArray array];
+  if (self.currentControlGroup.controls.count) {
+    [controls addObjectsFromArray:self.currentControlGroup.controls];
+  }
+  [controls addObject:newControl];
+  self.currentControlGroup.controls = controls;
 }
 
 @end

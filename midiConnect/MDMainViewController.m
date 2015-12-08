@@ -7,9 +7,10 @@
 //
 
 #import "MDMainViewController.h"
-
+#import "MDMirrorSheet.h"
 @interface MDMainViewController ()
 @property (nonatomic, readonly) MDSceneManager *sceneManager;
+@property (nonatomic, strong) MDMirrorSheet *mirrorSheet;
 @end
 
 @implementation MDMainViewController
@@ -338,6 +339,74 @@
   self.sceneManager.currentControlGroup.isAlwaysActive = @(self.isAlwaysActiveGroup.integerValue);
   [self _updateGroupSection];
 }
+
+#pragma mark - Contextual Menu Responders
+
+- (IBAction)controlTableDidSelectCopy:(id)sender {
+  [self.sceneManager copyControlsToClipboard:@[self.sceneManager.currentControl]];
+}
+
+- (IBAction)controlTableDidSelectPaste:(id)sender {
+  [self.sceneManager pasteControlsToGroup:self.sceneManager.currentControlGroup];
+  [self _updateGroupSection];
+}
+
+- (IBAction)controlMenuDidSelectDuplicate:(id)sender {
+  NSArray *previousClipboard = self.sceneManager.clipboardForControls;
+  [self.sceneManager copyControlsToClipboard:@[self.sceneManager.currentControl]];
+  [self.sceneManager pasteControlsToGroup:self.sceneManager.currentControlGroup];
+  self.sceneManager.clipboardForControls = previousClipboard;
+  [self _updateGroupSection];
+}
+
+- (IBAction)controlMenuDidSelectMirror:(id)sender {
+  MDMirrorSheet *newMirrorSheet = [[MDMirrorSheet alloc] initWithNibName:@"MDMirrorSheet" bundle:nil];
+  self.mirrorSheet = newMirrorSheet;
+  [self presentViewControllerAsSheet:newMirrorSheet];
+  [newMirrorSheet.cancelButton setTarget:self];
+  [newMirrorSheet.cancelButton setAction:@selector(mirrorSheetDidSelectCancel:)];
+  [newMirrorSheet.mirrorButton setTarget:self];
+  [newMirrorSheet.mirrorButton setAction:@selector(mirrorSheetDidSelectMirror:)];
+  newMirrorSheet.nameTextField.stringValue = self.sceneManager.currentControl.dialName;
+}
+
+- (IBAction)controlTableDidSelectDelete:(id)sender {
+  [self deleteCurrentControlFromGroup:nil];
+}
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+  if (menuItem.menu == self.controlMenu) {
+    NSInteger idx = [menuItem.menu indexOfItem:menuItem];
+    switch (idx) {
+      case 0: case 2: case 3: case 5: {
+        return (self.controlsTableView.selectedRow >= 0);
+      } break;
+      case 1: {
+        return (self.sceneManager.clipboardForControls.count > 0);
+      } break;
+    }
+    return NO;
+  }
+  return YES;
+}
+
+#pragma mark - Mirror Sheet Responders
+
+- (void)mirrorSheetDidSelectCancel:(id)sender {
+  [self dismissViewController:self.mirrorSheet];
+  self.mirrorSheet = nil;
+}
+
+- (void)mirrorSheetDidSelectMirror:(id)sender {
+  [self.sceneManager mirrorControl:self.sceneManager.currentControl
+                          withName:self.mirrorSheet.nameTextField.stringValue
+                        findString:self.mirrorSheet.findTextField.stringValue
+                     replaceString:self.mirrorSheet.replaceTextField.stringValue];
+  [self _updateGroupSection];
+  [self dismissViewController:self.mirrorSheet];
+  self.mirrorSheet = nil;
+}
+
 
 #pragma mark - UI Updaters
 

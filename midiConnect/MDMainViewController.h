@@ -29,6 +29,7 @@
 @property (weak) IBOutlet NSButton *pushButtonToggle;
 @property (weak) IBOutlet NSTextField *prevButtonField;
 @property (weak) IBOutlet NSTextField *nextButtonField;
+@property (strong) IBOutlet NSMenu *controlMenu;
 
 // Control UI
 

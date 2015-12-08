@@ -19,6 +19,8 @@
 		486EA8741BFA954F002E6B59 /* MDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 486EA8721BFA954F002E6B59 /* MDMainViewController.m */; };
 		486EA8751BFA954F002E6B59 /* MDMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486EA8731BFA954F002E6B59 /* MDMainViewController.xib */; };
 		488A76A01BF12FDC001E96A4 /* JSONExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 488A769F1BF12FDC001E96A4 /* JSONExample.json */; };
+		4894C6351C0677E400F0E662 /* MDMirrorSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4894C6331C0677E400F0E662 /* MDMirrorSheet.m */; };
+		4894C6361C0677E400F0E662 /* MDMirrorSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4894C6341C0677E400F0E662 /* MDMirrorSheet.xib */; };
 		48A2FF8E1BFC125500EA4EE5 /* bw.py in Resources */ = {isa = PBXBuildFile; fileRef = 48A2FF8D1BFC125500EA4EE5 /* bw.py */; };
 		48A2FF901BFC126700EA4EE5 /* midiConnect.py in Resources */ = {isa = PBXBuildFile; fileRef = 48A2FF8F1BFC126700EA4EE5 /* midiConnect.py */; };
 		48DC29E71BF168B50048E0FE /* MDMidiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DC29E61BF168B50048E0FE /* MDMidiManager.m */; };
@@ -54,6 +56,9 @@
 		486EA8721BFA954F002E6B59 /* MDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMainViewController.m; sourceTree = "<group>"; };
 		486EA8731BFA954F002E6B59 /* MDMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDMainViewController.xib; sourceTree = "<group>"; };
 		488A769F1BF12FDC001E96A4 /* JSONExample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JSONExample.json; sourceTree = "<group>"; };
+		4894C6321C0677E400F0E662 /* MDMirrorSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMirrorSheet.h; sourceTree = "<group>"; };
+		4894C6331C0677E400F0E662 /* MDMirrorSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMirrorSheet.m; sourceTree = "<group>"; };
+		4894C6341C0677E400F0E662 /* MDMirrorSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDMirrorSheet.xib; sourceTree = "<group>"; };
 		48A2FF8D1BFC125500EA4EE5 /* bw.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = bw.py; sourceTree = "<group>"; };
 		48A2FF8F1BFC126700EA4EE5 /* midiConnect.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = midiConnect.py; sourceTree = "<group>"; };
 		48DC29E51BF168B50048E0FE /* MDMidiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMidiManager.h; sourceTree = "<group>"; };
@@ -120,6 +125,9 @@
 				48DC29F61BF2B0290048E0FE /* MDSceneManager.m */,
 				48342CE71BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.h */,
 				48342CE81BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.m */,
+				4894C6321C0677E400F0E662 /* MDMirrorSheet.h */,
+				4894C6331C0677E400F0E662 /* MDMirrorSheet.m */,
+				4894C6341C0677E400F0E662 /* MDMirrorSheet.xib */,
 				486EA8711BFA954F002E6B59 /* MDMainViewController.h */,
 				486EA8721BFA954F002E6B59 /* MDMainViewController.m */,
 				486EA8731BFA954F002E6B59 /* MDMainViewController.xib */,
@@ -241,6 +249,7 @@
 			files = (
 				48A2FF901BFC126700EA4EE5 /* midiConnect.py in Resources */,
 				48136E8F1BED8A7E00D884DE /* Assets.xcassets in Resources */,
+				4894C6361C0677E400F0E662 /* MDMirrorSheet.xib in Resources */,
 				488A76A01BF12FDC001E96A4 /* JSONExample.json in Resources */,
 				48A2FF8E1BFC125500EA4EE5 /* bw.py in Resources */,
 				486EA8751BFA954F002E6B59 /* MDMainViewController.xib in Resources */,
@@ -295,6 +304,7 @@
 				4834E8D81BED9C6600A65CD2 /* MDAttribute.m in Sources */,
 				486EA8741BFA954F002E6B59 /* MDMainViewController.m in Sources */,
 				48342CE91BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.m in Sources */,
+				4894C6351C0677E400F0E662 /* MDMirrorSheet.m in Sources */,
 				48136E8D1BED8A7E00D884DE /* main.m in Sources */,
 				48136E8A1BED8A7E00D884DE /* AppDelegate.m in Sources */,
 				48DC29E71BF168B50048E0FE /* MDMidiManager.m in Sources */,

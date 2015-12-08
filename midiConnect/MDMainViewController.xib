@@ -17,6 +17,7 @@
                 <outlet property="childControlTextField" destination="qHl-tR-0Rt" id="vzz-jE-Bdd"/>
                 <outlet property="controlChannelTextFiel" destination="nq9-cv-Fut" id="m9p-by-tX1"/>
                 <outlet property="controlListenButton" destination="xs7-DO-F14" id="NdB-t5-gEG"/>
+                <outlet property="controlMenu" destination="cwn-WW-RQk" id="Vtk-8S-l4o"/>
                 <outlet property="controlNameTextField" destination="Itz-tc-W1P" id="Uug-6F-knh"/>
                 <outlet property="controlsTableView" destination="XAv-Yv-fWB" id="Xzc-XP-AuN"/>
                 <outlet property="deleteControlButton" destination="Aec-lC-Itc" id="axd-az-A8T"/>
@@ -158,7 +159,7 @@
                 <button toolTip="Listen For Channel - Click and then adjust knob to select it." verticalHuggingPriority="750" id="xs7-DO-F14">
                     <rect key="frame" x="357" y="451" width="29" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSQuickLookTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CeZ-Tr-oW0">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CeZ-Tr-oW0">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -220,7 +221,7 @@
                 <textField verticalHuggingPriority="750" id="enj-lq-ip0">
                     <rect key="frame" x="336" y="100" width="53" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="min" drawsBackground="YES" id="ZAs-Bo-uFQ">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0" placeholderString="min" drawsBackground="YES" id="ZAs-Bo-uFQ">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -232,7 +233,7 @@
                 <textField verticalHuggingPriority="750" id="z1a-os-p9Y">
                     <rect key="frame" x="336" y="68" width="53" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="max" drawsBackground="YES" id="KbA-P4-CWH">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="127" placeholderString="max" drawsBackground="YES" id="KbA-P4-CWH">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -353,7 +354,7 @@
                 <button toolTip="Listen For Channel - Click and then adjust knob to select it." verticalHuggingPriority="750" id="Czz-ua-E3b">
                     <rect key="frame" x="505" y="451" width="29" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSQuickLookTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dl1-Ay-GW4">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dl1-Ay-GW4">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -547,6 +548,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
+                    <connections>
+                        <outlet property="menu" destination="cwn-WW-RQk" id="ugV-6s-exi"/>
+                    </connections>
                 </scrollView>
                 <button verticalHuggingPriority="750" id="APF-6F-QhW">
                     <rect key="frame" x="424" y="654" width="116" height="32"/>
@@ -639,7 +643,7 @@
                 <button toolTip="Listen For Channel - Click and then adjust knob to select it." verticalHuggingPriority="750" id="h3Q-aW-vJl">
                     <rect key="frame" x="505" y="571" width="29" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSQuickLookTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kse-Cc-WYu">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kse-Cc-WYu">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -659,7 +663,7 @@
                 <button toolTip="Listen For Channel - Click and then adjust knob to select it." verticalHuggingPriority="750" id="KtT-8C-Dxr">
                     <rect key="frame" x="505" y="543" width="29" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSQuickLookTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O3F-fe-cyR">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O3F-fe-cyR">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -721,10 +725,45 @@
             </subviews>
             <point key="canvasLocation" x="176" y="488.5"/>
         </customView>
+        <menu id="cwn-WW-RQk">
+            <items>
+                <menuItem title="Copy" id="T7f-a2-f4j">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="controlTableDidSelectCopy:" target="-2" id="uVz-L8-Hin"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Paste" id="X3d-C1-qtx">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="controlTableDidSelectPaste:" target="-2" id="kpF-aO-JJ1"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Duplicate" id="g3V-Mc-3eE">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="controlMenuDidSelectDuplicate:" target="-2" id="8vG-2L-yU8"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Mirror" id="Hjt-bg-9p6">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="controlMenuDidSelectMirror:" target="-2" id="vRF-r8-rbY"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="af5-ba-ZCt"/>
+                <menuItem title="Delete" id="SWb-Ai-92M">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="controlTableDidSelectDelete:" target="-2" id="CT0-5L-yVS"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-220" y="326.5"/>
+        </menu>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSQuickLookTemplate" width="19" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>

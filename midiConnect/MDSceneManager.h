@@ -24,6 +24,11 @@
 @property (nonatomic, readonly) NSInteger indexOfCurrentScene;
 @property (nonatomic, readonly) NSInteger indexOfCurrentControl;
 @property (nonatomic, readonly) NSIndexSet *indexesOfCurrentAttributes;
+@property (nonatomic, strong) NSArray *clipboardForControls;
+
+- (void)copyControlsToClipboard:(NSArray<MDDial *> *)controls;
+- (void)pasteControlsToGroup:(MDControlGroup *)controlGroup;
+- (void)mirrorControl:(MDDial *)control withName:(NSString *)newName findString:(NSString *)findString replaceString:(NSString *)replaceString;
 
 - (void)addNewGroupToCurrentScene;
 - (void)deleteCurrentGroupFromScene;
