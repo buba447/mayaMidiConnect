@@ -1,0 +1,1 @@
+{"sceneID":"2","name":"Scene","groups":[{"name":"Group1","controls":[{"dialID":"1","channel":16,"logDial":null,"childChannel":null,"parentChannel":null,"value":127,"attributes":[{"mayaNode":"joint1","outMaxValue":71.35043,"mayaCommand":null,"attributeID":"2","inMinValue":0,"outMinValue":37.89758,"inMaxValue":127,"mayaAttribute":"ry"}],"name":"Control"}],"groupID":"1"}]}

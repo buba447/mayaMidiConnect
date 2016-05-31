@@ -1,6 +1,7 @@
 import maya.cmds as cmds
 import maya.mel
 import json
+import math as math
 
 md_controlGroup = {}
 md_controlMap = {}
@@ -51,22 +52,39 @@ def md_updateLogDial(dial):
 		return "No Child Dial Found"
 	childValue = childDial['value'] 
 	parentValue = dial['value']
-
-	bottomValue = remap(parentValue, 0, 127, 0.0, 1.0)
 	attributes = childDial['attributes']
-	interval = float(1.0 - bottomValue) / len(attributes)
-	bottomValue = 1.0
+	lowerBounds = remap(parentValue, 0, 127, 0, 1)
+
+	#upper bounds is always 1
+	# m = (lowerBounds - upperBounds) / len
+	# b = upperBounds (1)
+	# linear interpolation
+	
+	# m = (lowerBounds - 1) / len(attributes)
+	# x = 0
+
+	#quadratic.
+
+	xSpread = len(attributes) - 1
+
+	pointsX = [float(-xSpread),0.0,float(xSpread)]
+	pointsY = [float(lowerBounds),1.0,float(lowerBounds)]
+	a,b,c = coefficent(pointsX, pointsY)
+	# print(str(a) + "*x^2+" + str(b) + "*x+" + str(c))
+	x = 0.0
 	for attribute in attributes:
 		oMin = attribute['outMinValue']
 		oMax = attribute['outMaxValue']
 		iMin = attribute['inMinValue']
 		iMax = attribute['inMaxValue']
 		outSpread = (oMax - oMin) * 0.5
-		modifiedSpread = outSpread * bottomValue
+		# modifier = m * x + 1
+		modifier = (a * math.pow(x, 2)) + (b * x) + 1
+		x = x + 1.0
+		modifiedSpread = outSpread * modifier
 		midPoint = oMin + outSpread
 		oMin = midPoint - modifiedSpread
 		oMax = midPoint + modifiedSpread
-		bottomValue = bottomValue - interval
 		newValue = remap(childValue, iMin, iMax, oMin, oMax)
 		if attribute['mayaCommand'] != None:
 			md_evalDialButtonAttribute(attribute, newValue)
@@ -148,4 +166,28 @@ def remap( x, oMin, oMax, nMin, nMax ):
 
     return result
 
+def coefficent(x,y):
+    x_1 = x[0]
+    x_2 = x[1]
+    x_3 = x[2]
+    y_1 = y[0]
+    y_2 = y[1]
+    y_3 = y[2]
+
+    a = y_1/((x_1-x_2)*(x_1-x_3)) + y_2/((x_2-x_1)*(x_2-x_3)) + y_3/((x_3-x_1)*(x_3-x_2))
+
+    b = -y_1*(x_2+x_3)/((x_1-x_2)*(x_1-x_3))
+    -y_2*(x_1+x_3)/((x_2-x_1)*(x_2-x_3))
+    -y_3*(x_1+x_2)/((x_3-x_1)*(x_3-x_2))
+
+    c = y_1*x_2*x_3/((x_1-x_2)*(x_1-x_3))
+    + y_2*x_1*x_3/((x_2-x_1)*(x_2-x_3))
+    + y_3*x_1*x_2/((x_3-x_1)*(x_3-x_2))
+
+    return a,b,c
+
+# x = [1,2,3]
+# y = [4,7,12]
+# y = ax^2 + bx + c
+# a,b,c = coefficent(x, y)
 

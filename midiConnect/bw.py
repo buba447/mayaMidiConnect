@@ -33,7 +33,7 @@ def slPoll(asJSON=True):
 
 def lsSelectedAndAttributes(asJSON=True):
   slObjects = lsSelected(False)
-  slAttributes = cmds.channelBox('mainChannelBox',q=True,selectedMainAttributes=True,ln=True)
+  slAttributes = cmds.channelBox('mainChannelBox',q=True,selectedMainAttributes=True)
   returnData = {}
   returnData['objects'] = slObjects
   returnData['attributes'] = slAttributes
