@@ -11,12 +11,13 @@
 @interface MDAttribute : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, copy) NSString *attributeID;
-@property (nonatomic, copy) NSNumber *inMinValue;
-@property (nonatomic, copy) NSNumber *inMaxValue;
-@property (nonatomic, copy) NSNumber *outMinValue;
-@property (nonatomic, copy) NSNumber *outMaxValue;
+@property (nonatomic, copy) NSArray *inRange;
+@property (nonatomic, copy) NSArray *outRange;
 @property (nonatomic, copy) NSString *mayaNode;
 @property (nonatomic, copy) NSString *mayaAttribute;
 @property (nonatomic, copy) NSString *mayaCommand;
+
+- (void)setOutputValue:(NSNumber *)outputValue forInputValue:(NSNumber *)inputValue;
+- (void)removeValueForInput:(NSNumber *)inputValue;
 
 @end

@@ -16,6 +16,7 @@
 @property (nonatomic, copy) void (^midiListeningBlock)(NSNumber *midiChannel);
 @property (nonatomic, readonly) NSString *currentDevice;
 
+// TODO Move Special cases into a commands class.
 - (void)addSpecialCaseBlock:(void (^)(void))specialBlock forChannelNumber:(NSNumber *)channelNumber;
 - (void)removeAllSpecialCaseBlocks;
 

@@ -21,8 +21,6 @@
            @"dialChannel" : @"channel",
            @"dialValue" : @"value",
            @"dialAttributes" : @"attributes",
-           @"parentDialChannel" : @"parentChannel",
-           @"childDialChannel" : @"childChannel",
            @"dialName" : @"name",
            @"dialID" : @"dialID",
            @"isButtonDial" : @"isButtonDial"

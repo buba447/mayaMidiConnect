@@ -18,11 +18,6 @@
 @property (nonatomic, copy) NSString *dialID;
 @property (nonatomic, copy) NSArray<MDAttribute *> *dialAttributes;
 
-// Bool that specifies if this is a log parent dial for another dial.
-// Not really sure about these guys yet.
-@property (nonatomic, copy) NSNumber *parentDialChannel;
-@property (nonatomic, copy) NSNumber *childDialChannel;
-
 // This is model does the bulk of the actual work with maya.
 // When the value is updated with the below method, it send a short command to maya
 // It also queues its updates smartly to reduce input lag.

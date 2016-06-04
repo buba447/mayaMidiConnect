@@ -132,31 +132,6 @@ static MDSceneManager *sharedManager = nil;
   self.currentAttributes = nil;
 }
 
-- (void)linkControl:(MDDial *)control toChannel:(NSNumber *)channel isParent:(BOOL)isParent {
-  MDDial *otherDial = nil;
-  for (MDDial *dial in self.currentControlGroup.controls) {
-    if (dial.dialChannel.integerValue == channel.integerValue) {
-      otherDial = dial;
-      break;
-    }
-  }
-  if (!otherDial) {
-    return;
-  }
-  
-  MDDial *child, *parent;
-  if (isParent) {
-    parent = control;
-    child = otherDial;
-  } else {
-    child = control;
-    parent = otherDial;
-  }
-  parent.childDialChannel = child.dialChannel;
-  child.parentDialChannel = parent.dialChannel;
-  
-}
-
 #pragma mark - Property Overrides
 
 -(NSArray<NSString *> *)controlGroupNames {

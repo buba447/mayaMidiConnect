@@ -36,8 +36,6 @@
 @property (weak) IBOutlet NSTextField *controlNameTextField;
 @property (weak) IBOutlet NSTextField *controlChannelTextFiel;
 @property (weak) IBOutlet NSButton *controlListenButton;
-@property (weak) IBOutlet NSTextField *childControlTextField;
-@property (weak) IBOutlet NSButton *childControlListenButton;
 @property (weak) IBOutlet NSButton *isAlwaysActiveGroup;
 
 
@@ -51,13 +49,10 @@
 @property (weak) IBOutlet NSTextField *attributeNodeTextField;
 @property (weak) IBOutlet NSTextField *attributeTextField;
 @property (weak) IBOutlet NSTextField *melCommandTextField;
+@property (weak) IBOutlet NSTableView *attributeRangeTableView;
+@property (weak) IBOutlet NSButton *attributeAddRangeValueButton;
+@property (weak) IBOutlet NSButton *attributeRemoveRangeValueButton;
 
-@property (weak) IBOutlet NSTextField *inputMinTextField;
-@property (weak) IBOutlet NSTextField *inputMaxTextField;
-@property (weak) IBOutlet NSTextField *outputMinTextField;
-@property (weak) IBOutlet NSTextField *outputMaxTextField;
-@property (weak) IBOutlet NSButton *refreshMinButton;
-@property (weak) IBOutlet NSButton *refreshMaxButton;
 
 
 // Connection UI

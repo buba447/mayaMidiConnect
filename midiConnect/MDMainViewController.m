@@ -37,8 +37,11 @@
   self.controlsTableView.delegate = self;
   self.attributesTableView.dataSource = self;
   self.attributesTableView.delegate = self;
+  self.attributeRangeTableView.dataSource = self;
+  self.attributeRangeTableView.delegate = self;
   [self updateSpecialCaseBlocksForScene];
   [self _updateUI];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editingDidEndForTableCell:) name:NSControlTextDidEndEditingNotification object:nil];
 }
 
 - (MDSceneManager *)sceneManager {
@@ -173,16 +176,6 @@
   }];
 }
 
-- (IBAction)startListeningForChildControlChannel:(id)sender {
-  MDDial *dial = self.sceneManager.currentControl;
-  self.childControlTextField.backgroundColor = [NSColor redColor];
-  [[MDMidiManager sharedManager] setMidiListeningBlock:^(NSNumber *channel) {
-    [self.sceneManager linkControl:dial toChannel:channel isParent:YES];
-    self.childControlTextField.backgroundColor = [NSColor whiteColor];
-    [self _updateControlSection];
-  }];
-}
-
 - (IBAction)buttonControlDidToggle:(id)sender {
   self.sceneManager.currentControl.isButtonDial = @(self.pushButtonToggle.integerValue);
   [self _updateControlSection];
@@ -226,69 +219,57 @@
   [self _updateControlSection];
 }
 
-- (IBAction)inputMinDidUpdate:(id)sender {
+- (IBAction)addRangeInputValue:(id)sender {
   for (MDAttribute *attribute in self.sceneManager.currentAttributes) {
-    attribute.inMinValue = @(self.inputMinTextField.integerValue);
+    [attribute setOutputValue:@0 forInputValue:@0];
   }
   [self _updateAttribueSection];
+//  
+//  MDDial *currentDial = self.sceneManager.currentControl;
+//  if (![[MCStreamClient sharedClient] isConnected]) {
+//    
+//  }
 }
 
-- (IBAction)outputMinDidUpdate:(id)sender {
-  for (MDAttribute *attribute in self.sceneManager.currentAttributes) {
-    attribute.outMinValue = @(self.outputMinTextField.floatValue);
-  }
-  [self _updateAttribueSection];
-}
-
-- (IBAction)recordInputOutputMin:(id)sender {
-  MDDial *currentDial = self.sceneManager.currentControl;
-  for (MDAttribute *attribute in self.sceneManager.currentAttributes) {
-    attribute.inMinValue = currentDial.dialValue;
-    if (attribute.mayaNode && attribute.mayaAttribute) {
-      [[MCStreamClient sharedClient] sendPyCommand:[NSString stringWithFormat:@"cmds.getAttr('%@.%@')", attribute.mayaNode, attribute.mayaAttribute]
-                                    withCompletion:^(NSString *response) {
-                                      attribute.outMinValue = @(response.floatValue);
-                                      [self _updateAttribueSection];
-                                    } withFailure:^{
-                                      [self _updateAttribueSection];
-                                    }];
-    }
-  }
+- (IBAction)removeInputRangeValue:(id)sender {
   
-  [self _updateAttribueSection];
 }
 
-- (IBAction)inputMaxDidUpdate:(id)sender {
-  for (MDAttribute *attribute in self.sceneManager.currentAttributes) {
-    attribute.inMaxValue = @(self.inputMaxTextField.integerValue);
-  }
-  [self _updateAttribueSection];
-}
-
-- (IBAction)outputMaxDidUpdate:(id)sender {
-  for (MDAttribute *attribute in self.sceneManager.currentAttributes) {
-    attribute.outMaxValue = @(self.outputMaxTextField.floatValue);
-  }
-  [self _updateAttribueSection];
-}
-
-- (IBAction)recordInputOutputMax:(id)sender {
-  MDDial *currentDial = self.sceneManager.currentControl;
-  for (MDAttribute *attribute in self.sceneManager.currentAttributes) {
-    attribute.inMaxValue = currentDial.dialValue;
-    if (attribute.mayaNode && attribute.mayaAttribute) {
-      [[MCStreamClient sharedClient] sendPyCommand:[NSString stringWithFormat:@"cmds.getAttr('%@.%@')", attribute.mayaNode, attribute.mayaAttribute]
-                                    withCompletion:^(NSString *response) {
-                                      attribute.outMaxValue = @(response.floatValue);
-                                      [self _updateAttribueSection];
-                                    } withFailure:^{
-                                      [self _updateAttribueSection];
-                                    }];
-    }
-  }
-  
-  [self _updateAttribueSection];
-}
+//- (IBAction)recordInputOutputValue:(id)sender {
+//  MDDial *currentDial = self.sceneManager.currentControl;
+//  for (MDAttribute *attribute in self.sceneManager.currentAttributes) {
+//    attribute.inMinValue = currentDial.dialValue;
+//    if (attribute.mayaNode && attribute.mayaAttribute) {
+//      [[MCStreamClient sharedClient] sendPyCommand:[NSString stringWithFormat:@"cmds.getAttr('%@.%@')", attribute.mayaNode, attribute.mayaAttribute]
+//                                    withCompletion:^(NSString *response) {
+//                                      attribute.outMinValue = @(response.floatValue);
+//                                      [self _updateAttribueSection];
+//                                    } withFailure:^{
+//                                      [self _updateAttribueSection];
+//                                    }];
+//    }
+//  }
+//  
+//  [self _updateAttribueSection];
+//}
+//
+//- (IBAction)recordInputOutputMax:(id)sender {
+//  MDDial *currentDial = self.sceneManager.currentControl;
+//  for (MDAttribute *attribute in self.sceneManager.currentAttributes) {
+//    attribute.inMaxValue = currentDial.dialValue;
+//    if (attribute.mayaNode && attribute.mayaAttribute) {
+//      [[MCStreamClient sharedClient] sendPyCommand:[NSString stringWithFormat:@"cmds.getAttr('%@.%@')", attribute.mayaNode, attribute.mayaAttribute]
+//                                    withCompletion:^(NSString *response) {
+//                                      attribute.outMaxValue = @(response.floatValue);
+//                                      [self _updateAttribueSection];
+//                                    } withFailure:^{
+//                                      [self _updateAttribueSection];
+//                                    }];
+//    }
+//  }
+//  
+//  [self _updateAttribueSection];
+//}
 
 - (IBAction)didClickConnectButton:(id)sender {
   if ([[MCStreamClient sharedClient] isConnected]) {
@@ -441,6 +422,13 @@
   self.prevButtonField.stringValue = self.sceneManager.currentScene.previousButton.stringValue ?: @"";
   self.nextButtonField.stringValue = self.sceneManager.currentScene.nextButton.stringValue  ?: @"";
 }
+- (IBAction)fdsa:(id)sender {
+  NSLog(@"Stuff");
+}
+- (IBAction)h:(NSTextField *)sender {
+  NSLog(@"Stuff");
+}
+
 
 - (void)_updateControlSection {
   MDDial *dial = self.sceneManager.currentControl;
@@ -450,8 +438,6 @@
   self.controlChannelTextFiel.hidden = (dial == nil);
   self.controlListenButton.hidden = (dial == nil);
   self.pushButtonToggle.hidden = (dial == nil);
-  self.childControlListenButton.hidden = (dial == nil);
-  self.childControlTextField.hidden = (dial == nil);
   self.attributesTableView.hidden = (dial == nil);
   self.addNewAttributeButton.hidden = (dial == nil);
   self.removeAttributeButton.hidden = (dial == nil);
@@ -461,7 +447,7 @@
   [self.controlNameTextField setStringValue:dial.dialName ?: @""];
   [self.controlChannelTextFiel setStringValue:dial.dialChannel ? dial.dialChannel.stringValue : @""];
   [self.pushButtonToggle setIntegerValue:dial.isButtonDial.integerValue];
-  self.childControlTextField.stringValue = dial.childDialChannel ? dial.childDialChannel.stringValue : @"";
+  // TODO Remove log dials
   [self.attributesTableView reloadData];
   // Reload Data clears selection.
   if (self.sceneManager.currentAttributes) {
@@ -478,21 +464,16 @@
   self.attributeNodeTextField.hidden = (attribute == nil);
   self.attributeTextField.hidden = (attribute == nil);
   self.melCommandTextField.hidden = (attribute == nil);
-  self.inputMaxTextField.hidden = (attribute == nil);
-  self.inputMinTextField.hidden = (attribute == nil);
-  self.outputMaxTextField.hidden = (attribute == nil);
-  self.outputMinTextField.hidden = (attribute == nil);
-  self.refreshMaxButton.hidden = (attribute == nil);
-  self.refreshMinButton.hidden = (attribute == nil);
+  self.attributeAddRangeValueButton.hidden = (attribute == nil);
+  self.attributeRemoveRangeValueButton.hidden = (attribute == nil);
+  self.attributeRangeTableView.hidden = (attribute == nil);
   
   //data
   self.attributeNodeTextField.stringValue = attribute.mayaNode ?: @"";
   self.attributeTextField.stringValue = attribute.mayaAttribute ?: @"";
   self.melCommandTextField.stringValue = attribute.mayaCommand ?: @"";
-  self.inputMinTextField.stringValue = attribute.inMinValue ? attribute.inMinValue.stringValue : @"";
-  self.inputMaxTextField.stringValue = attribute.inMaxValue ? attribute.inMaxValue.stringValue : @"";
-  self.outputMinTextField.stringValue = attribute.outMinValue ? attribute.outMinValue.stringValue : @"";
-  self.outputMaxTextField.stringValue = attribute.outMaxValue ? attribute.outMaxValue.stringValue : @"";
+  [self.attributeRangeTableView reloadData];
+  
 }
 
 - (void)_updateConnectionSection {
@@ -520,6 +501,10 @@
   if (tableView == self.attributesTableView) {
     return self.sceneManager.currentControl.dialAttributes.count;
   }
+  if (tableView == self.attributeRangeTableView &&
+      self.sceneManager.currentAttributes.count) {
+    return self.sceneManager.currentAttributes.lastObject.inRange.count;
+  }
   return 0;
 }
 
@@ -539,12 +524,24 @@
   if (tableView == self.attributesTableView) {
     MDAttribute *attribute = [self.sceneManager.currentControl.dialAttributes objectAtIndex:row];
     NSString *name = @"Unassigned command";
-    if (attribute.mayaCommand) {
+    if (attribute.mayaCommand.length) {
       name = attribute.mayaCommand;
     } else if (attribute.mayaNode) {
       name = attribute.mayaAttribute ? [NSString stringWithFormat:@"%@.%@", attribute.mayaNode, attribute.mayaAttribute] : attribute.mayaNode;
     }
     cellView.textField.stringValue = name;
+  }
+  
+  if (tableView == self.attributeRangeTableView) {
+    MDAttribute *attr = self.sceneManager.currentAttributes.lastObject;
+    if([tableColumn.identifier isEqualToString:@"inputValue"] ) {
+      NSNumber *value = attr.inRange[row];
+      cellView.textField.stringValue = [NSString stringWithFormat:@"%@", value];
+    }
+    if([tableColumn.identifier isEqualToString:@"outputValue"] ) {
+      NSNumber *value = attr.outRange[row];
+      cellView.textField.stringValue = [NSString stringWithFormat:@"%@", value];
+    }
   }
   return cellView;
 }
@@ -618,5 +615,22 @@
   return YES;
 }
 
+- (void)editingDidEndForTableCell:(NSNotification *)notif {
+  NSTextField *textField = notif.object;
+  double newValue = textField.doubleValue;
+  NSInteger col = [self.attributeRangeTableView columnForView:textField];
+  NSInteger row = [self.attributeRangeTableView rowForView:textField];
+  MDAttribute *attribute = self.sceneManager.currentAttributes.lastObject;
+  if (col == 0) {
+    NSNumber *outValue = attribute.outRange[row];
+    NSNumber *oldInput = attribute.inRange[row];
+    [attribute removeValueForInput:oldInput];
+    [attribute setOutputValue:outValue forInputValue:@(newValue)];
+  } else if (col == 1) {
+    NSNumber *inputValue = attribute.inRange[row];
+    [attribute setOutputValue:@(newValue) forInputValue:inputValue];
+  }
+  [self _updateAttribueSection];
+}
 
 @end

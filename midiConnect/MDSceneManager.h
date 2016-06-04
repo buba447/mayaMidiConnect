@@ -46,5 +46,4 @@
 
 - (void)createAttributesBaseOnMayaSelection:(void (^)(void))completion;
 
-- (void)linkControl:(MDDial *)control toChannel:(NSNumber *)channel isParent:(BOOL)isParent;
 @end

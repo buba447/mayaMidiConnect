@@ -105,6 +105,7 @@ static MCStreamClient *sharedClient = nil;
 - (MCStreamRequest *)sendPyCommand:(NSString *)command
        withCompletion:(void (^)(NSString *))completion
           withFailure:(void (^)(void))failure {
+    NSLog(@"Sending Command: %@", command);
   MCStreamRequest *newRequest = [[MCStreamRequest alloc] initWithMessage:command];
   if (completion) {
     newRequest.completionBlock = ^(MCStreamRequest *response) {
@@ -128,6 +129,7 @@ static MCStreamClient *sharedClient = nil;
 - (MCStreamRequest *)getJSONFromPyCommand:(NSString *)command
               withCompletion:(void (^)(id JSONObject))completion
                  withFailure:(void (^)(void))failure {
+  NSLog(@"Sending Command: %@", command);
   MCStreamRequest *newRequest = [[MCStreamRequest alloc] initWithMessage:command];
   if (completion) {
     newRequest.completionBlock = ^(MCStreamRequest *response) {
@@ -236,7 +238,7 @@ static MCStreamClient *sharedClient = nil;
       });
     }
   }
-  [requests_ removeAllObjects];
+//  [requests_ removeAllObjects];
   
   dispatch_async(dispatch_get_main_queue(), ^{
     [self notifyNetworkError];
