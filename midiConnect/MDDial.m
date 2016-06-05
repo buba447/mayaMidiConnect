@@ -23,7 +23,12 @@
            @"dialAttributes" : @"attributes",
            @"dialName" : @"name",
            @"dialID" : @"dialID",
-           @"isButtonDial" : @"isButtonDial"
+           @"isButtonDial" : @"isButtonDial",
+           @"isRelative" : @"isRelative",
+           @"isAutoCatch" : @"isAutoCatch",
+           @"isInternalCommand" : @"isInternalCommand",
+           @"internalCommandType" : @"internalCommandType",
+           @"affectedDialChannel" : @"affectedDialChannel"
            };
 }
 
@@ -38,6 +43,11 @@
     return;
   }
   _dialValue = value;
+  
+  if (self.isInternalCommand.boolValue) {
+    return;
+  }
+  
   valueUpdated_ = YES;
   // Send to maya here.
   [self _sendUpdateIfNecessary];

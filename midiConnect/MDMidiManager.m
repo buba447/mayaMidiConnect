@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) MIKMIDIDevice *controlDevice;
 @property (nonatomic, strong) NSMapTable *connectionTokensForSources;
-@property (nonatomic, strong) NSMutableDictionary *specialCaseBlocks;
 @end
 
 static MDMidiManager *sharedManager = nil;
@@ -23,7 +22,6 @@ static MDMidiManager *sharedManager = nil;
 - (id)init {
   self = [super init];
   if (self) {
-    self.specialCaseBlocks = [NSMutableDictionary dictionary];
     self.connectionTokensForSources = [NSMapTable strongToStrongObjectsMapTable];
   }
   return self;
@@ -63,6 +61,7 @@ static MDMidiManager *sharedManager = nil;
       if (!connectionToken) {
         NSLog(@"Unable to connect to input: %@", error);
       } else {
+        _isConnected = YES;
         [self.connectionTokensForSources setObject:connectionToken forKey:source];
       }
     }
@@ -78,6 +77,7 @@ static MDMidiManager *sharedManager = nil;
     [[MIKMIDIDeviceManager sharedDeviceManager] disconnectInput:source forConnectionToken:token];
     
   }
+  _isConnected = NO;
 }
 
 - (void)setMidiListeningBlock:(void (^)(NSNumber *))midiListeningBlock {
@@ -93,17 +93,18 @@ static MDMidiManager *sharedManager = nil;
     _midiListeningBlock = nil;
     return;
   }
-  NSInteger value = [(MIKMIDIControlChangeCommand *)command controllerValue];
   
-  if ([self.specialCaseBlocks objectForKey:@([(MIKMIDIControlChangeCommand *)command controllerNumber])] &&
-      value == 127) {
-    void (^specialBlock)() = self.specialCaseBlocks[@([(MIKMIDIControlChangeCommand *)command controllerNumber])];
-    specialBlock();
+  NSInteger value = [(MIKMIDIControlChangeCommand *)command controllerValue];  
+  NSInteger controlChannel = [(MIKMIDIControlChangeCommand *)command controllerNumber];
+  MDDial *dial = [[MDSceneManager sharedManager] dialForMidiChannel:controlChannel];
+  
+  if (dial.isInternalCommand.boolValue &&
+      dial.internalCommandType.length) {
+    [dial updateDialValue:@(value)];
+    [self _handInternalCommandDial:dial];
     return;
   }
   
-  NSInteger controlChannel = [(MIKMIDIControlChangeCommand *)command controllerNumber];
-  MDDial *dial = [[MDSceneManager sharedManager] dialForMidiChannel:controlChannel];
   if (dial && dial.isButtonDial.integerValue == 1) {
     if (value == 127) {
       [dial updateDialValue:@(value)];
@@ -116,11 +117,26 @@ static MDMidiManager *sharedManager = nil;
   }
 }
 
-- (void)addSpecialCaseBlock:(void (^)(void))specialBlock forChannelNumber:(NSNumber *)channelNumber {
-  [self.specialCaseBlocks setObject:[specialBlock copy] forKey:channelNumber];
+- (void)_handInternalCommandDial:(MDDial *)commandDial {
+  MDDial *affectingDial = nil;
+  if (commandDial.affectedDialChannel) {
+    affectingDial = [[MDSceneManager sharedManager] dialForMidiChannel:commandDial.affectedDialChannel.integerValue];
+  }
+  
+  if ([commandDial.internalCommandType isEqualToString:@"muteCommand"]) {
+    affectingDial.stopClientUpdates = (commandDial.dialValue.integerValue > 0);
+  } else if ([commandDial.internalCommandType isEqualToString:@"fineTuneCommand"]) {
+    
+  } else if ([commandDial.internalCommandType isEqualToString:@"prevButton"] && commandDial.dialValue.integerValue == 0) {
+    
+  } else if ([commandDial.internalCommandType isEqualToString:@"nextButton"] && commandDial.dialValue.integerValue == 0) {
+    
+  } else if ([commandDial.internalCommandType isEqualToString:@"relativeCommand"] && commandDial.dialValue.integerValue == 0) {
+    affectingDial.isRelative = affectingDial.isRelative.boolValue ? @0 : @1;
+  }
+  
+  NSDictionary *userInfo = @{@"type" : commandDial.internalCommandType};
+  [[NSNotificationCenter defaultCenter] postNotificationName:kMidiManagerInternalCommandDidExecute object:NULL userInfo:userInfo];
 }
 
-- (void)removeAllSpecialCaseBlocks {
-  [self.specialCaseBlocks removeAllObjects];
-}
 @end

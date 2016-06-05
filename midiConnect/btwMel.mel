@@ -1,0 +1,380 @@
+global proc btwMel() {
+    print "BTW Mel Loaded\n";
+}
+
+global proc btwGUI () {
+    if (`window -exists bwWindow`) deleteUI bwWindow;
+     window -title "BTW Tools" bwWindow;
+          columnLayout -adjustableColumn true;
+                    text -label "\nFind and Randomize";
+                    rowLayout -numberOfColumns 2;
+                        string $t1 = `textField`;
+                        string $command = "findAndRandomize(`textField -query -value " +$t1 +"`)";
+                        button -label "Randomize" -command $command;
+                        
+                    setParent ..; 
+
+                        
+                    text -label "\nCreate Locators for selected";
+                    button -label "Center Locator" -command "createLocatorForObjects()";
+
+
+                    text -label "\nCopy Attributes";
+                    button -label "Attribute Copy" -command "attrCopySelection()";
+ 
+
+                    text -label "\nGroup and Connect Attributes";
+                    
+                    rowLayout -numberOfColumns 3;
+                        string $c1 = `checkBox -label "Allow Dupes"`;
+                        string $c2 = `checkBox -label "Recursive"`;
+                        string $c3 = `checkBox -label "Use 1st Node"`;
+                    setParent ..;
+                    string $command = "groupUserAttr(`checkBox -query -value " + $c1 + "`, `checkBox -query -value " + $c2 + "`, `checkBox -query -value " + $c3 + "`)";
+                    button -label "Group Attributes" -command $command;
+
+
+                    text -label "\nBake Reference Geo";
+                    button -label "Bake Reference" -command "bakeSelectedReference()";
+
+
+                    text -label "\nDuplicate Reference";
+                    rowLayout -numberOfColumns 2;
+                        string $c4 = `checkBox -label "Recursive"`;
+                        string $command = "dupReference(`checkBox -query -value " + $c4 + "`)";
+                        button -label "Dupe Reference" -command $command;
+                    setParent ..;
+
+
+          setParent ..;  
+     showWindow bwWindow;
+};
+
+global proc btwHelp () {
+    print "\n";
+    print "createLocatorForObjects () - creates a locator and centers it on each selected object\n";
+    print "attrCopy (string fromNode, string toNode) - copies all channel box attributes from the first node to the second \n";
+    print "attrCopySelection () - copies channel box attributes from first selected object to the rest\n";
+    print "findAndRandomize (string searchString) - finds all objects that match the search string, and randomizes user created channel box attributes.\n";
+    print "groupUserAttr(int allowDuplicates, int recursive, int useFirstNode)  -  based on selection, copies all cb attributes to a new object and connects them\n";
+    print "dupReference (int allObjects) - duplicates the selected reference, and possible all of its children \n";
+    print "nodeIsVisible( string node ) - determines if the node is visible\n";
+    print "instancedTopParents(string node) determines if the node is an instance, and returns all top level transform nodes\n";
+    print "bakeReference (string ref) - bakes all geometry in the specified reference file \n";
+    print "bakeSelectedReference () - bakes all select refernce files\n";
+}
+
+
+global proc createLocatorForObjects () {
+    string $selected[] = `ls -os`;
+    for ($node in $selected) {
+        string $locator[] = `spaceLocator -p 0 0 0 -n ($node + "LocParent")`;
+        string $deleteMe[] = `pointConstraint -offset 0 0 0 -weight 1 $node $locator[0]`;
+        delete $deleteMe[0];
+    }
+}
+
+global proc attrCopy (string $fNode, string $tNode) {
+    string $mAttr[] = `listAttr -k -v -u -s $fNode`;
+        for ($attr in $mAttr) {
+            string $buff[];
+            int $t = `tokenize $attr "." $buff`;
+            if ($t > 1) {
+                continue;
+            }
+            if (`getAttr -se ($tNode + "." + $attr)`) {
+                setAttr ($tNode + "." + $attr) (`getAttr ($fNode + "." + $attr)`);
+            }
+        }
+}
+
+global proc attrCopySelection () {
+    string $selection[] = `ls -os`;
+    string $master = $selection[0];
+    for ($node in $selection) {
+        if ($node != $master) {
+            attrCopy($master, $node);
+        }
+    }
+}
+
+global proc findAndRandomize ( string $sq ) {
+    print ("Randomizing " + $sq);
+	string $windowNodes[] = `ls -r 1 $sq`;
+	int $size1 = size($windowNodes);
+
+	for ($i = 0; $i < $size1; ++$i) {
+	    string $node = $windowNodes[$i];
+	    string $userAttr[] = `listAttr -ud -s -c -u -se $node`;
+	    int $size2 = size($userAttr);
+	    for ($b = 0; $b < $size2; ++$b) {
+	        string $attr = $userAttr[$b];
+	        string $type = `getAttr -type ($node + "." + $attr)`;
+
+	        if ($type == "double" || $type == "long") {
+	            float $min = 0.0;
+	            float $max = 1.0;
+	            if (`attributeQuery -node $node -mne $attr`) {
+	                float $mins[] = `attributeQuery -node $node -min $attr`;
+	                $min = $mins[0];
+	            }
+
+	            if (`attributeQuery -node $node -mxe $attr`) {
+	                float $maxs[] = `attributeQuery -node $node -max $attr`;
+	                $max = $maxs[0];
+	            }
+	            
+	            float $rand = rand($min, $max);
+	            if ($type == "long") {
+	                $rand = floor ( $rand + 0.5 );
+	            }    
+	            setAttr ($node + "." + $attr) $rand;
+	        } else if ($type == "bool") {
+                float $rand = floor(rand(0.5,1.5));
+                setAttr ($node + "." + $attr) $rand;                
+            }
+	    }
+	}
+}
+
+global proc groupUserAttr(int $allowDuplicates, int $recursive, int $useFirstNode) {
+    string $sl[] = `ls -os`;
+    string $aNode;
+    if ($useFirstNode) {
+    	$aNode = $sl[0];
+    } else {
+        $aNode = `group -em -n "groupAttributes"`;
+    }
+
+    for ($pNode in $sl) {
+    	string $selected[];
+    	if ($recursive) {
+    		$selected = `listRelatives -ad -typ "transform" $pNode `;
+    		$selected[size($selected)] = $pNode;
+    	} else {
+    		$selected[0] = $pNode;
+    	}
+
+        for ($node in $selected) {
+            if ($node == $aNode) {
+                continue;
+            }
+            // get user defined attributes
+            string $userAttr[] = `listAttr -ud -s -c -u -se $node`;
+            
+            for ($attr in $userAttr) {
+                // check to see if it exists on group node
+                string $c[] = `listConnections -d off -s on ($node + "." + $attr)`;
+                if (size($c) > 0) {
+                    continue;
+                }
+                
+                string $newAttr = $attr;
+                if ($allowDuplicates) {
+                    string $tokens[];
+                    int $numTokens = `tokenize $node ":" $tokens`;
+                    $newAttr = $tokens[0] + "_" + $attr;
+                    int $counter = 0;
+                    while (`attributeQuery -node $aNode -ex $newAttr`) {
+                        $counter ++;
+                        $newAttr = $tokens[0] + "_" + $attr + $counter;
+                    }
+                }
+                
+                if (`attributeQuery -node $aNode -ex $newAttr` == 0) {
+                    // doesnt exist, create'
+                    if (`attributeQuery -node $node -mne $attr` && `attributeQuery -node $node -mxe $attr`) {
+        	                float $mins[] = `attributeQuery -node $node -min $attr`;
+        	                float $maxs[] = `attributeQuery -node $node -max $attr`;
+        	                addAttr -ln $newAttr -h 0 -k 1 -at (`attributeQuery -node $node -attributeType $attr`) -minValue $mins[0] -maxValue $maxs[0] $aNode; 
+        	        } else {
+        	            addAttr -ln $newAttr -h 0 -k 1 -at (`attributeQuery -node $node -attributeType $attr`) $aNode;
+        	        }          
+                }
+                // set master attribute
+                setAttr ($aNode + "." + $newAttr) `getAttr ($node + "." + $attr)`;
+                // connect 
+                connectAttr -f ($aNode + "." + $newAttr) ($node + "." + $attr);
+            }
+        }
+    }
+}
+
+global proc dupReference (int $allObjects) {
+    string $selected[] = `ls -sl`;
+    string $newNodes[];
+
+    for ($oNode in $selected) {
+        // Get Base Name
+        string $baseName = `referenceQuery -ns -shn $oNode`;
+        
+        // Get Reference FilePath
+        string $filePath = `referenceQuery -f -wcn $oNode`;
+        
+        //create a new reference object
+        string $newReference = `file -r -type "mayaAscii" -gl -loadReferenceDepth "all" -mergeNamespacesOnClash false -namespace ($baseName + "_copy") -options "v=0;" $filePath`;
+        
+        // get new base name
+        string $copyBase = `referenceQuery -ns -shn $newReference`;
+        
+        //get Name of new node
+        string $cNode = substituteAllString($oNode, $baseName, $copyBase);
+        
+        // get a list of all descendants of the original node
+        string $oDesc[];
+        if ($allObjects) {
+            namespace -relativeNames true;
+            namespace -set $baseName;
+            $oDesc = `ls -an -tr -r 1 "*"`;
+            namespace -relativeNames false;
+            namespace -set ":";
+        } else {
+            $oDesc = `listRelatives -ad -typ "transform" $oNode`;
+        }
+        // copy attributes from original node to new node
+        attrCopy($oNode, $cNode);
+        for ($child in $oDesc) {
+            print $child;
+            print "\n";
+            string $cChild = substituteAllString($child, $baseName, $copyBase);
+            attrCopy($child, $cChild);
+        }
+        $newNodes[size($newNodes)] = $cNode;
+        
+    }
+
+    select -cl;
+    select $newNodes;
+}
+
+global proc int nodeIsVisible( string $node ) {
+  // If user is asking about a bogus node, return FALSE.
+  if ( !`objExists $node` ) return false;
+
+  // Object must be a DAG node, or it's not visible.
+  // There's no MEL query to identify a DAG node, but the kDagNode class adds
+  // the '.visibility' attribute, so we'll use its existence as a cue.
+  if ( !`attributeQuery -node $node -exists "visibility"` ) return false;
+
+  // The obvious: Start with the '.visibility' attribute on the node.
+  int $visible = `getAttr ( $node + ".visibility" )`;
+
+  // If this is an intermediate mesh, it's not visible.
+  if ( `attributeQuery -node $node -exists "intermediateObject"` )
+  {
+    $visible = $visible && !`getAttr ( $node + ".intermediateObject" )`;
+  }
+
+  // If the object is in a displayLayer, and the displayLayer is hidden,
+  // then the object is hidden.
+  if ( `attributeQuery -node $node -exists "overrideEnabled"` &&
+       `getAttr ( $node + ".overrideEnabled" )` )
+  {
+    $visible = $visible && `getAttr ( $node + ".overrideVisibility" )`;
+  }
+
+  // Ascend the hierarchy and check all of the parent nodes.
+  if ( $visible )
+  {
+    string $parents[] = `listRelatives -parent $node`;
+    if ( `size $parents` > 0 )
+    {
+      $visible = $visible && nodeIsVisible( $parents[0] );
+    }
+  }
+
+  return $visible;
+}
+
+global proc string[] instancedTopParents(string $node) {
+    string $parents[] = `listRelatives -allParents -f $node`;
+    if (size($parents) > 1) {
+        string $grandParents[] = `listRelatives -allParents -f $parents[0]`;
+        if (size($grandParents) > 1) {
+            return instancedTopParents($parents[0]);
+        } 
+        return $parents;
+    }
+    string $return[];
+    $return[0] = $node;
+    return $return;
+}
+
+global proc bakeReference (string $ref) {
+    string $sl[];
+    $sl[0] = $ref;
+    
+    namespace -set ":";
+
+    for ($slo in $sl) {
+        // Get Reference Basename Info
+        string $baseName = `referenceQuery -ns $slo`;
+        string $superBase = `referenceQuery -ns -shn $slo`;
+         
+        // Create a new namespace for duplicate objects
+        string $newBaseName = $superBase;
+        int $baseModifier = 0;
+        while (`namespace -ex $newBaseName`) {
+            $baseModifier ++;
+            $newBaseName = ($superBase + $baseModifier);
+        }
+        namespace -add $newBaseName;
+        
+        // Find all visible geo in reference
+        namespace -relativeNames true;
+        namespace -set $baseName;
+        
+        int $c = 0;
+        
+        string $transforms[] = `ls -v -an -ni -r 1 -typ "mesh" "*"`;
+        namespace -relativeNames false;
+        namespace -set ":";
+        
+        string $geometry[] =  `filterExpand -sm 12 $transforms`;
+        string $geo[] = stringArrayRemoveDuplicates($geometry);
+        //print $geo;
+        string $visibleGeo[];
+        
+        for ($node in $geo) {
+          string $instancedParents[] = `instancedTopParents($node)`;
+
+          if (size ($instancedParents) > 1) {
+            //is an instanced object, loop through parent nodes
+
+            for ($iNode in $instancedParents) {
+              if (nodeIsVisible($iNode)) {
+                $visibleGeo[$c] = $iNode;
+                $c++;
+                // Print to show progress.
+                print ($iNode + "\n");
+              }
+            }
+          } else {
+            if (nodeIsVisible($node)) {
+              $visibleGeo[$c] = $node;
+              $c++;
+              // Print to show progress.
+              print ($node + "\n");
+            }
+          }
+        }
+        
+        namespace -set ":";
+        namespace -relativeNames false;
+        namespace -set $newBaseName;
+        
+        // Duplicate
+        string $nGeo[] = `duplicate -rc $visibleGeo`;
+        string $newGroup = `group -n $newBaseName $nGeo`;
+        
+        print ("RESULT: " + $newGroup + "\n");
+        namespace -set ":";
+    }
+}
+
+global proc bakeSelectedReference () {
+    string $selected[] = `ls -sl`;
+    for ($node in $selected) {
+        bakeReference($node);
+    }
+}

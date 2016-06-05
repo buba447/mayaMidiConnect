@@ -15,9 +15,7 @@
   return @{@"sceneName" : @"name",
            @"controlGroups" : @"groups",
            @"sceneID" : @"sceneID",
-           @"midiDeviceName" : @"midiDeviceName",
-           @"nextButton" : @"nextButton",
-           @"previousButton" : @"previousButton"};
+           @"midiDeviceName" : @"midiDeviceName"};
 }
 
 + (NSValueTransformer *)controlGroupsJSONTransformer {

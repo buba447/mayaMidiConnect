@@ -32,7 +32,7 @@
   [dictionary setObject:outputValue forKey:inputValue];
   
   NSMutableArray *inputRange = [NSMutableArray arrayWithArray:dictionary.allKeys];
-  [inputRange sortedArrayUsingSelector:@selector(compare:)];
+  [inputRange sortUsingSelector:@selector(compare:)];
   
   NSMutableArray *outputRange = [NSMutableArray new];
   for (NSNumber *number in inputRange) {

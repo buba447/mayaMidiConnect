@@ -13,8 +13,6 @@
 @property (nonatomic, copy) NSString *sceneID;
 @property (nonatomic, copy) NSString *sceneName;
 @property (nonatomic, copy) NSString *midiDeviceName;
-@property (nonatomic, copy) NSNumber *nextButton;
-@property (nonatomic, copy) NSNumber *previousButton;
 @property (nonatomic, copy) NSArray<MDControlGroup *> *controlGroups;
 
 + (NSArray *)loadAllScenesFromDisk;

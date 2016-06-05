@@ -34,19 +34,15 @@
                           "attributes": [
                                          {
                                          "attributeID": "0",
-                                         "outMinValue": -90,
-                                         "outMaxValue": 90,
-                                         "inMinValue": 0,
-                                         "inMaxValue": 127,
+                                         "inRange": [0, 127],
+                                         "outRange": [-90, 90],
                                          "mayaNode": "joint1",
                                          "mayaAttribute": "rotateY"
                                          },
                                          {
                                          "attributeID": "1",
-                                         "outMinValue": -90,
-                                         "outMaxValue": 90,
-                                         "inMinValue": 0,
-                                         "inMaxValue": 127,
+                                         "inRange": [0, 127],
+                                         "outRange": [-90, 90],
                                          "mayaNode": "joint2",
                                          "mayaAttribute": "rotateY"
                                          }
@@ -63,10 +59,8 @@
                           "attributes": [
                                          {
                                          "attributeID": "0",
-                                         "outMinValue": 0,
-                                         "outMaxValue": 45,
-                                         "inMinValue": 0,
-                                         "inMaxValue": 127,
+                                         "inRange": [0, 127],
+                                         "outRange": [-45, 45],
                                          "mayaNode": "joint2",
                                          "mayaAttribute": "rotateY"
                                          }
@@ -80,10 +74,8 @@
                           "attributes": [
                                          {
                                          "attributeID": "0",
-                                         "outMinValue": 0,
-                                         "outMaxValue": 1,
-                                         "inMinValue": 126,
-                                         "inMaxValue": 127,
+                                         "inRange": [0, 127],
+                                         "outRange": [-45, 45],
                                          "mayaNode": "joint2",
                                          "mayaAttribute": "rotateY",
                                          "mayaCommand": "ls -sl"

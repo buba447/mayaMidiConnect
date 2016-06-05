@@ -27,9 +27,9 @@
 @property (weak) IBOutlet NSButton *addNewControlButton;
 @property (weak) IBOutlet NSButton *deleteControlButton;
 @property (weak) IBOutlet NSButton *pushButtonToggle;
-@property (weak) IBOutlet NSTextField *prevButtonField;
-@property (weak) IBOutlet NSTextField *nextButtonField;
 @property (strong) IBOutlet NSMenu *controlMenu;
+@property (weak) IBOutlet NSButton *relativeButtonToggle;
+@property (weak) IBOutlet NSButton *autoCatchButtonToggle;
 
 // Control UI
 
@@ -37,10 +37,13 @@
 @property (weak) IBOutlet NSTextField *controlChannelTextFiel;
 @property (weak) IBOutlet NSButton *controlListenButton;
 @property (weak) IBOutlet NSButton *isAlwaysActiveGroup;
-
+@property (weak) IBOutlet NSPopUpButton *internalCommandSelector;
+@property (weak) IBOutlet NSSegmentedControl *controlCommandTypeSelector;
+@property (weak) IBOutlet NSButton *internalControlRefreshButton;
+@property (weak) IBOutlet NSTextField *internalControlTargetTextField;
 
 // Attribute UI
-
+@property (weak) IBOutlet NSScrollView *attributesScrollView;
 @property (weak) IBOutlet NSTableView *attributesTableView;
 @property (weak) IBOutlet NSButton *addNewAttributeButton;
 @property (weak) IBOutlet NSButton *removeAttributeButton;
@@ -49,6 +52,7 @@
 @property (weak) IBOutlet NSTextField *attributeNodeTextField;
 @property (weak) IBOutlet NSTextField *attributeTextField;
 @property (weak) IBOutlet NSTextField *melCommandTextField;
+@property (weak) IBOutlet NSScrollView *attributeRangeScrollView;
 @property (weak) IBOutlet NSTableView *attributeRangeTableView;
 @property (weak) IBOutlet NSButton *attributeAddRangeValueButton;
 @property (weak) IBOutlet NSButton *attributeRemoveRangeValueButton;

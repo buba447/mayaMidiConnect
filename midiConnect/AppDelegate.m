@@ -33,16 +33,6 @@
   self.masterViewController = [[MDMainViewController alloc] initWithNibName:@"MDMainViewController" bundle:nil];
   [self.window.contentView addSubview:self.masterViewController.view];
   self.masterViewController.view.frame = ((NSView*)self.window.contentView).bounds;
-  
-
-//  if (appInfos.count > 0) {
-//    MDControlScene *scene = appInfos.firstObject;
-//    [[MDSceneManager sharedManager] setCurrentScene:scene];
-//    [[MDSceneManager sharedManager] setCurrentControlGroup:scene.controlGroups.firstObject];
-//  }
-  
-  
-  
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

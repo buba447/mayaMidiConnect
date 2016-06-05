@@ -8,7 +8,7 @@ md_controlMap = {}
 returnLogs = True
 
 def md_start():
-	print("MD Scripts Started")
+	print("Midi Scripts Started")
 
 def updateControlGroup(groupJSON):
 	global md_controlGroup
@@ -27,17 +27,23 @@ def md_update(channel, value):
 		if returnLogs:
 			return "No dial found"
 		return
-	dial['value'] = value
-	if dialForChannel(dial['parentChannel']) != None:
-		dial = dialForChannel(dial['parentChannel'])
-	if dial['childChannel'] != None:
-		if returnLogs:
-			return md_updateLogDial(dial)
-		md_updateLogDial(dial)
+	if dial['value'] == None:
+		# this should only happen the first time the dial is moved in a session
+		dial['previousValue'] = value
 	else:
-		if returnLogs:
-			return md_updateDefaultDial(dial)
-		md_updateDefaultDial(dial)
+		dial['previousValue'] = dial['value']
+
+	# previousValue = dial['previousValue']
+	# if dial['isAutoCatch'] == 1 and abs(previousValue - value) > 5:
+	# 	if returnLogs:
+	# 		return "Auto catch dial not updated"
+	# 	return
+
+	dial['value'] = value
+
+	if returnLogs:
+		return md_updateDefaultDial(dial)
+	md_updateDefaultDial(dial)
 
 def dialForChannel(channel):
 	global md_controlMap
@@ -46,60 +52,13 @@ def dialForChannel(channel):
 	else:
 		return None
 
-def md_updateLogDial(dial):
-	childDial = dialForChannel(dial['childChannel'])
-	if childDial == None:
-		return "No Child Dial Found"
-	childValue = childDial['value'] 
-	parentValue = dial['value']
-	attributes = childDial['attributes']
-	lowerBounds = remap(parentValue, 0, 127, 0, 1)
-
-	#upper bounds is always 1
-	# m = (lowerBounds - upperBounds) / len
-	# b = upperBounds (1)
-	# linear interpolation
-	
-	# m = (lowerBounds - 1) / len(attributes)
-	# x = 0
-
-	#quadratic.
-
-	xSpread = len(attributes) - 1
-
-	pointsX = [float(-xSpread),0.0,float(xSpread)]
-	pointsY = [float(lowerBounds),1.0,float(lowerBounds)]
-	a,b,c = coefficent(pointsX, pointsY)
-	# print(str(a) + "*x^2+" + str(b) + "*x+" + str(c))
-	x = 0.0
-	for attribute in attributes:
-		oMin = attribute['outMinValue']
-		oMax = attribute['outMaxValue']
-		iMin = attribute['inMinValue']
-		iMax = attribute['inMaxValue']
-		outSpread = (oMax - oMin) * 0.5
-		# modifier = m * x + 1
-		modifier = (a * math.pow(x, 2)) + (b * x) + 1
-		x = x + 1.0
-		modifiedSpread = outSpread * modifier
-		midPoint = oMin + outSpread
-		oMin = midPoint - modifiedSpread
-		oMax = midPoint + modifiedSpread
-		newValue = remap(childValue, iMin, iMax, oMin, oMax)
-		if attribute['mayaCommand'] != None:
-			md_evalDialButtonAttribute(attribute, newValue)
-			continue
-		mayaNode = attribute['mayaNode']
-		mayaAttr = attribute['mayaAttribute']
-		cmds.setAttr((mayaNode + "." + mayaAttr), newValue )
-	return ("Updated child dial " + str(dial['childChannel']))
-
-
 def md_updateDefaultDial(dial):
 	if dial == None:
 		return "No Dial Found"
 	value = dial['value']
 	attributes = dial['attributes']
+	isRealtive = dial['isRelative']
+	isAutoCatch = dial['isAutoCatch']
 	for attribute in attributes:
 		newValue = newValueFromAttribute(attribute, value)
 		if attribute['mayaCommand'] != None:
@@ -107,30 +66,55 @@ def md_updateDefaultDial(dial):
 			continue
 		mayaNode = attribute['mayaNode']
 		mayaAttr = attribute['mayaAttribute']
-		cmds.setAttr((mayaNode + "." + mayaAttr), newValue )
+		attrString = (mayaNode + "." + mayaAttr)
+		if isRealtive == 1:
+			prevDialValue = dial['previousValue']
+			previousValue = newValueFromAttribute(attribute, prevDialValue)
+			diff = newValue - previousValue
+			prevAttrValue = cmds.getAttr(attrString)
+			newValue = prevAttrValue + diff
+		if isAutoCatch == 1:
+			prevAttrValue = cmds.getAttr(attrString)
+			inRange = attribute['inRange']
+			outRange = attribute['outRange']
+			prevInputValue = remapRange(prevAttrValue, outRange, inRange)
+			if abs(value - prevInputValue) > 20:
+				continue
+		cmds.setAttr(attrString, newValue )
 	return ("Updated " + str(len(attributes)) + " attributes")
 
 def md_evalDialButtonAttribute(attribute, value):
-	fromValue = attribute['outMinValue']
-	toValue = attribute['outMaxValue']
 	mCommand = attribute['mayaCommand']
-	if fromValue == None or toValue == None:
-		maya.mel.eval(mCommand)
-		return ("Executed:" + mCommand)
-	if value >= fromValue and value <= toValue:
-		#execute button command while in range
-		mCommand = attribute['mayaCommand']
-		valuedCommand = mCommand.replace("$v", value)
-		maya.mel.eval(valuedCommand)
-		return ("Executed:" + valuedCommand)
-	return ("Failed Executing" + mCommand)
+	valuedCommand = mCommand.replace("$v", str(value))
+	maya.mel.eval(valuedCommand)
+	return ("Executed:" + valuedCommand)
 
 def newValueFromAttribute(attribute, value):
-	oMin = attribute['outMinValue']
-	oMax = attribute['outMaxValue']
-	iMin = attribute['inMinValue']
-	iMax = attribute['inMaxValue']
-	return remap(value, iMin, iMax, oMin, oMax)
+	inRange = attribute['inRange']
+	outRange = attribute['outRange']
+	if inRange == None or outRange == None:
+		return value
+	return remapRange(value, inRange, outRange)
+
+def remapRange(x, inRange, outRange):
+	rangeLen = len(inRange)
+	if rangeLen < 2:
+		return x
+
+	idx = 0
+	for i in xrange(0,rangeLen):
+		iValue = inRange[i]
+		if x <= iValue:
+			idx = i - 1
+			break
+	if idx == (rangeLen - 1):
+		idx = idx - 1
+
+	inMin = inRange[idx]
+	inMax = inRange[idx + 1]
+	outMin = outRange[idx]
+	outMax = outRange[idx + 1]
+	return remap(x, inMin, inMax, outMin, outMax)
 
 def remap( x, oMin, oMax, nMin, nMax ):
     #range check
@@ -165,29 +149,3 @@ def remap( x, oMin, oMax, nMin, nMax ):
         result = newMax - portion
 
     return result
-
-def coefficent(x,y):
-    x_1 = x[0]
-    x_2 = x[1]
-    x_3 = x[2]
-    y_1 = y[0]
-    y_2 = y[1]
-    y_3 = y[2]
-
-    a = y_1/((x_1-x_2)*(x_1-x_3)) + y_2/((x_2-x_1)*(x_2-x_3)) + y_3/((x_3-x_1)*(x_3-x_2))
-
-    b = -y_1*(x_2+x_3)/((x_1-x_2)*(x_1-x_3))
-    -y_2*(x_1+x_3)/((x_2-x_1)*(x_2-x_3))
-    -y_3*(x_1+x_2)/((x_3-x_1)*(x_3-x_2))
-
-    c = y_1*x_2*x_3/((x_1-x_2)*(x_1-x_3))
-    + y_2*x_1*x_3/((x_2-x_1)*(x_2-x_3))
-    + y_3*x_1*x_2/((x_3-x_1)*(x_3-x_2))
-
-    return a,b,c
-
-# x = [1,2,3]
-# y = [4,7,12]
-# y = ax^2 + bx + c
-# a,b,c = coefficent(x, y)
-
