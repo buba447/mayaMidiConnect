@@ -32,7 +32,7 @@
   
   self.masterViewController = [[MDMainViewController alloc] initWithNibName:@"MDMainViewController" bundle:nil];
   [self.window.contentView addSubview:self.masterViewController.view];
-  self.masterViewController.view.frame = ((NSView*)self.window.contentView).bounds;
+  ((NSView*)self.window.contentView).bounds = self.masterViewController.view.bounds;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

@@ -8,6 +8,8 @@
 
 #import "MDMainViewController.h"
 #import "MDMirrorSheet.h"
+#import "MDLogManager.h"
+
 @interface MDMainViewController ()
 @property (nonatomic, readonly) MDSceneManager *sceneManager;
 @property (nonatomic, strong) MDMirrorSheet *mirrorSheet;
@@ -33,13 +35,16 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.logTextView.textColor = [NSColor whiteColor];
   self.controlsTableView.dataSource = self;
   self.controlsTableView.delegate = self;
   self.attributesTableView.dataSource = self;
   self.attributesTableView.delegate = self;
   self.attributeRangeTableView.dataSource = self;
   self.attributeRangeTableView.delegate = self;
+  self.logTextView.string = [[MDLogManager sharedManager] log];
   [self _updateUI];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logManagerUpdated:) name:kMDLogDidUpdate object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editingDidEndForTableCell:) name:NSControlTextDidEndEditingNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(internalCommandExecuted:) name:kMidiManagerInternalCommandDidExecute object:nil];
 }
@@ -561,7 +566,7 @@
   
   if (tableView == self.controlsTableView) {
     MDDial *control = [self.sceneManager.currentControlGroup.controls objectAtIndex:row];
-    if (control.stopClientUpdates) {
+    if (control.muteDial) {
       cellView.textField.textColor = [NSColor redColor];
     } else {
       cellView.textField.textColor = nil;
@@ -702,6 +707,12 @@
   } else if ([commandType isEqualToString:@"relativeCommand"]) {
     [self _updateControlSection];
   }
+}
+
+- (void)logManagerUpdated:(NSNotification *)notif {
+  
+  self.logTextView.string = [[MDLogManager sharedManager] log];
+  [self.logTextView scrollToEndOfDocument:nil];
 }
 
 @end

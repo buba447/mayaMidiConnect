@@ -13,10 +13,12 @@ def md_start():
 def updateControlGroup(groupJSON):
 	global md_controlGroup
 	global md_controlMap
+	md_controlMap.clear()
 	md_controlGroup = json.loads(groupJSON)
 	newArray = md_controlGroup['controls']
 
 	for control in newArray:
+		control['value'] = None
 		channel = control['channel']
 		md_controlMap[channel] = control
 	return ("Updated map for" + md_controlGroup['name'])
@@ -33,12 +35,6 @@ def md_update(channel, value):
 	else:
 		dial['previousValue'] = dial['value']
 
-	# previousValue = dial['previousValue']
-	# if dial['isAutoCatch'] == 1 and abs(previousValue - value) > 5:
-	# 	if returnLogs:
-	# 		return "Auto catch dial not updated"
-	# 	return
-
 	dial['value'] = value
 
 	if returnLogs:
@@ -52,10 +48,15 @@ def dialForChannel(channel):
 	else:
 		return None
 
+def md_unMuteDial(channel):
+	dial = dialForChannel(channel)
+	dial['value'] = None
+
 def md_updateDefaultDial(dial):
 	if dial == None:
 		return "No Dial Found"
 	value = dial['value']
+	previousValue = dial['previousValue']
 	attributes = dial['attributes']
 	isRealtive = dial['isRelative']
 	isAutoCatch = dial['isAutoCatch']
@@ -74,11 +75,15 @@ def md_updateDefaultDial(dial):
 			prevAttrValue = cmds.getAttr(attrString)
 			newValue = prevAttrValue + diff
 		if isAutoCatch == 1:
-			prevAttrValue = cmds.getAttr(attrString)
 			inRange = attribute['inRange']
 			outRange = attribute['outRange']
-			prevInputValue = remapRange(prevAttrValue, outRange, inRange)
-			if abs(value - prevInputValue) > 20:
+			# Get Current value of attribute to be set
+			currentAttrValue = cmds.getAttr(attrString)
+			# Get previous output value
+			prevOutputAttr = remapRange(previousValue, inRange, outRange)
+			# Convert current value into input value
+			currentInputValue = remapRange(currentAttrValue, outRange, inRange)
+			if abs(value - currentInputValue) > 20 and round(prevOutputAttr) != round(currentAttrValue):
 				continue
 		cmds.setAttr(attrString, newValue )
 	return ("Updated " + str(len(attributes)) + " attributes")
@@ -86,8 +91,7 @@ def md_updateDefaultDial(dial):
 def md_evalDialButtonAttribute(attribute, value):
 	mCommand = attribute['mayaCommand']
 	valuedCommand = mCommand.replace("$v", str(value))
-	maya.mel.eval(valuedCommand)
-	return ("Executed:" + valuedCommand)
+	return maya.mel.eval(valuedCommand)
 
 def newValueFromAttribute(attribute, value):
 	inRange = attribute['inRange']

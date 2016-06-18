@@ -58,6 +58,7 @@
 @property (weak) IBOutlet NSButton *attributeRemoveRangeValueButton;
 
 
+@property (unsafe_unretained) IBOutlet NSTextView *logTextView;
 
 // Connection UI
 @property (strong) IBOutlet NSPopUpButton *deviceSelectionBox;

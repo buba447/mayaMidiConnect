@@ -29,6 +29,8 @@
 // When the value is updated with the below method, it send a short command to maya
 // It also queues its updates smartly to reduce input lag.
 @property (nonatomic, assign) BOOL stopClientUpdates;
+@property (nonatomic, assign) BOOL muteDial;
+
 - (void)updateDialValue:(NSNumber *)value;
 
 @end

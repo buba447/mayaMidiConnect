@@ -8,6 +8,7 @@
 
 #import "MDDial.h"
 #import "MDAttribute.h"
+#import "MDLogManager.h"
 
 @implementation MDDial {
   MCStreamRequest *updateRequest_;
@@ -58,12 +59,28 @@
   [self _sendUpdateIfNecessary];
 }
 
+- (void)setMuteDial:(BOOL)muteDial {
+  if (muteDial != _muteDial && muteDial == NO) {
+    __weak typeof(self) weakSelf = self;
+    NSString *pyCommand = [NSString stringWithFormat:@"midiConnect.md_unMuteDial(%li)", (long)self.dialChannel.integerValue];
+    updateRequest_ = [[MCStreamClient sharedClient] sendPyCommand:pyCommand
+                                                   withCompletion:^(NSString *returnString) {
+                                                     __strong typeof(self) strongSelf = weakSelf;
+                                                     [strongSelf _requestFinished:returnString];
+                                                   } withFailure:^{
+                                                     
+                                                   }];
+  }
+  _muteDial = muteDial;
+}
+
 - (void)_sendUpdateIfNecessary {
-  if (![[MCStreamClient sharedClient] isConnected] || self.stopClientUpdates) {
+  if (![[MCStreamClient sharedClient] isConnected] || self.stopClientUpdates || self.muteDial) {
     return;
   }
   if (valueUpdated_ && updateRequest_ == nil) {
     valueUpdated_ = NO;
+    [[MDLogManager sharedManager] log:[NSString stringWithFormat:@"Updating dial %@ with value %@", self.dialName ?: self.dialChannel, self.dialValue]];
     NSString *pyCommand = [NSString stringWithFormat:@"midiConnect.md_update(%li, %li)", (long)self.dialChannel.integerValue, (long)self.dialValue.integerValue];
     
     __weak typeof(self) weakSelf = self;

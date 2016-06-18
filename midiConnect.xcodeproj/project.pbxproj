@@ -16,6 +16,7 @@
 		4834E8D81BED9C6600A65CD2 /* MDAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834E8D71BED9C6600A65CD2 /* MDAttribute.m */; };
 		4834E8DB1BED9C7D00A65CD2 /* MDControlScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834E8DA1BED9C7D00A65CD2 /* MDControlScene.m */; };
 		4834E8DE1BED9C8B00A65CD2 /* MDControlGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834E8DD1BED9C8B00A65CD2 /* MDControlGroup.m */; };
+		48574ABF1D06880A00D2F494 /* MDLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48574ABE1D06880A00D2F494 /* MDLogManager.m */; };
 		486EA8741BFA954F002E6B59 /* MDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 486EA8721BFA954F002E6B59 /* MDMainViewController.m */; };
 		486EA8751BFA954F002E6B59 /* MDMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486EA8731BFA954F002E6B59 /* MDMainViewController.xib */; };
 		488A76A01BF12FDC001E96A4 /* JSONExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 488A769F1BF12FDC001E96A4 /* JSONExample.json */; };
@@ -55,6 +56,8 @@
 		4834E8DC1BED9C8B00A65CD2 /* MDControlGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDControlGroup.h; sourceTree = "<group>"; };
 		4834E8DD1BED9C8B00A65CD2 /* MDControlGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDControlGroup.m; sourceTree = "<group>"; };
 		4834E8DF1BED9D9500A65CD2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		48574ABD1D06880A00D2F494 /* MDLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDLogManager.h; sourceTree = "<group>"; };
+		48574ABE1D06880A00D2F494 /* MDLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDLogManager.m; sourceTree = "<group>"; };
 		486EA8711BFA954F002E6B59 /* MDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMainViewController.h; sourceTree = "<group>"; };
 		486EA8721BFA954F002E6B59 /* MDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMainViewController.m; sourceTree = "<group>"; };
 		486EA8731BFA954F002E6B59 /* MDMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDMainViewController.xib; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				48DC29E61BF168B50048E0FE /* MDMidiManager.m */,
 				48DC29F51BF2B0290048E0FE /* MDSceneManager.h */,
 				48DC29F61BF2B0290048E0FE /* MDSceneManager.m */,
+				48574ABD1D06880A00D2F494 /* MDLogManager.h */,
+				48574ABE1D06880A00D2F494 /* MDLogManager.m */,
 				48342CE71BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.h */,
 				48342CE81BF6DDD50074A6E0 /* NSFileManager+DirectoryLocations.m */,
 				4894C6321C0677E400F0E662 /* MDMirrorSheet.h */,
@@ -323,6 +328,7 @@
 				4834E8DE1BED9C8B00A65CD2 /* MDControlGroup.m in Sources */,
 				4834E8DB1BED9C7D00A65CD2 /* MDControlScene.m in Sources */,
 				48DC29F71BF2B0290048E0FE /* MDSceneManager.m in Sources */,
+				48574ABF1D06880A00D2F494 /* MDLogManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "MCStreamClient.h"
 #import "MCStreamRequest.h"
 #import "GCDAsyncSocket.h"
+#import "MDLogManager.h"
 
 static const int BUFFER_SIZE = 4096;
 

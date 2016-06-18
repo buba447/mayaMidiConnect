@@ -8,6 +8,7 @@
 
 #import "MDMidiManager.h"
 #import "MDSceneManager.h"
+#import "MDLogManager.h"
 
 @interface MDMidiManager ()
 
@@ -59,7 +60,7 @@ static MDMidiManager *sharedManager = nil;
         for (MIKMIDIChannelVoiceCommand *command in commands) { [self _handleMIDICommand:command]; }
       }];
       if (!connectionToken) {
-        NSLog(@"Unable to connect to input: %@", error);
+        [[MDLogManager sharedManager] log:[NSString stringWithFormat:@"Unable to connect to input: %@", error]];
       } else {
         _isConnected = YES;
         [self.connectionTokensForSources setObject:connectionToken forKey:source];
@@ -114,28 +115,36 @@ static MDMidiManager *sharedManager = nil;
   
   if (dial) {
     [dial updateDialValue:@(value)];
+  } else {
+    [[MDLogManager sharedManager] log:[NSString stringWithFormat:@"Error: No attributes found for channel %li", (long)controlChannel]];
   }
 }
 
 - (void)_handInternalCommandDial:(MDDial *)commandDial {
   MDDial *affectingDial = nil;
+  NSDictionary *userInfo = @{@"type" : commandDial.internalCommandType};
+  
   if (commandDial.affectedDialChannel) {
     affectingDial = [[MDSceneManager sharedManager] dialForMidiChannel:commandDial.affectedDialChannel.integerValue];
   }
   
   if ([commandDial.internalCommandType isEqualToString:@"muteCommand"]) {
-    affectingDial.stopClientUpdates = (commandDial.dialValue.integerValue > 0);
+    affectingDial.muteDial = (commandDial.dialValue.integerValue > 0);
   } else if ([commandDial.internalCommandType isEqualToString:@"fineTuneCommand"]) {
     
-  } else if ([commandDial.internalCommandType isEqualToString:@"prevButton"] && commandDial.dialValue.integerValue == 0) {
-    
-  } else if ([commandDial.internalCommandType isEqualToString:@"nextButton"] && commandDial.dialValue.integerValue == 0) {
-    
+  } else if ([commandDial.internalCommandType isEqualToString:@"prevButton"]) {
+    if (commandDial.dialValue.integerValue > 0) {
+      userInfo = nil;
+    }
+  } else if ([commandDial.internalCommandType isEqualToString:@"nextButton"]) {
+    if (commandDial.dialValue.integerValue > 0) {
+      userInfo = nil;
+    }
   } else if ([commandDial.internalCommandType isEqualToString:@"relativeCommand"] && commandDial.dialValue.integerValue == 0) {
     affectingDial.isRelative = affectingDial.isRelative.boolValue ? @0 : @1;
   }
   
-  NSDictionary *userInfo = @{@"type" : commandDial.internalCommandType};
+  
   [[NSNotificationCenter defaultCenter] postNotificationName:kMidiManagerInternalCommandDidExecute object:NULL userInfo:userInfo];
 }
 

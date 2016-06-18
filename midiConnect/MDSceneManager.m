@@ -241,7 +241,7 @@ static MDSceneManager *sharedManager = nil;
 - (void)syncControlGroupWithMaya:(MDControlGroup *)controlGroup {
   // Convert Control Group to JSON string.
   if (![[MCStreamClient sharedClient] isConnected]) return;
-  
+
   NSError *error = nil;
   NSDictionary *jsonDictionary = [MTLJSONAdapter JSONDictionaryFromModel:controlGroup error:&error];
   if (error) {
