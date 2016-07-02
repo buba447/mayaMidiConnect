@@ -95,8 +95,27 @@ static MDMidiManager *sharedManager = nil;
     return;
   }
   
-  NSInteger value = [(MIKMIDIControlChangeCommand *)command controllerValue];  
-  NSInteger controlChannel = [(MIKMIDIControlChangeCommand *)command controllerNumber];
+  NSInteger value = NSNotFound;
+  NSInteger controlChannel = NSNotFound;
+  if ([command isKindOfClass:[MIKMIDIControlChangeCommand class]]) {
+    value = [(MIKMIDIControlChangeCommand *)command controllerValue];
+    controlChannel = [(MIKMIDIControlChangeCommand *)command controllerNumber];
+  }
+  
+  if ([command isKindOfClass:[MIKMIDINoteOnCommand class]]) {
+    value = [(MIKMIDINoteOnCommand *)command velocity];
+    controlChannel = [(MIKMIDINoteOnCommand *)command note];
+  }
+  
+  if ([command isKindOfClass:[MIKMIDINoteOffCommand class]]) {
+    value = 0;
+    controlChannel = [(MIKMIDINoteOffCommand *)command note];
+  }
+  
+  if (value == NSNotFound || controlChannel == NSNotFound) {
+    return;
+  }
+  
   MDDial *dial = [[MDSceneManager sharedManager] dialForMidiChannel:controlChannel];
   
   if (dial.isInternalCommand.boolValue &&

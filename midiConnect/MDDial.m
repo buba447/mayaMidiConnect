@@ -81,7 +81,7 @@
   if (valueUpdated_ && updateRequest_ == nil) {
     valueUpdated_ = NO;
     [[MDLogManager sharedManager] log:[NSString stringWithFormat:@"Updating dial %@ with value %@", self.dialName ?: self.dialChannel, self.dialValue]];
-    NSString *pyCommand = [NSString stringWithFormat:@"midiConnect.md_update(%li, %li)", (long)self.dialChannel.integerValue, (long)self.dialValue.integerValue];
+    NSString *pyCommand = [NSString stringWithFormat:@"midiConnect.md_update(0, %li, %li)", (long)self.dialChannel.integerValue, (long)self.dialValue.integerValue];
     
     __weak typeof(self) weakSelf = self;
     updateRequest_ = [[MCStreamClient sharedClient] sendPyCommand:pyCommand
@@ -96,7 +96,7 @@
 
 - (void)_requestFinished:(NSString *)returnString {
   updateRequest_ = nil;
-  [self _sendUpdateIfNecessary];
+//  [self _sendUpdateIfNecessary];
 }
 
 @end

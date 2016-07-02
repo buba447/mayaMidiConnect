@@ -10,7 +10,9 @@
 
 static MDSceneManager *sharedManager = nil;
 
-@implementation MDSceneManager
+@implementation MDSceneManager {
+  NSMutableArray *_cachedControls;
+}
 
 + (MDSceneManager *)sharedManager {
   if (!sharedManager) {
@@ -24,6 +26,7 @@ static MDSceneManager *sharedManager = nil;
   if (self) {
     [self _scenesDirectoryTouched];
     self.currentScene = self.allScenes.firstObject;
+    _cachedControls = [NSMutableArray array];
   }
   return self;
 }
@@ -216,24 +219,29 @@ static MDSceneManager *sharedManager = nil;
 #pragma mark - Midi Methods
 
 - (MDDial *)dialForMidiChannel:(NSInteger)channel {
-  for (MDDial *dial in self.currentControlGroup.controls) {
+  for (MDDial *dial in _cachedControls) {
     if (dial.dialChannel.integerValue == channel) {
       return dial;
       break;
     }
   }
-  for (MDControlGroup *group in self.currentScene.controlGroups) {
-    if (group != self.currentControlGroup &&
-        group.isAlwaysActive.integerValue == 1) {
-      for (MDDial *dial in group.controls) {
-        if (dial.dialChannel.integerValue == channel) {
-          return dial;
-          break;
-        }
-      }
-    }
-  }
-  return nil;
+  MDDial *newDial = [[MDDial alloc] init];
+  newDial.dialChannel = @(channel);
+  [_cachedControls addObject:newDial];
+  return newDial;
+  
+//  for (MDControlGroup *group in self.currentScene.controlGroups) {
+//    if (group != self.currentControlGroup &&
+//        group.isAlwaysActive.integerValue == 1) {
+//      for (MDDial *dial in group.controls) {
+//        if (dial.dialChannel.integerValue == channel) {
+//          return dial;
+//          break;
+//        }
+//      }
+//    }
+//  }
+//  return nil;
 }
 
 #pragma mark - Maya Communication

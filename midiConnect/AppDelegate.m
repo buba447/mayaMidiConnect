@@ -27,7 +27,7 @@
                                                         options:0 error:NULL];
   [NSFileManager saveJSONToApplicationSupportDirectory:JSONObject forFileName:@"JSONExample"];
   
-  [[MCStreamClient sharedClient] startConnectionWithHost:@"127.0.0.1" andPort:4477];
+  [[MCStreamClient sharedClient] startConnectionWithHost:@"127.0.0.1" andPort:4478];
   [[MDMidiManager sharedManager] connectToDevice:kDeviceName];
   
   self.masterViewController = [[MDMainViewController alloc] initWithNibName:@"MDMainViewController" bundle:nil];

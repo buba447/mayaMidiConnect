@@ -53,7 +53,9 @@ static MCStreamClient *sharedClient = nil;
 - (void)disconnectFromHost {
   [socket_ disconnect];
   for (MCStreamRequest *request in requests_) {
-    request.failBlock(request);
+    if (request.failBlock) {
+      request.failBlock(request);
+    }
   }
   [requests_ removeAllObjects];
   socket_ = nil;
